@@ -6,26 +6,24 @@
     
 
     
-    <title>[VCS] Github에서 실수로 Push한 Commit 삭제하기 | Taeyeon</title>
+    <title>[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수 | Taeyeon</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="DOCUMENT,GIT,GITHUB,HEXO,RESET,VCS">
+        <meta name="keywords" content="HASH,HASH TABLE,ALGORITHM,CODING TEST,PYTHON">
     
-    <meta name="description" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로">
-<meta name="keywords" content="DOCUMENT,GIT,GITHUB,HEXO,RESET,VCS">
+    <meta name="description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
+<meta name="keywords" content="HASH,HASH TABLE,ALGORITHM,CODING TEST,PYTHON">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기">
-<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/github-commit-remove/index.html">
+<meta property="og:title" content="[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/index.html">
 <meta property="og:site_name" content="Taeyeon">
-<meta property="og:description" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로">
+<meta property="og:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-1.png">
-<meta property="og:updated_time" content="2019-09-17T06:24:46.033Z">
+<meta property="og:updated_time" content="2019-09-17T13:30:01.111Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기">
-<meta name="twitter:description" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로">
-<meta name="twitter:image" content="https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-1.png">
+<meta name="twitter:title" content="[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수">
+<meta name="twitter:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
     
 
     
@@ -138,19 +136,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/etc/">etc</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/etc/VCS/">VCS</a>
+    <a class="page-title-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-github-commit-remove" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-programmers-coding-test-2" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [VCS] Github에서 실수로 Push한 Commit 삭제하기
+        [프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수
         </h1>
     
 
@@ -160,8 +158,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/09/17/github-commit-remove/" class="article-date">
-            <time datetime="2019-09-17T06:18:50.000Z" itemprop="datePublished">2019-09-17</time>
+        <a href="/2019/09/17/programmers-coding-test-2/" class="article-date">
+            <time datetime="2019-09-17T12:07:30.000Z" itemprop="datePublished">2019-09-17</time>
         </a>
     </div>
 
@@ -170,41 +168,86 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/DOCUMENT/">DOCUMENT</a>, <a class="tag-link" href="/tags/GIT/">GIT</a>, <a class="tag-link" href="/tags/GITHUB/">GITHUB</a>, <a class="tag-link" href="/tags/HEXO/">HEXO</a>, <a class="tag-link" href="/tags/RESET/">RESET</a>, <a class="tag-link" href="/tags/VCS/">VCS</a>
+        <a class="tag-link" href="/tags/ALGORITHM/">ALGORITHM</a>, <a class="tag-link" href="/tags/CODING-TEST/">CODING TEST</a>, <a class="tag-link" href="/tags/HASH/">HASH</a>, <a class="tag-link" href="/tags/HASH-TABLE/">HASH TABLE</a>, <a class="tag-link" href="/tags/PYTHON/">PYTHON</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="VCS-Github에서-실수로-Push한-Commit-삭제하기"><a href="#VCS-Github에서-실수로-Push한-Commit-삭제하기" class="headerlink" title="[VCS] Github에서 실수로 Push한 Commit 삭제하기"></a>[VCS] Github에서 실수로 Push한 Commit 삭제하기</h1><p>Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?</p>
-<p><img src="/images/git-commit-remove/git-commit-remove-1.png" alt></p>
-<div style="text-align: center;">- 지워야 하는 Commit </div>
-
-<p>잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자.</p>
-<p>지워야하는 해당 폴더에 들어가서 <code>git log</code>로 내역이 잘 나오는지 확인하자.<br>  * Hexo를 사용하는 유저는 .deploy_git 폴더에서 작업해야함</p>
-<p><a href="https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-2.png"><img src="/images/git-commit-remove/git-commit-remove-2.png" alt></a></p>
-<div style="text-align: center;">- git log 화면</div>
-
-<p>지워야할 내용을 확인했다면 삭제 명령어를 입력하자.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~[지울 개수]</span><br></pre></td></tr></table></figure>
-
-<p><code>reset</code>은 현재 진행중인 최신 commit에서부터 아래로 [지울 개수] 만큼 삭제한다.</p>
-<ul>
-<li>commit 시점 되돌리기 관련 내용은 타 문서를 참고하면 좋다.<br><a href="https://www.devpools.kr/2017/02/05/%EC%B4%88%EB%B3%B4%EC%9A%A9-git-%EB%90%98%EB%8F%8C%EB%A6%AC%EA%B8%B0-reset-revert/" target="_blank" rel="noopener">개발 바보들의 놀이터 - [초보용] Git 되돌리기( Reset, Revert )</a></li>
+            <p>Reference : <a href="https://programmers.co.kr/learn/challenges" target="_blank" rel="noopener">프로그래머스 코딩 테스트 연습</a></p>
+<h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.</p>
+<p>마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,<br>완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.</p>
+<h3 id="제한-조건"><a href="#제한-조건" class="headerlink" title="제한 조건"></a>제한 조건</h3><ul>
+<li>마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.</li>
+<li>completion의 길이는 participant의 길이보다 1 작습니다.</li>
+<li>참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</li>
+<li>참가자 중에는 동명이인이 있을 수 있습니다.</li>
 </ul>
-<p><img src="/images/git-commit-remove/git-commit-remove-3.png" alt></p>
-<div style="text-align: center;">- 삭제화면</div>
+<h3 id="입출력-예"><a href="#입출력-예" class="headerlink" title="입출력 예"></a>입출력 예</h3><table>
+<thead>
+<tr>
+<th align="left">participant</th>
+<th align="left">completion</th>
+<th align="left">return</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">[leo, kiki, eden]</td>
+<td align="left">[eden, kiki]</td>
+<td align="left">leo</td>
+</tr>
+<tr>
+<td align="left">[marina, josipa, nikola, vinko, filipa]</td>
+<td align="left">[josipa, filipa, marina, nikola]</td>
+<td align="left">vinko</td>
+</tr>
+<tr>
+<td align="left">[mislav, stanko, mislav, ana]</td>
+<td align="left">[stanko, ana, mislav]</td>
+<td align="left">mislav</td>
+</tr>
+</tbody></table>
+<h2 id="조건-분석"><a href="#조건-분석" class="headerlink" title="조건 분석"></a>조건 분석</h2><ul>
+<li><p>나와야 하는 결과</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">완주하지 못한 선수의 [이름]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>문제를 풀기위해 주어진 데이터</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 문제 해결에 필요한 데이터</span><br><span class="line"></span><br><span class="line">1. 이름</span><br><span class="line">  - 참여한 선수들의 이름 리스트 (completion arr)</span><br><span class="line">  - 완주한 선수들의 이름 리스트 (participant arr)</span><br><span class="line">2. 완주하지 못한 인원 수 (1명)</span><br><span class="line"></span><br><span class="line"># 제한조건</span><br><span class="line"></span><br><span class="line">1. 전체 배열 갯수 (1~10만)</span><br><span class="line">2. 이름 길이 (max 20 byte)</span><br><span class="line">3. 참가자의 동명이인 여부 (Yes)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>간단 알고리즘</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. 완주한 선수들의 리스트 중에서 참여한 선수들을 제거하고 남은 선수를 반환한다.</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/git-commit-remove/git-commit-remove-4.png" alt></p>
-<div style="text-align: center;">- 삭제 이후 git log</div>
+</li>
+</ul>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>사용언어 : Python 3</p>
+<p>알고리즘은 간결하지만 2가지의 풀이방법이 있다.</p>
+<ul>
+<li>문자열을 직접 비교하는 방법</li>
+<li>해시 테이블을 이용한 방법</li>
+</ul>
+<p>문자열을 직접 비교하면 for문을 2개 활용해서 <code>O(n^2)</code>의 시간복잡도로 구할 수 있다.<br>다만 문제자체에서 <code>O(n)</code>의 시간복잡도가 나오지 않으면 문제풀이로 인정해주지 않기 때문에 <code>해쉬</code>를 이용한다.</p>
+<p><code>해쉬(Hash)</code>에 대한 자세한 설명은 <a href="https://meylady.tistory.com/20" target="_blank" rel="noopener">타 블로그</a>를 참조하자.</p>
+<p>세부 알고리즘은</p>
+<ol>
+<li>참여한 선수들의 이름을 특정 <code>해쉬 함수</code>를 통해 <code>해쉬값</code>으로 만든다.</li>
+<li>“색인을 통한 검색”을 위해 위의<code>해쉬값</code>을 <code>색인(index)</code>으로 하는 <code>해쉬 테이블</code>을 만든다.</li>
+<li>완주한 선수들의 이름도 <code>해쉬값</code>으로 만들어서 기존 <code>해쉬 테이블</code>에서 찾아 제거한다.</li>
+<li>마지막에 남은 <code>해쉬 테이블</code>의 리스트를 반환한다.</li>
+</ol>
+<p>파이썬에서는 <code>딕셔너리</code>라는 key-value 매핑구조를 지원한다.<br>이때 key를 색인으로 쓰는 해쉬 테이블을 만들어주므로 편하게 사용하면 되겠다.<br>직접 해쉬테이블을 만들고싶으면 <code>hash()</code>를 사용해 만들어주면 된다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(participant, completion)</span>:</span></span><br><span class="line">    dic = &#123;&#125; <span class="comment"># 딕셔너리 선언</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">for</span> parName <span class="keyword">in</span> participant:</span><br><span class="line">        dic[parName] = <span class="number">0</span> </span><br><span class="line">        <span class="comment"># key는 참여자 이름, value는 0으로 통일하는 dic 해쉬 테이블을 만든다.</span></span><br><span class="line">             </span><br><span class="line">    <span class="keyword">for</span> comName <span class="keyword">in</span> completion:</span><br><span class="line">        <span class="keyword">if</span> comName <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">del</span> dic[comName] </span><br><span class="line">        <span class="comment"># 해쉬 테이블에서 완주자의 이름을 가진 key를 전부 제거</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> list(dic.keys())[<span class="number">0</span>] <span class="comment"># 마지막 남은 key 반환</span></span><br><span class="line"></span><br><span class="line">participant = [<span class="string">"leo"</span>, <span class="string">"kiki"</span>, <span class="string">"eden"</span>]</span><br><span class="line">completion = [<span class="string">"eden"</span>, <span class="string">"kiki"</span>]</span><br><span class="line"></span><br><span class="line">print(solution(participant,completion))</span><br></pre></td></tr></table></figure>
 
-<p>현재 local의 commit 상태는 그대로 유지되니 올바른 내용의 commit을 한 후에 push를 진행하면 된다.</p>
-<p>혹시 reset의 HEAD 숫자를 잘못입력해서 너무 많이 reset했을경우, <code>git reflog</code>를 사용해 몇번째 HEAD로 이동해야 하는지 살펴본다.</p>
-<p>이동해야할 HEAD를 확인했으면</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD@&#123;1&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">leo</span><br></pre></td></tr></table></figure>
 
-<p>과 같이 강제로 되돌릴수 있다.</p>
+<p>가장 기본적인 문제는 해결되었으니 제한조건을 살펴볼 차례이다.<br>전체 배열갯수나 이름길이는 문제가 없지만 동명이인일때가 문제다.<br>테스트값을<br><code>participant = [&quot;leo&quot;,&quot;leo&quot;, &quot;kiki&quot;, &quot;eden&quot;]</code><br><code>completion = [&quot;leo&quot;,&quot;eden&quot;, &quot;kiki&quot;]</code></p>
+<p>이렇게 변경하면 딕셔너리 구조상 <code>leo</code>라는 키값이 2개가 아닌 1개로 저장된다.<br>이때 <code>leo</code>라는 키를 제거하면 결국 미완주자가 0명이 된다.</p>
+<p>같은 key를 저장할때는 value값에 값을 누적시키는 방법으로 해결이 가능하다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(participant, completion)</span>:</span></span><br><span class="line">    dic = &#123;&#125; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> parName <span class="keyword">in</span> participant:</span><br><span class="line">        <span class="keyword">if</span> parName <span class="keyword">in</span> dic: <span class="comment"># 딕셔너리 내부에 동명이인이 있으면</span></span><br><span class="line">            dic[parName] = dic.get(parName) + <span class="number">1</span> <span class="comment"># value에 1을 추가</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            dic[parName] = <span class="number">1</span> <span class="comment"># 동명이인이 없으면 1로 통일</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> comName <span class="keyword">in</span> completion:</span><br><span class="line">        <span class="keyword">if</span> comName <span class="keyword">in</span> dic:</span><br><span class="line">            dic[comName] = dic.get(comName) <span class="number">-1</span> <span class="comment"># 완주한 사람은 value값에 -1</span></span><br><span class="line">        <span class="keyword">if</span> dic[comName] == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">del</span> dic[comName] <span class="comment"># 0인 완주자는 테이블에서 제외</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> list(dic.keys())[<span class="number">0</span>] <span class="comment"># value값이 1인 참여자만 남아서 반환</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">participant = [<span class="string">"leo"</span>,<span class="string">"leo"</span>, <span class="string">"kiki"</span>, <span class="string">"eden"</span>]</span><br><span class="line">completion = [<span class="string">"leo"</span>,<span class="string">"eden"</span>, <span class="string">"kiki"</span>]</span><br><span class="line"></span><br><span class="line">print(solution(participant,completion))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">leo</span><br></pre></td></tr></table></figure>
+
+<p>이외에 참여자와 완주자의 리스트를 알파벳순으로 정렬해 비교하는 도중 같지않으면 반환하는 방법과 Counter 클래스를 사용하는 방법도 있다.</p>
 
         </div>
         <footer class="article-footer">
@@ -212,7 +255,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/09/17/github-commit-remove/" data-id="ck0nvlubw0006rgw4ti58ck3z" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/" data-id="ck0nvluby000argw4lbnjae3b" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -282,21 +325,18 @@
             "@type": "Person",
             "name": "Taeyeon Kim"
         },
-        "headline": "[VCS] Github에서 실수로 Push한 Commit 삭제하기",
-        "image": "https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-1.png",
-        "keywords": "DOCUMENT GIT GITHUB HEXO RESET VCS",
-        "genre": "etc VCS",
+        "headline": "[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수",
+        "image": "https://taeyeonkim93.github.io",
+        "keywords": "HASH HASH TABLE ALGORITHM CODING TEST PYTHON",
+        "genre": "Algorithm 프로그래머스",
         "datePublished": "2019-09-17",
         "dateCreated": "2019-09-17",
         "dateModified": "2019-09-17",
-        "url": "https://taeyeonkim93.github.io/2019/09/17/github-commit-remove/",
-        "description": "[VCS] Github에서 실수로 Push한 Commit 삭제하기Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?
-
-- 지워야 하는 Commit 
-
-잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자.
-지워야하는 해당 폴더에 들어가서 git log로 ",
-        "wordCount": 172
+        "url": "https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/",
+        "description": "Reference : 프로그래머스 코딩 테스트 연습
+문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.
+마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록 ",
+        "wordCount": 845
     }
 </script>
 
@@ -336,20 +376,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/09/17/programmers-codding-test-1/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">새로운</strong>
-        <p class="article-nav-title">
-        
-            [프로그래머스] 코딩테스트 풀이 - 2016년
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/09/15/kotlin-study-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/09/17/kotlin-calendar-function/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">오래된</strong>
-        <p class="article-nav-title">[kotlin] 3. 함수형 프로그래밍</p>
+        <p class="article-nav-title">[Kotlin] 코틀린 날짜 함수 정리</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -472,7 +502,7 @@
     var disqus_shortname = 'Taeyeon';
     
     
-    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/17/github-commit-remove/';
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/';
     
     (function() {
     var dsq = document.createElement('script');

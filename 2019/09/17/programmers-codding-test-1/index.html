@@ -10,17 +10,17 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="KOTLIN,2016년,ALGORITHM,DATE LIBRARY,프로그래머스">
+        <meta name="keywords" content="ALGORITHM,CODING TEST,KOTLIN,DATE LIBRARY">
     
     <meta name="description" content="문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열">
-<meta name="keywords" content="KOTLIN,2016년,ALGORITHM,DATE LIBRARY,프로그래머스">
+<meta name="keywords" content="ALGORITHM,CODING TEST,KOTLIN,DATE LIBRARY">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[프로그래머스] 코딩테스트 풀이 - 2016년">
 <meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/programmers-codding-test-1/index.html">
 <meta property="og:site_name" content="Taeyeon">
 <meta property="og:description" content="문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-09-17T07:03:22.398Z">
+<meta property="og:updated_time" content="2019-09-17T12:12:01.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[프로그래머스] 코딩테스트 풀이 - 2016년">
 <meta name="twitter:description" content="문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열">
@@ -168,7 +168,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/2016년/">2016년</a>, <a class="tag-link" href="/tags/ALGORITHM/">ALGORITHM</a>, <a class="tag-link" href="/tags/DATE-LIBRARY/">DATE LIBRARY</a>, <a class="tag-link" href="/tags/KOTLIN/">KOTLIN</a>, <a class="tag-link" href="/tags/프로그래머스/">프로그래머스</a>
+        <a class="tag-link" href="/tags/ALGORITHM/">ALGORITHM</a>, <a class="tag-link" href="/tags/CODING-TEST/">CODING TEST</a>, <a class="tag-link" href="/tags/DATE-LIBRARY/">DATE LIBRARY</a>, <a class="tag-link" href="/tags/KOTLIN/">KOTLIN</a>
     </div>
 
             </div>
@@ -191,7 +191,8 @@
 <td align="left">TUE</td>
 </tr>
 </tbody></table>
-<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><h5 id="날짜-구하는-함수를-직접-만들경우"><a href="#날짜-구하는-함수를-직접-만들경우" class="headerlink" title="날짜 구하는 함수를 직접 만들경우"></a>날짜 구하는 함수를 직접 만들경우</h5><ol>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p><strong>사용언어 : Kotlin</strong></p>
+<h5 id="날짜-구하는-함수를-직접-만들경우"><a href="#날짜-구하는-함수를-직접-만들경우" class="headerlink" title="날짜 구하는 함수를 직접 만들경우"></a>날짜 구하는 함수를 직접 만들경우</h5><ol>
 <li><p>2016년의 모든 달(1월~12월)의 마지막 날을 적는다.</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> month = listOf(<span class="number">31</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>)</span><br><span class="line"> <span class="comment">// 1월~12월의 전체 날짜 수</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -229,7 +230,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/09/17/programmers-codding-test-1/" data-id="ck0njc9tu001oj0w4r5rdhxwt" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/programmers-codding-test-1/" data-id="ck0nvludy002irgw4986wq7bf" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -301,14 +302,14 @@
         },
         "headline": "[프로그래머스] 코딩테스트 풀이 - 2016년",
         "image": "https://taeyeonkim93.github.io",
-        "keywords": "KOTLIN 2016년 ALGORITHM DATE LIBRARY 프로그래머스",
+        "keywords": "ALGORITHM CODING TEST KOTLIN DATE LIBRARY",
         "genre": "Algorithm 프로그래머스",
         "datePublished": "2019-09-17",
         "dateCreated": "2019-09-17",
         "dateModified": "2019-09-17",
         "url": "https://taeyeonkim93.github.io/2019/09/17/programmers-codding-test-1/",
         "description": "문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열 ",
-        "wordCount": 424
+        "wordCount": 426
     }
 </script>
 
@@ -383,6 +384,15 @@
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/09/17/programmers-coding-test-2/" class="title">[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T12:07:30.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
                             <p class="item-title"><a href="/2019/09/17/kotlin-calendar-function/" class="title">[Kotlin] 코틀린 날짜 함수 정리</a></p>
                             <p class="item-date"><time datetime="2019-09-17T06:59:06.000Z" itemprop="datePublished">2019-09-17</time></p>
@@ -416,15 +426,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
-                            <p class="item-title"><a href="/2019/09/14/kotlin-study-2/" class="title">[kotlin] 2. 코틀린 기초</a></p>
-                            <p class="item-date"><time datetime="2019-09-14T09:04:45.000Z" itemprop="datePublished">2019-09-14</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -434,17 +435,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">아카이브</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">6</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">태그</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2016년/">2016년</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ALGORITHM/">ALGORITHM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALENDAR/">CALENDAR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DATE-LIBRARY/">DATE LIBRARY</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCUMENT/">DOCUMENT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIT/">GIT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GITHUB/">GITHUB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KOTLIN/">KOTLIN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIBRARY/">LIBRARY</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RESET/">RESET</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VCS/">VCS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/do-it-study/">do it study</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/">kotlin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/날짜-함수/">날짜 함수</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/내장라이브러리/">내장라이브러리</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/프로그래머스/">프로그래머스</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">7</span></li></ul>
         </div>
     </div>
 
@@ -454,7 +445,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">태그 클라우드</h3>
         <div class="widget tagcloud">
-            <a href="/tags/2016년/" style="font-size: 10px;">2016년</a> <a href="/tags/ALGORITHM/" style="font-size: 10px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 15px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 20px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a>
+            <a href="/tags/ALGORITHM/" style="font-size: 15px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 15px;">CODING TEST</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HASH/" style="font-size: 10px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 10px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 15px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 10px;">PYTHON</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 20px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a>
         </div>
     </div>
 
