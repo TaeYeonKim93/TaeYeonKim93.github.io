@@ -21,7 +21,7 @@
 <meta property="og:description" content="Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로 내역이 잘 나오는지 확인하자.  * Hexo를 사용하는 유저는 .">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-1.png">
-<meta property="og:updated_time" content="2019-09-18T10:47:10.764Z">
+<meta property="og:updated_time" content="2019-09-18T11:07:47.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기">
 <meta name="twitter:description" content="Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로 내역이 잘 나오는지 확인하자.  * Hexo를 사용하는 유저는 .">
@@ -200,7 +200,7 @@
 <div style="text-align: center;">- 삭제 이후 git log</div>
 
 <p>현재 local의 commit 상태는 그대로 유지되니 올바른 내용의 commit을 한 후에 push를 진행하면 된다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin +master // 강제푸시해야함</span><br></pre></td></tr></table></figure>
 
 <p>혹시 reset의 HEAD 숫자를 잘못입력해서 너무 많이 reset했을경우, <code>git reflog</code>를 사용해 몇번째 HEAD로 이동해야 하는지 살펴본다.</p>
 <p>이동해야할 HEAD를 확인했으면</p>
@@ -214,7 +214,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/09/17/github-commit-remove/" data-id="ck0p5gw1i0007psw47kcqv6dh" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/github-commit-remove/" data-id="ck0p646j7000amgw4z014gajr" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -298,7 +298,7 @@
 
 잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자.
 지워야하는 해당 폴더에 들어가서 git log로 내역이 잘 나오는지 확인하자.  * Hexo를 사용하는 유저는 .",
-        "wordCount": 165
+        "wordCount": 169
     }
 </script>
 
