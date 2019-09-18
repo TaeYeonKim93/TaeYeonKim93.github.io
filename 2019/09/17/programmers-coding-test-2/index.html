@@ -12,18 +12,18 @@
     
         <meta name="keywords" content="HASH,HASH TABLE,ALGORITHM,CODING TEST,PYTHON">
     
-    <meta name="description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
+    <meta name="description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
 <meta name="keywords" content="HASH,HASH TABLE,ALGORITHM,CODING TEST,PYTHON">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수">
 <meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/index.html">
 <meta property="og:site_name" content="Taeyeon">
-<meta property="og:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
+<meta property="og:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-09-17T13:30:01.111Z">
+<meta property="og:updated_time" content="2019-09-18T09:33:49.162Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수">
-<meta name="twitter:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
+<meta name="twitter:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
     
 
     
@@ -177,7 +177,7 @@
         <div class="article-entry" itemprop="articleBody">
             <p>Reference : <a href="https://programmers.co.kr/learn/challenges" target="_blank" rel="noopener">프로그래머스 코딩 테스트 연습</a></p>
 <h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.</p>
-<p>마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,<br>완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.</p>
+<p>마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,<br>완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.</p>
 <h3 id="제한-조건"><a href="#제한-조건" class="headerlink" title="제한 조건"></a>제한 조건</h3><ul>
 <li>마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.</li>
 <li>completion의 길이는 participant의 길이보다 1 작습니다.</li>
@@ -227,12 +227,15 @@
 <li>해시 테이블을 이용한 방법</li>
 </ul>
 <p>문자열을 직접 비교하면 for문을 2개 활용해서 <code>O(n^2)</code>의 시간복잡도로 구할 수 있다.<br>다만 문제자체에서 <code>O(n)</code>의 시간복잡도가 나오지 않으면 문제풀이로 인정해주지 않기 때문에 <code>해쉬</code>를 이용한다.</p>
-<p><code>해쉬(Hash)</code>에 대한 자세한 설명은 <a href="https://meylady.tistory.com/20" target="_blank" rel="noopener">타 블로그</a>를 참조하자.</p>
+<p><code>해쉬(Hash)</code>에 대한 자세한 설명은 타 포스팅 참조</p>
+<ul>
+<li><a href="https://taeyeonkim93.github.io/2019/09/17/hash-algorithm/">해시 알고리즘 정리</a></li>
+</ul>
 <p>세부 알고리즘은</p>
 <ol>
 <li>참여한 선수들의 이름을 특정 <code>해쉬 함수</code>를 통해 <code>해쉬값</code>으로 만든다.</li>
 <li>“색인을 통한 검색”을 위해 위의<code>해쉬값</code>을 <code>색인(index)</code>으로 하는 <code>해쉬 테이블</code>을 만든다.</li>
-<li>완주한 선수들의 이름도 <code>해쉬값</code>으로 만들어서 기존 <code>해쉬 테이블</code>에서 찾아 제거한다.</li>
+<li>완주한 선수들의 이름을 <code>해쉬값</code>으로 만들어서 참여한 선수들의<code>해쉬 테이블</code>에서 제거한다.</li>
 <li>마지막에 남은 <code>해쉬 테이블</code>의 리스트를 반환한다.</li>
 </ol>
 <p>파이썬에서는 <code>딕셔너리</code>라는 key-value 매핑구조를 지원한다.<br>이때 key를 색인으로 쓰는 해쉬 테이블을 만들어주므로 편하게 사용하면 되겠다.<br>직접 해쉬테이블을 만들고싶으면 <code>hash()</code>를 사용해 만들어주면 된다.</p>
@@ -255,7 +258,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/" data-id="ck0nvluby000argw4lbnjae3b" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/" data-id="ck0p5gw1s000jpsw4wz6t7w7l" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -331,12 +334,12 @@
         "genre": "Algorithm 프로그래머스",
         "datePublished": "2019-09-17",
         "dateCreated": "2019-09-17",
-        "dateModified": "2019-09-17",
+        "dateModified": "2019-09-18",
         "url": "https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/",
         "description": "Reference : 프로그래머스 코딩 테스트 연습
 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.
-마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록 ",
-        "wordCount": 845
+마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록",
+        "wordCount": 844
     }
 </script>
 
