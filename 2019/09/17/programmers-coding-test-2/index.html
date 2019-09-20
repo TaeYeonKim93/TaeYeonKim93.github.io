@@ -10,17 +10,17 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="HASH,HASH TABLE,ALGORITHM,CODING TEST,PYTHON">
+        <meta name="keywords" content="ALGORITHM,CODING TEST,PYTHON,HASH,HASH TABLE">
     
     <meta name="description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
-<meta name="keywords" content="HASH,HASH TABLE,ALGORITHM,CODING TEST,PYTHON">
+<meta name="keywords" content="ALGORITHM,CODING TEST,PYTHON,HASH,HASH TABLE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수">
 <meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/index.html">
 <meta property="og:site_name" content="Taeyeon">
 <meta property="og:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-09-18T09:33:49.162Z">
+<meta property="og:updated_time" content="2019-09-18T11:52:38.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수">
 <meta name="twitter:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록">
@@ -77,7 +77,7 @@
                                     <a class="main-nav-list-link" href="/">홈</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
                                     
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
@@ -238,7 +238,7 @@
 <li>완주한 선수들의 이름을 <code>해쉬값</code>으로 만들어서 참여한 선수들의<code>해쉬 테이블</code>에서 제거한다.</li>
 <li>마지막에 남은 <code>해쉬 테이블</code>의 리스트를 반환한다.</li>
 </ol>
-<p>파이썬에서는 <code>딕셔너리</code>라는 key-value 매핑구조를 지원한다.<br>이때 key를 색인으로 쓰는 해쉬 테이블을 만들어주므로 편하게 사용하면 되겠다.<br>직접 해쉬테이블을 만들고싶으면 <code>hash()</code>를 사용해 만들어주면 된다.</p>
+<p>파이썬에서는 <code>딕셔너리</code>라는 key-value 매핑구조를 지원한다.<br>이때 key를 해쉬함수를 통해 나온값을 색인으로 쓰는 해쉬 테이블을 만들어주므로 편하게 사용하면 되겠다.<br>직접 해쉬테이블을 만들고싶으면 <code>hash()</code>를 사용해 만들어주면 된다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(participant, completion)</span>:</span></span><br><span class="line">    dic = &#123;&#125; <span class="comment"># 딕셔너리 선언</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">for</span> parName <span class="keyword">in</span> participant:</span><br><span class="line">        dic[parName] = <span class="number">0</span> </span><br><span class="line">        <span class="comment"># key는 참여자 이름, value는 0으로 통일하는 dic 해쉬 테이블을 만든다.</span></span><br><span class="line">             </span><br><span class="line">    <span class="keyword">for</span> comName <span class="keyword">in</span> completion:</span><br><span class="line">        <span class="keyword">if</span> comName <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">del</span> dic[comName] </span><br><span class="line">        <span class="comment"># 해쉬 테이블에서 완주자의 이름을 가진 key를 전부 제거</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> list(dic.keys())[<span class="number">0</span>] <span class="comment"># 마지막 남은 key 반환</span></span><br><span class="line"></span><br><span class="line">participant = [<span class="string">"leo"</span>, <span class="string">"kiki"</span>, <span class="string">"eden"</span>]</span><br><span class="line">completion = [<span class="string">"eden"</span>, <span class="string">"kiki"</span>]</span><br><span class="line"></span><br><span class="line">print(solution(participant,completion))</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">leo</span><br></pre></td></tr></table></figure>
@@ -258,7 +258,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/" data-id="ck0p646jf000kmgw4h7j2lu3i" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/programmers-coding-test-2/" data-id="ck0rskaaa002u8ow4lm5lg8xn" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -330,7 +330,7 @@
         },
         "headline": "[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수",
         "image": "https://taeyeonkim93.github.io",
-        "keywords": "HASH HASH TABLE ALGORITHM CODING TEST PYTHON",
+        "keywords": "ALGORITHM CODING TEST PYTHON HASH HASH TABLE",
         "genre": "Algorithm 프로그래머스",
         "datePublished": "2019-09-17",
         "dateCreated": "2019-09-17",
@@ -339,7 +339,7 @@
         "description": "Reference : 프로그래머스 코딩 테스트 연습
 문제 설명수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.
 마라톤에 참여한 선수들의 이ㅗ름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때,완주하지 못한 선수의 이름을 return 하도록",
-        "wordCount": 844
+        "wordCount": 847
     }
 </script>
 
@@ -380,9 +380,9 @@
 <nav id="article-nav">
     
     
-        <a href="/2019/09/17/kotlin-calendar-function/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/09/17/hash-algorithm/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">오래된</strong>
-        <p class="article-nav-title">[Kotlin] 코틀린 날짜 함수 정리</p>
+        <p class="article-nav-title">[자료구조] HASH 정리</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -413,6 +413,15 @@
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/자료구조/">자료구조</a></p>
+                            <p class="item-title"><a href="/2019/09/17/hash-algorithm/" class="title">[자료구조] HASH 정리</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T11:14:21.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
                             <p class="item-title"><a href="/2019/09/17/kotlin-calendar-function/" class="title">[Kotlin] 코틀린 날짜 함수 정리</a></p>
                             <p class="item-date"><time datetime="2019-09-17T06:59:06.000Z" itemprop="datePublished">2019-09-17</time></p>
@@ -437,15 +446,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
-                            <p class="item-title"><a href="/2019/09/15/kotlin-study-3/" class="title">[kotlin] 3. 함수형 프로그래밍</a></p>
-                            <p class="item-date"><time datetime="2019-09-15T10:29:05.000Z" itemprop="datePublished">2019-09-15</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -455,7 +455,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">아카이브</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">7</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -465,7 +465,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">태그 클라우드</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ALGORITHM/" style="font-size: 15px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 15px;">CODING TEST</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HASH/" style="font-size: 10px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 10px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 15px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 10px;">PYTHON</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 20px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a>
+            <a href="/tags/ALGORITHM/" style="font-size: 15px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 15px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HASH/" style="font-size: 15px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 15px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 15px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 10px;">PYTHON</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 20px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a>
         </div>
     </div>
 
