@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[kotlin] 2. 코틀린 기초 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="do it study,kotlin">
+    
+    <meta name="description" content="References: Do it! 코틀린 프로그래밍  프로젝트, 모듈, 패키지, 파일코틀린은 파일이 모여 패키지가 되고, 패키지가 모여 모듈이 된다.파이썬에서는 모듈이 모여 패키지가 되더니 언어마다 다른건가 싶다. 코틀린 프로젝트 계층 구조    1234# 프로젝트  ## 모듈  ### 패키지  #### 파일  패키지같은 프로젝트 내에서 같은 클래스 이름을">
+<meta name="keywords" content="do it study,kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[kotlin] 2. 코틀린 기초">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/14/Programming-kotlin-2019-09-14-kotlin-study-2/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="References: Do it! 코틀린 프로그래밍  프로젝트, 모듈, 패키지, 파일코틀린은 파일이 모여 패키지가 되고, 패키지가 모여 모듈이 된다.파이썬에서는 모듈이 모여 패키지가 되더니 언어마다 다른건가 싶다. 코틀린 프로젝트 계층 구조    1234# 프로젝트  ## 모듈  ### 패키지  #### 파일  패키지같은 프로젝트 내에서 같은 클래스 이름을">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://taeyeonkim93.github.io/images/kotlin-study-2/1.png">
+<meta property="og:updated_time" content="2019-09-16T03:26:20.715Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[kotlin] 2. 코틀린 기초">
+<meta name="twitter:description" content="References: Do it! 코틀린 프로그래밍  프로젝트, 모듈, 패키지, 파일코틀린은 파일이 모여 패키지가 되고, 패키지가 모여 모듈이 된다.파이썬에서는 모듈이 모여 패키지가 되더니 언어마다 다른건가 싶다. 코틀린 프로젝트 계층 구조    1234# 프로젝트  ## 모듈  ### 패키지  #### 파일  패키지같은 프로젝트 내에서 같은 클래스 이름을">
+<meta name="twitter:image" content="https://taeyeonkim93.github.io/images/kotlin-study-2/1.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Kotlin/">Kotlin</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Programming-kotlin-2019-09-14-kotlin-study-2" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [kotlin] 2. 코틀린 기초
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/09/14/Programming-kotlin-2019-09-14-kotlin-study-2/" class="article-date">
+            <time datetime="2019-09-14T09:04:45.000Z" itemprop="datePublished">2019-09-14</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/do-it-study/">do it study</a>, <a class="tag-link" href="/tags/kotlin/">kotlin</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>References: <a href="https://acaroom.net/ko/blog/youngdeok/do-it-kotlin-programming" target="_blank" rel="noopener">Do it! 코틀린 프로그래밍</a></p>
+<hr>
+<h2 id="프로젝트-모듈-패키지-파일"><a href="#프로젝트-모듈-패키지-파일" class="headerlink" title="프로젝트, 모듈, 패키지, 파일"></a>프로젝트, 모듈, 패키지, 파일</h2><p>코틀린은 파일이 모여 패키지가 되고, <strong>패키지가 모여 모듈</strong>이 된다.<br>파이썬에서는 모듈이 모여 패키지가 되더니 언어마다 다른건가 싶다.</p>
+<p><strong>코틀린 프로젝트 계층 구조</strong>   </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 프로젝트  </span><br><span class="line">## 모듈  </span><br><span class="line">### 패키지  </span><br><span class="line">#### 파일</span><br></pre></td></tr></table></figure>
+
+<h4 id="패키지"><a href="#패키지" class="headerlink" title="패키지"></a>패키지</h4><p>같은 프로젝트 내에서 같은 클래스 이름을 쓰더라도 오류가 나지 않게 <strong>패키지 이름으로 분류</strong>한다.</p>
+<ul>
+<li>같은 프로젝트 내 Person 클래스 2개 -&gt; <strong>충돌 발생</strong></li>
+<li>1번 패키지 내 Person 클래스 / 2번 패키지 내 Person 클래스 -&gt; <strong>문제없음</strong></li>
+</ul>
+<p>패키지 이름을 선언하지 않고 파일을 만들면 default 패키지 아래로 자동으로 들어간다.  </p>
+<p><img src="/images/kotlin-study-2/1.png" alt></p>
+<div style="text-align: center;"> - 보이지않는 default 패키지 아래에 존재하는 파일 </div>
+
+<p>패키지 명은 .으로 구분한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.example.edu</span><br></pre></td></tr></table></figure>
+
+<p>기능이나 역할을 뒤에 추가로 넣어주면 좋다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.example.net.upload <span class="comment">// 인터넷 업로드 기능을 하는 패키지명</span></span><br></pre></td></tr></table></figure>
+
+<p>다른 패키지 내 클래스 import 문법 및 클래스 객체로 만들기</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.taeyeon93.study.freetest2</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age:<span class="built_in">Int</span>) <span class="comment">// 클래스 선언</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.taeyeon93.study.freetest         </span><br><span class="line"><span class="keyword">import</span> com.taeyeon93.study.freetest2.Person <span class="comment">// 클래스 import</span></span><br><span class="line">         </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user1 = Person(<span class="string">"kildong"</span>, <span class="number">30</span>)  <span class="comment">// 클래스 객체로 만들기</span></span><br><span class="line">     </span><br><span class="line">    println(user1.name)</span><br><span class="line">    println(user1.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">kildong</span><br><span class="line">30</span><br></pre></td></tr></table></figure>
+
+<p>다른 패키지 내의 클래스명과 현재 패키지의 클래스명이 같아서 객체를 만들기 어려울 때 as 별명을 붙여 구분한다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.example.edu.Person <span class="keyword">as</span> User  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">val</span> user1 = User(<span class="string">"kildong"</span>, <span class="number">30</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="변수-자료형"><a href="#변수-자료형" class="headerlink" title="변수/자료형"></a>변수/자료형</h2><h4 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h4><p>변수는 val, var라는 키워드를 이용하여 선언한다.</p>
+<ul>
+<li>val : 변할 수 없는 상수 선언시 사용 / C,C++ 등에서는 const</li>
+<li>var : 일반적인 변수</li>
+</ul>
+<p>코틀린은 자료형을 지정하지 않아도 <strong>자료형을 추론해서</strong> 알아서 자료형을 지정 할 수 있다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> username = <span class="string">"Kildong"</span></span><br><span class="line"><span class="comment">// 코틀린이 자료형을 추론하여 username의 자료형을 String으로 결정</span></span><br></pre></td></tr></table></figure>
+
+<p>단, 자료형을 명시하지 않는 변수는 자료형을 추론할 수 있는 값을 지정해야 한다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> username <span class="comment">// 자료형이 지정되지 않아 선언불가</span></span><br></pre></td></tr></table></figure>
+
+<p>변수에 커서를 대고 Ctrl+Shift+P를 누르면 추론된 자료형을 볼 수 있다.</p>
+<p>쌍따옴표 내부에서 변수를 사용할때는 $ 특수문자를 붙여야 한다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"> <span class="keyword">val</span> number = <span class="number">1234</span>  </span><br><span class="line">  </span><br><span class="line"> println(number)  </span><br><span class="line"> println(<span class="string">"<span class="variable">$number</span>"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="자료형"><a href="#자료형" class="headerlink" title="자료형"></a>자료형</h3><p>코틀린의 자료형은 참조형 자료형을 사용한다.</p>
+<ul>
+<li><strong>기본형 자료형(Primitive Data Type)</strong> : int, long, float, double 등</li>
+<li><strong>참조형 자료형(Reference Type)</strong> : String, Date 등</li>
+</ul>
+<p>참조형으로 선언한 변수는 코틀린 컴파일러에서 다시 기본형 자료형으로 대체되기 때문에 굳이 기본형을 신경쓸 필요가 없다.</p>
+<p>언더스코어를 사용하면 자릿값을 구분할 수 있다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> number = <span class="number">1_000_000</span></span><br><span class="line"><span class="keyword">val</span> cardNum = <span class="number">1234_1234_1234_1234L</span>  </span><br><span class="line"><span class="keyword">val</span> hexVal = <span class="number">0XAB_CD_EF_12</span></span><br></pre></td></tr></table></figure>
+
+<p>변수를 선언할때는 힙 영역에 실제 데이터를, 스택 영역에 주소값을 넣는다.</p>
+<p>문자열 자료형은 동일한 문자열을 선언할 경우, 이미 힙 영역을 사용하고있는 문자열을 참조하는것이 효율적이므로<br>이전에 선언한 힙 영역의 실제 데이터를 참조하는 주소값을 생성한다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">var</span> str1: String = <span class="string">"Hello"</span>  </span><br><span class="line"> <span class="keyword">var</span> str2 = <span class="string">"World"</span>  </span><br><span class="line"> <span class="keyword">var</span> str3 = <span class="string">"Hello"</span>  </span><br><span class="line"><span class="comment">// 동일한 Hello 라는 값을 선언한 경우 str1이 갖고있는 값의 주소값을 스택에 넣는다.</span></span><br><span class="line">  </span><br><span class="line"> println(<span class="string">"str1 === str2: <span class="subst">$&#123;str1 === str2&#125;</span>"</span>)  </span><br><span class="line"> println(<span class="string">"str1 === str3: <span class="subst">$&#123;str1 === str3&#125;</span>"</span>)  </span><br><span class="line"><span class="comment">// 주소값이 일치하므로 true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">실행결과   </span><br><span class="line">str1 === str2: <span class="literal">false</span></span><br><span class="line">str1 === str3: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>코틀린은 아예 변수에 null을 허용하지 않아 NullPointerException 오류가 발생하지 않는다.<br>그래서 코틀린에서 null을 허용하기위해서는 ? 기호를 이용해 선언해야 한다.</p>
+<p>null을 허용한 변수를 사용하기위해선 <strong>세이프 콜과 non-null 단정 기호</strong>를 사용해야 한다.</p>
+<ul>
+<li><strong>세이프 콜</strong> : String? 과 같은 자료형은 변수 뒤에 ?. 을 붙여야 콜이 가능하다.</li>
+<li><strong>non-null 단정기호</strong> : 세이프콜과 같은 역할이며 !!. 을 붙여서 콜을 하지만, null에 대한 검증을 거치지 않아 컴파일은 가능하나 빌드중에 NPE 에러를 낸다.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">var</span> str1 : String? = <span class="string">"Hello Kotlin"</span>  </span><br><span class="line"> str1 = <span class="literal">null</span>  </span><br><span class="line"> println(<span class="string">"str1: <span class="subst">$&#123;str1?.length&#125;</span>"</span>)  <span class="comment">// 세이프콜</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과  </span><br><span class="line">str1 : <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">var</span> str1 : String? = <span class="string">"Hello Kotlin"</span>  </span><br><span class="line"> str1 = <span class="literal">null</span>  </span><br><span class="line"> println(<span class="string">"str1: <span class="subst">$&#123;str1!!.length&#125;</span>"</span>)  <span class="comment">// non-null 단정기호</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">Exception <span class="keyword">in</span> thread <span class="string">"main"</span> kotlin.KotlinNullPointerException  </span><br><span class="line"> at chap02.section3.Sec3Kt.main(sec3.kt:<span class="number">6</span>)  </span><br><span class="line"> at chap02.section3.Sec3Kt.main(sec3.kt)</span><br></pre></td></tr></table></figure>
+
+<p><strong>엘비스 연산자</strong>를 이용하면 좀 더 안전하고 효율적으로 null을 허용한 변수를 사용할 수 있다.<br>변수에 들어있는 값이 null일경우 반환값을 특정한 값으로 대체할 수 있다.</p>
+<ul>
+<li><strong>엘비스 연산자</strong> : [?:] 왼쪽의 값이 null일 경우 오른쪽 값을 반환.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">var</span> str1 : String? = <span class="string">"Hello Kotlin"</span>  </span><br><span class="line"> str1 = <span class="literal">null</span>  </span><br><span class="line"> println(<span class="string">"str1: <span class="variable">$str1</span> length: <span class="subst">$&#123;str1?.length ?: <span class="number">-1</span>&#125;</span>"</span>)  <span class="comment">// 엘비스 연산자 사용</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과  </span><br><span class="line">str1: <span class="literal">null</span> length: -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>코틀린에서는 <strong>서로 다른 자료형의 변수를 비교하거나 연산할 수 없다.</strong><br>서로 다른 변수를 같은 자료형으로 직접 만들어야 연산할 수 있다.<br>형변환은 toByte, toLong, toDouble 등을 통해서 변경한다.</p>
+<p>어떤 변수가 정수일수도 있고 실수일 수도 있는 경우, <strong>스마트 캐스트</strong>를 활용한다.<br>일반적으로 처음 선언한 자료형은 뒤에 다른 자료형을 대입할 수 없지만, 스마트캐스트를 이용하면 가능하다.<br>스마트캐스트는 <strong>Number, Any</strong> 등을 써서 다양하게 사용 할 수 있다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">var</span> test: Number = <span class="number">12.2</span>  </span><br><span class="line"> println(<span class="string">"<span class="variable">$test</span>"</span>)  </span><br><span class="line">  </span><br><span class="line"> test = <span class="number">12</span>  </span><br><span class="line"> println(<span class="string">"<span class="variable">$test</span>"</span>)  </span><br><span class="line">  </span><br><span class="line"> test = <span class="number">120L</span>  </span><br><span class="line"> println(<span class="string">"<span class="variable">$test</span>"</span>)  </span><br><span class="line">  </span><br><span class="line"> test += <span class="number">12.0f</span>  </span><br><span class="line"> println(<span class="string">"<span class="variable">$test</span>"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">결과값  </span><br><span class="line"><span class="number">12.2</span>  </span><br><span class="line"><span class="number">12</span>  </span><br><span class="line"><span class="number">120</span>  </span><br><span class="line"><span class="number">132.0</span></span><br></pre></td></tr></table></figure>
+
+<p>$변수.javaClass 를 사용하면 변수의 자료형을 얻을 수 있다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/09/14/Programming-kotlin-2019-09-14-kotlin-study-2/" data-id="ck17hzonl003rx8w4ft10dgz0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[kotlin] 2. 코틀린 기초",
+        "image": "https://taeyeonkim93.github.io/images/kotlin-study-2/1.png",
+        "keywords": "do it study kotlin",
+        "genre": "Programming Kotlin",
+        "datePublished": "2019-09-14",
+        "dateCreated": "2019-09-14",
+        "dateModified": "2019-09-16",
+        "url": "https://taeyeonkim93.github.io/2019/09/14/Programming-kotlin-2019-09-14-kotlin-study-2/",
+        "description": "References: Do it! 코틀린 프로그래밍
+
+프로젝트, 모듈, 패키지, 파일코틀린은 파일이 모여 패키지가 되고, 패키지가 모여 모듈이 된다.파이썬에서는 모듈이 모여 패키지가 되더니 언어마다 다른건가 싶다.
+코틀린 프로젝트 계층 구조   
+1234# 프로젝트  ## 모듈  ### 패키지  #### 파일
+
+패키지같은 프로젝트 내에서 같은 클래스 이름을",
+        "wordCount": 1161
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/09/15/Programming-kotlin-2019-09-15-kotlin-study-3/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [kotlin] 3. 함수형 프로그래밍
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/09/14/Programming-kotlin-2019-09-14-kotlin-study-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[kotlin] 1. 코틀린 Hello World</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/09/24/Algorithm-2019-09-24-programmers-coding-test-4/" class="title">[프로그래머스] 코딩테스트 풀이 - 기능개발</a></p>
+                            <p class="item-date"><time datetime="2019-09-24T10:20:02.000Z" itemprop="datePublished">2019-09-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/09/18/Algorithm-2019-09-18-programmers-coding-test-3/" class="title">[프로그래머스] 코딩테스트 풀이 - 모의고사</a></p>
+                            <p class="item-date"><time datetime="2019-09-18T07:06:05.000Z" itemprop="datePublished">2019-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-2/" class="title">[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T12:07:30.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/자료구조/">자료구조</a></p>
+                            <p class="item-title"><a href="/2019/09/17/CS-2019-09-17-hash-algorithm/" class="title">[자료구조] HASH 정리</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T11:14:21.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/09/17/Programming-kotlin-2019-09-17-kotlin-calendar-function/" class="title">[Kotlin] 코틀린 날짜 함수 정리</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T06:59:06.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">10</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 20px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 20px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HASH/" style="font-size: 13.33px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 13.33px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 13.33px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 16.67px;">PYTHON</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 16.67px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 16.67px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/14/Programming-kotlin-2019-09-14-kotlin-study-2/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

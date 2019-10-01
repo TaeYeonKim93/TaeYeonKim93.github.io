@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[kotlin] 3. 함수형 프로그래밍 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="do it study,kotlin">
+    
+    <meta name="description" content="References: Do it! 코틀린 프로그래밍  함수 구조123456package chap03.section1    fun sum(a: Int, b: Int): Int &amp;#123; // fun 키워드 // 함수 이름 // 매개변수 // 반환자료형 명시   var sum = a + b // 함수 본문   return sum // 반환  &amp;#125;  한">
+<meta name="keywords" content="do it study,kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[kotlin] 3. 함수형 프로그래밍">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/15/Programming-kotlin-2019-09-15-kotlin-study-3/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="References: Do it! 코틀린 프로그래밍  함수 구조123456package chap03.section1    fun sum(a: Int, b: Int): Int &amp;#123; // fun 키워드 // 함수 이름 // 매개변수 // 반환자료형 명시   var sum = a + b // 함수 본문   return sum // 반환  &amp;#125;  한">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-09-17T06:15:09.265Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[kotlin] 3. 함수형 프로그래밍">
+<meta name="twitter:description" content="References: Do it! 코틀린 프로그래밍  함수 구조123456package chap03.section1    fun sum(a: Int, b: Int): Int &amp;#123; // fun 키워드 // 함수 이름 // 매개변수 // 반환자료형 명시   var sum = a + b // 함수 본문   return sum // 반환  &amp;#125;  한">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Kotlin/">Kotlin</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Programming-kotlin-2019-09-15-kotlin-study-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [kotlin] 3. 함수형 프로그래밍
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/09/15/Programming-kotlin-2019-09-15-kotlin-study-3/" class="article-date">
+            <time datetime="2019-09-15T10:29:05.000Z" itemprop="datePublished">2019-09-15</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/do-it-study/">do it study</a>, <a class="tag-link" href="/tags/kotlin/">kotlin</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>References: <a href="https://acaroom.net/ko/blog/youngdeok/do-it-kotlin-programming" target="_blank" rel="noopener">Do it! 코틀린 프로그래밍</a></p>
+<hr>
+<h2 id="함수-구조"><a href="#함수-구조" class="headerlink" title="함수 구조"></a>함수 구조</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chap03.section1  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sum</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123; <span class="comment">// fun 키워드 // 함수 이름 // 매개변수 // 반환자료형 명시  </span></span><br><span class="line"> <span class="keyword">var</span> sum = a + b <span class="comment">// 함수 본문  </span></span><br><span class="line"> <span class="keyword">return</span> sum <span class="comment">// 반환  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>한줄로 단축도 가능하다</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sum</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = a + b</span><br></pre></td></tr></table></figure>
+
+<h3 id="코틀린-함수-특성"><a href="#코틀린-함수-특성" class="headerlink" title="코틀린 함수 특성"></a>코틀린 함수 특성</h3><p>함수는 스택 메모리에 저장된다.<br>스택은 각 함수가 Frame단위로 적재된다.<br>LIFO인 스택 구조상 Main() 함수의 프레임이 가장 바닥에 적재되고, 그위에 max()함수 등 호출되는 순서대로 적재된다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">힙 영역 (낮은 주소)  </span><br><span class="line">↓  </span><br><span class="line">min()함수 Frame  </span><br><span class="line">max()함수 Frame  </span><br><span class="line">main()함수 Frame  </span><br><span class="line">↑  </span><br><span class="line">스택 영역(높은 주소)</span><br></pre></td></tr></table></figure>
+
+<p>함수는 스택 영역의 높은 주소부터 거꾸로 자라듯이 채워져 나간다.<br>가장 나중에 호출된 min 함수가 가장 위로 올라가고, 호출이 종료되면 Frame단위로 사라진다.<br>함수 내부의 변수들은 서로 겹치지않으므로 함수 내부의 변수들끼리 계산이 가능하다.</p>
+<p>Kotlin에서는 <strong>함수의 반환값을 생략</strong>할 수 있다.<br>단, 함수의 반환값을 생략하고 함수를 작성하면 Unit이라는 특수한 자료형으로 반환된다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">printSum</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Unit</span> &#123; <span class="comment">//Unit은 없어도 상관없음  </span></span><br><span class="line"> println(<span class="string">"sum of <span class="variable">$a</span> and <span class="variable">$b</span> is <span class="subst">$&#123;a + b&#125;</span>"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>함수 내에서 여러개의 매개변수를 받을 때, <strong>가변 인자</strong>를 사용하면 된다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> normalVarargs(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)  </span><br><span class="line"> normalVarargs(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">normalVarargs</span><span class="params">(<span class="keyword">vararg</span> counts: <span class="type">Int</span>)</span></span> &#123; <span class="comment">// 가변인자 vararg  </span></span><br><span class="line"> <span class="keyword">for</span> (num <span class="keyword">in</span> counts) &#123;  </span><br><span class="line"> print(<span class="string">"<span class="variable">$num</span> "</span>)  </span><br><span class="line"> &#125;  </span><br><span class="line"> print(<span class="string">"\n"</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> </span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>variable argument, 가변 인자의 약자 <strong>vararg</strong>를 사용하면 그때그때 변하는 인자의 개수를 전부 매개변수로 받아 사용 할 수 있다.</p>
+<h3 id="함수형-프로그래밍-구조"><a href="#함수형-프로그래밍-구조" class="headerlink" title="함수형 프로그래밍 구조"></a>함수형 프로그래밍 구조</h3><p>코틀린은 함수형 프로그래밍과 객체지향형 프로그래밍을 모두 지원하는 <strong>다중 패러다임 언어</strong> 이다.</p>
+<ul>
+<li><strong>다중 패러다임 언어</strong> : 한가지 구현 규칙에 얽매이지 않고 다양한 문법과 형식을 지원하는 언어</li>
+</ul>
+<h4 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍?"></a>함수형 프로그래밍?</h4><p>함수형 프로그래밍의 정의와 특징</p>
+<ul>
+<li>순수 함수를 사용해야 한다.</li>
+<li>람다식을 사용할 수 있다.</li>
+<li>고차 함수를 사용할 수 있다.</li>
+</ul>
+<h5 id="1-순수함수"><a href="#1-순수함수" class="headerlink" title="1. 순수함수"></a>1. 순수함수</h5><p>함수형 프로그래밍은 순수 함수를 작성하여 프로그램의 부작용을 줄이는 프로그래밍 기법을 말한다.</p>
+<ul>
+<li><strong>순수 함수</strong>의 조건<ol>
+<li>같은 인자에 대하여 항상 같은 값을 반환하는 함수</li>
+<li>함수 외부의 어떤 상태도 바꾸지 않는 함수</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">순수 함수의 예    </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sum</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;  </span><br><span class="line"> <span class="keyword">return</span> a + b  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">순수 함수를 만족하지 않는 함수의 예  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">check</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">val</span> test = User.grade()  </span><br><span class="line"> <span class="keyword">if</span> (test != <span class="literal">null</span>) process(test) <span class="comment">// test는 User.grade()의 상태에 따라 달라짐  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-람다식"><a href="#2-람다식" class="headerlink" title="2. 람다식"></a>2. 람다식</h5><p>람다식은 다음과 같은 형태로 이루어져있다.</p>
+<p><code>{ x, y -&gt; x + y }</code></p>
+<p>함수의 이름이 없고, 화살표(-&gt;)가 사용되었다. 함수형 프로그래밍의 람다식은 다음과 같은것을 말한다.</p>
+<ul>
+<li>다른 함수의 인자로 넘기는 함수</li>
+<li>함수의 결과값으로 반환되는 함수</li>
+<li>변수에 저장하는 함수</li>
+</ul>
+<p>람다식 예시</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">변수에 할당하는 람다식  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//// 같은 람다식 ////  </span></span><br><span class="line"><span class="keyword">val</span> multi: (<span class="built_in">Int</span>, <span class="built_in">Int</span>) -&gt; <span class="built_in">Int</span> = &#123;x: <span class="built_in">Int</span>, y: <span class="built_in">Int</span>, <span class="built_in">Int</span> -&gt; x * y&#125;  </span><br><span class="line"><span class="keyword">val</span> multi = &#123;x: <span class="built_in">Int</span>, y: <span class="built_in">Int</span> -&gt; x * y&#125;  </span><br><span class="line"><span class="keyword">val</span> multi: (<span class="built_in">Int</span>, <span class="built_in">Int</span>) -&gt; <span class="built_in">Int</span> = &#123;x, y -&gt; x * y&#125;  </span><br><span class="line"><span class="comment">//// 같은 람다식 ////  </span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">val</span> multi = &#123;x,y -&gt; x * y&#125; <span class="comment">// 이건 오류  (자료형이 없음)</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">val</span> greet: () -&gt; <span class="built_in">Unit</span> = &#123;println(<span class="string">"Hello World!"</span>)&#125; <span class="comment">// 반환값이 없을때  </span></span><br><span class="line"><span class="keyword">val</span> square: (<span class="built_in">Int</span>) -&gt; <span class="built_in">Int</span> = &#123;x -&gt; x * x&#125; <span class="comment">// 매개변수가 하나일때  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">val</span> nestedLambda: () -&gt; () -&gt; <span class="built_in">Unit</span> = &#123;&#123;println(<span class="string">"nested"</span>)&#125;&#125; <span class="comment">// 람다식 안에 람다식</span></span><br></pre></td></tr></table></figure>
+
+<p>사용할경우 함수처럼 <code>multi(x,y)</code>로 사용하면 된다.</p>
+<h5 id="3-일급-객체"><a href="#3-일급-객체" class="headerlink" title="3. 일급 객체"></a>3. 일급 객체</h5><p>함수형 프로그래밍에서는 함수를 “일급 객체” 로 생각한다. 일급 객체의 특징은 다음과 같다.</p>
+<ul>
+<li>일급 객체는 함수의 인자로 전달할 수 있다.</li>
+<li>일급 객체는 함수의 반환값에 사용할 수 있다.</li>
+<li>일급 객체는 변수에 담을 수 있다.</li>
+</ul>
+<p>함수가 일급 객체면 일급 함수라고 부른다.<br>일급 함수에 이름이 없는 경우 람다식 함수 혹은 람다식이라고 부를 수 있다<br>즉 람다식은 일급 객체의 특징을 가진 이름 없는 함수이다.</p>
+<h5 id="4-고차-함수"><a href="#4-고차-함수" class="headerlink" title="4. 고차 함수"></a>4. 고차 함수</h5><p>고차 함수 란 다른 함수를 인자로 사용하거나 함수를 결과값으로 반환하는 함수를 말한다.</p>
+<p>인자가 일반 함수인 고차 함수 예시</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">인자가 일반 함수인 고차 함수  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">val</span> res1 = sum(<span class="number">3</span>,<span class="number">2</span>)  </span><br><span class="line"> <span class="keyword">val</span> res2 = mul(sum(<span class="number">3</span>,<span class="number">3</span>),<span class="number">3</span>) <span class="comment">// 인자에 함수 사용  </span></span><br><span class="line">  </span><br><span class="line"> println(<span class="string">"res1: <span class="variable">$res1</span>, res2: <span class="variable">$res2</span>"</span>)  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sum</span><span class="params">(a:<span class="type">Int</span>, b:<span class="type">Int</span>)</span></span> = a + b  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">mul</span><span class="params">(a:<span class="type">Int</span>, b:<span class="type">Int</span>)</span></span> = a * b</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행 결과  </span><br><span class="line">res1: <span class="number">5</span>, res2: <span class="number">18</span></span><br></pre></td></tr></table></figure>
+
+<p>반환값이 일반 함수인 고차 함수 예시</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">반환값이 일반 함수인 고차 함수  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> println(<span class="string">"funcFunc: <span class="subst">$&#123;funcFunc()&#125;</span>"</span>)  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sum</span><span class="params">(a:<span class="type">Int</span>, b:<span class="type">Int</span>)</span></span> = a + b  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funcFunc</span><span class="params">()</span></span>:<span class="built_in">Int</span> &#123;  </span><br><span class="line"> <span class="keyword">return</span> sum(<span class="number">2</span>,<span class="number">2</span>) <span class="comment">// 반환값이 함수  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행 결과  </span><br><span class="line">funcFunc: <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>람다식을 매개변수에 할당하는 고차함수 예시</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">람다식을 매개변수에 할당하는 고차함수  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;   </span><br><span class="line"> <span class="keyword">var</span> result: <span class="built_in">Int</span>  </span><br><span class="line"> result = highOrder(&#123; x, y -&gt; x + y&#125;, <span class="number">10</span>,<span class="number">20</span>) <span class="comment">// 람다식 함수 호출  </span></span><br><span class="line"> println(result)  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">highOrder</span><span class="params">(sum: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; <span class="type">Int</span>, a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;  </span><br><span class="line"> <span class="comment">// 매개변수에 삽입된 람다식  </span></span><br><span class="line"> <span class="keyword">return</span> sum(a,b)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행 결과  </span><br><span class="line">30</span><br></pre></td></tr></table></figure>
+
+<p>인자와 반환값이 없는 람다식 고차함수 예시</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">인자와 반환값이 없는 람다식 고차함수</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line"> <span class="keyword">val</span> <span class="keyword">out</span>: () -&gt; <span class="built_in">Unit</span> = &#123;println(<span class="string">"Hello World"</span>)&#125; <span class="comment">// -&gt; Unit 생략 가능  </span></span><br><span class="line">  </span><br><span class="line"> <span class="keyword">out</span>() <span class="comment">// 함수처럼 이용가능  </span></span><br><span class="line"> <span class="keyword">val</span> new = <span class="keyword">out</span> <span class="comment">// 다른 변수에 람다식 할당 가능  </span></span><br><span class="line"> new()  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">실행 결과  </span><br><span class="line">Hello World  </span><br><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/09/15/Programming-kotlin-2019-09-15-kotlin-study-3/" data-id="ck17hzonk003px8w47thwqnje" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[kotlin] 3. 함수형 프로그래밍",
+        "image": "https://taeyeonkim93.github.io",
+        "keywords": "do it study kotlin",
+        "genre": "Programming Kotlin",
+        "datePublished": "2019-09-15",
+        "dateCreated": "2019-09-15",
+        "dateModified": "2019-09-17",
+        "url": "https://taeyeonkim93.github.io/2019/09/15/Programming-kotlin-2019-09-15-kotlin-study-3/",
+        "description": "References: Do it! 코틀린 프로그래밍
+
+함수 구조123456package chap03.section1    fun sum(a: Int, b: Int): Int &#123; // fun 키워드 // 함수 이름 // 매개변수 // 반환자료형 명시   var sum = a + b // 함수 본문   return sum // 반환  &#125;
+
+한",
+        "wordCount": 1339
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/09/17/etc-2019-09-17-github-commit-remove/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [VCS] Github에서 실수로 Push한 Commit 삭제하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/09/14/Programming-kotlin-2019-09-14-kotlin-study-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[kotlin] 2. 코틀린 기초</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/09/24/Algorithm-2019-09-24-programmers-coding-test-4/" class="title">[프로그래머스] 코딩테스트 풀이 - 기능개발</a></p>
+                            <p class="item-date"><time datetime="2019-09-24T10:20:02.000Z" itemprop="datePublished">2019-09-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/09/18/Algorithm-2019-09-18-programmers-coding-test-3/" class="title">[프로그래머스] 코딩테스트 풀이 - 모의고사</a></p>
+                            <p class="item-date"><time datetime="2019-09-18T07:06:05.000Z" itemprop="datePublished">2019-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-2/" class="title">[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T12:07:30.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/자료구조/">자료구조</a></p>
+                            <p class="item-title"><a href="/2019/09/17/CS-2019-09-17-hash-algorithm/" class="title">[자료구조] HASH 정리</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T11:14:21.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/09/17/Programming-kotlin-2019-09-17-kotlin-calendar-function/" class="title">[Kotlin] 코틀린 날짜 함수 정리</a></p>
+                            <p class="item-date"><time datetime="2019-09-17T06:59:06.000Z" itemprop="datePublished">2019-09-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">10</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 20px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 20px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HASH/" style="font-size: 13.33px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 13.33px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 13.33px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 16.67px;">PYTHON</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 16.67px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 16.67px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/15/Programming-kotlin-2019-09-15-kotlin-study-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

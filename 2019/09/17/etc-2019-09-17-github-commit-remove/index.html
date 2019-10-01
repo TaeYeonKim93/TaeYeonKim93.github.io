@@ -6,20 +6,26 @@
     
 
     
-    <title>태그: 날짜 함수 | Taeyeon</title>
+    <title>[VCS] Github에서 실수로 Push한 Commit 삭제하기 | Taeyeon</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Taeyeon&apos;s dev blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Taeyeon">
-<meta property="og:url" content="https://taeyeonkim93.github.io/tags/날짜-함수/index.html">
+        <meta name="keywords" content="DOCUMENT,GIT,GITHUB,HEXO,RESET,VCS">
+    
+    <meta name="description" content="Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로 내역이 잘 나오는지 확인하자.  * Hexo를 사용하는 유저는 .">
+<meta name="keywords" content="DOCUMENT,GIT,GITHUB,HEXO,RESET,VCS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/etc-2019-09-17-github-commit-remove/index.html">
 <meta property="og:site_name" content="Taeyeon">
-<meta property="og:description" content="Taeyeon&apos;s dev blog">
+<meta property="og:description" content="Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로 내역이 잘 나오는지 확인하자.  * Hexo를 사용하는 유저는 .">
 <meta property="og:locale" content="ko">
+<meta property="og:image" content="https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-1.png">
+<meta property="og:updated_time" content="2019-09-18T11:07:47.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Taeyeon">
-<meta name="twitter:description" content="Taeyeon&apos;s dev blog">
+<meta name="twitter:title" content="[VCS] Github에서 실수로 Push한 Commit 삭제하기">
+<meta name="twitter:description" content="Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?  - 지워야 하는 Commit   잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자. 지워야하는 해당 폴더에 들어가서 git log로 내역이 잘 나오는지 확인하자.  * Hexo를 사용하는 유저는 .">
+<meta name="twitter:image" content="https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-1.png">
     
 
     
@@ -132,56 +138,181 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>태그: <em>날짜 함수</em>
+    <a class="page-title-link" href="/categories/etc/">etc</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/etc/VCS/">VCS</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-etc-2019-09-17-github-commit-remove" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a>
-            </div>
-            <div class="date"><time datetime="2019-09-17T06:59:06.000Z" itemprop="datePublished">2019-09-17</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/17/Programming-kotlin-2019-09-17-kotlin-calendar-function/">[Kotlin] 코틀린 날짜 함수 정리</a>
+        [VCS] Github에서 실수로 Push한 Commit 삭제하기
         </h1>
     
 
-        <p class="article-excerpt">
-            코틀린 날짜 함수프로그래머스 문제를 풀다가 java에서는 Date가 Deprecate 되고 Calendar를 사용한다고 해서 정리해봤다.
-전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 이곳 참조
-java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스나 java.time 패키지를 주로 사용하지만 일단 사용하
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/09/17/etc-2019-09-17-github-commit-remove/" class="article-date">
+            <time datetime="2019-09-17T06:18:50.000Z" itemprop="datePublished">2019-09-17</time>
+        </a>
     </div>
-</article>
-    
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DOCUMENT/">DOCUMENT</a>, <a class="tag-link" href="/tags/GIT/">GIT</a>, <a class="tag-link" href="/tags/GITHUB/">GITHUB</a>, <a class="tag-link" href="/tags/HEXO/">HEXO</a>, <a class="tag-link" href="/tags/RESET/">RESET</a>, <a class="tag-link" href="/tags/VCS/">VCS</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?</p>
+<p><img src="/images/git-commit-remove/git-commit-remove-1.png" alt></p>
+<div style="text-align: center;">- 지워야 하는 Commit </div>
+
+<p>잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자.</p>
+<p>지워야하는 해당 폴더에 들어가서 <code>git log</code>로 내역이 잘 나오는지 확인하자.<br>  * Hexo를 사용하는 유저는 .deploy_git 폴더에서 작업해야함</p>
+<p><a href="https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-2.png"><img src="/images/git-commit-remove/git-commit-remove-2.png" alt></a></p>
+<div style="text-align: center;">- git log 화면</div>
+
+<p>지워야할 내용을 확인했다면 삭제 명령어를 입력하자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~[지울 개수]</span><br></pre></td></tr></table></figure>
+
+<p><code>reset</code>은 현재 진행중인 최신 commit에서부터 아래로 [지울 개수] 만큼 삭제한다.</p>
+<ul>
+<li>commit 시점 되돌리기 관련 내용은 타 문서를 참고하면 좋다.<br><a href="https://www.devpools.kr/2017/02/05/%EC%B4%88%EB%B3%B4%EC%9A%A9-git-%EB%90%98%EB%8F%8C%EB%A6%AC%EA%B8%B0-reset-revert/" target="_blank" rel="noopener">개발 바보들의 놀이터 - [초보용] Git 되돌리기( Reset, Revert )</a></li>
+</ul>
+<p><img src="/images/git-commit-remove/git-commit-remove-3.png" alt></p>
+<div style="text-align: center;">- 삭제화면</div>
+
+<p><img src="/images/git-commit-remove/git-commit-remove-4.png" alt></p>
+<div style="text-align: center;">- 삭제 이후 git log</div>
+
+<p>현재 local의 commit 상태는 그대로 유지되니 올바른 내용의 commit을 한 후에 push를 진행하면 된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin +master // 강제푸시해야함</span><br></pre></td></tr></table></figure>
+
+<p>혹시 reset의 HEAD 숫자를 잘못입력해서 너무 많이 reset했을경우, <code>git reflog</code>를 사용해 몇번째 HEAD로 이동해야 하는지 살펴본다.</p>
+<p>이동해야할 HEAD를 확인했으면</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD@&#123;1&#125;</span><br></pre></td></tr></table></figure>
+
+<p>과 같이 강제로 되돌릴수 있다.</p>
+
         </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/etc-2019-09-17-github-commit-remove/" data-id="ck17hzom20020x8w4w1m8tviz" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[VCS] Github에서 실수로 Push한 Commit 삭제하기",
+        "image": "https://taeyeonkim93.github.io/images/git-commit-remove/git-commit-remove-1.png",
+        "keywords": "DOCUMENT GIT GITHUB HEXO RESET VCS",
+        "genre": "etc VCS",
+        "datePublished": "2019-09-17",
+        "dateCreated": "2019-09-17",
+        "dateModified": "2019-09-18",
+        "url": "https://taeyeonkim93.github.io/2019/09/17/etc-2019-09-17-github-commit-remove/",
+        "description": "Git 작업 시 오타가 났거나 올라가면 안되는 Commit을 Push 했을경우 어떻게 삭제해야 할까?
+
+- 지워야 하는 Commit 
+
+잘못된 커밋이 몇개나 있으면 가독성을 해치게 된다. 깔끔하게 삭제하고 새롭게 commit 내용을 추가해보자.
+지워야하는 해당 폴더에 들어가서 git log로 내역이 잘 나오는지 확인하자.  * Hexo를 사용하는 유저는 .",
+        "wordCount": 169
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
-
-    </div></section>
+    
+    </section>
 
 
 
@@ -203,6 +334,29 @@ java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스�
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/09/17/Algorithm-2019-09-17-programmers-codding-test-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [프로그래머스] 코딩테스트 풀이 - 2016년
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/09/15/Programming-kotlin-2019-09-15-kotlin-study-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[kotlin] 3. 함수형 프로그래밍</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -320,11 +474,13 @@ java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스�
     var disqus_shortname = 'Taeyeon';
     
     
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/17/etc-2019-09-17-github-commit-remove/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
