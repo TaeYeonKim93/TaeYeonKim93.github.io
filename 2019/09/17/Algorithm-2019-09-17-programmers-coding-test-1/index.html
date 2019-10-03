@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[프로그래머스] 코딩테스트 풀이 - 2016년 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="ALGORITHM,CODING TEST,DATE LIBRARY,KOTLIN">
+    
+    <meta name="description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=">
+<meta name="keywords" content="ALGORITHM,CODING TEST,DATE LIBRARY,KOTLIN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[프로그래머스] 코딩테스트 풀이 - 2016년">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-1/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-09-18T09:55:14.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[프로그래머스] 코딩테스트 풀이 - 2016년">
+<meta name="twitter:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Algorithm-2019-09-17-programmers-coding-test-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [프로그래머스] 코딩테스트 풀이 - 2016년
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-1/" class="article-date">
+            <time datetime="2019-09-17T06:34:03.000Z" itemprop="datePublished">2019-09-17</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ALGORITHM/">ALGORITHM</a>, <a class="tag-link" href="/tags/CODING-TEST/">CODING TEST</a>, <a class="tag-link" href="/tags/DATE-LIBRARY/">DATE LIBRARY</a>, <a class="tag-link" href="/tags/KOTLIN/">KOTLIN</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>Reference : <a href="https://programmers.co.kr/learn/challenges" target="_blank" rel="noopener">프로그래머스 코딩 테스트 연습</a></p>
+<h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>2016년 1월 1일은 금요일입니다. <strong>2016년 a월 b일은 무슨 요일</strong>일까요?<br>두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.<br>요일의 이름은 일요일부터 토요일까지 각각 <code>SUN,MON,TUE,WED,THU,FRI,SAT</code>입니다.<br>예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열 TUE를 반환하세요.</p>
+<h3 id="제한-조건"><a href="#제한-조건" class="headerlink" title="제한 조건"></a>제한 조건</h3><p>2016년은 윤년입니다.<br>2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은 날짜는 주어지지 않습니다)</p>
+<h3 id="입출력-예"><a href="#입출력-예" class="headerlink" title="입출력 예"></a>입출력 예</h3><table>
+<thead>
+<tr>
+<th align="left">a</th>
+<th align="left">b</th>
+<th align="left">result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">5</td>
+<td align="left">24</td>
+<td align="left">TUE</td>
+</tr>
+</tbody></table>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p><strong>사용언어 : Kotlin</strong></p>
+<h5 id="날짜-구하는-함수를-직접-만들경우"><a href="#날짜-구하는-함수를-직접-만들경우" class="headerlink" title="날짜 구하는 함수를 직접 만들경우"></a>날짜 구하는 함수를 직접 만들경우</h5><ol>
+<li><p>2016년의 모든 달(1월~12월)의 마지막 날을 적는다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> month = listOf(<span class="number">31</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>)</span><br><span class="line"> <span class="comment">// 1월~12월의 전체 날짜 수</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2016년 1월 1일이 무슨일인지 알아낸다. (금요일)</p>
+</li>
+<li><p>금요일부터 목요일까지 영어로 적혀있는 배열을 만든다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> dayOfWeek = listOf(<span class="string">"FRI"</span>, <span class="string">"SAT"</span>, <span class="string">"SUN"</span>, <span class="string">"MON"</span>, <span class="string">"TUE"</span>, <span class="string">"WED"</span>, <span class="string">"THU"</span>)</span><br><span class="line"><span class="comment">// 1월 1일부터 반복되는 요일 영어</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li>1월 1일이라면 (0 + 1 - 1) % 7 = 0 -&gt; FRI<br>3월 6일이라면 (31 + 29 + 6 - 1) % 7 = 2 -&gt; SUN<br>숫자로 계산한 후 <code>dayOfWeek</code>에서 대응하는 날짜를 찾아 변환한다.<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until a - <span class="number">1</span>) &#123;  </span><br><span class="line">    total += month[i]  <span class="comment">// 날짜 계산식</span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">total += (b-<span class="number">1</span>)  </span><br><span class="line"><span class="keyword">return</span> dayOfWeek[total%<span class="number">7</span>] <span class="comment">// 요일 산출</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="내장-라이브러리를-사용해서-만들경우"><a href="#내장-라이브러리를-사용해서-만들경우" class="headerlink" title="내장 라이브러리를 사용해서 만들경우"></a>내장 라이브러리를 사용해서 만들경우</h5><ol>
+<li><p>월, 일을 날짜 변수에 넣는다</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> calendar = Calendar.getInstance()  </span><br><span class="line">calendar.<span class="keyword">set</span>(<span class="number">2016</span>, a-<span class="number">1</span>, b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>현재 날짜를 밀리초 단위로 변경한 후, 반환값이 날짜 포맷으로 출력되는 함수 SimpleDateFormat을 활용해서 영어단어로 출력한다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> SimpleDateFormat(<span class="string">"EEE"</span>, Locale.ENGLISH).format(calendar.timeInMillis).toUpperCase()  </span><br><span class="line"><span class="comment">// 밀리초단위로 변경 후 SimpleDateFormat으로 요일 출력</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>해당 내장함수에 대한 설명은 타 포스팅 참조</p>
+<ul>
+<li><a href="https://taeyeonkim93.github.io/2019/09/17/kotlin-calendar-function/">Kotlin 날짜함수 정리</a></li>
+</ul>
+<p>전체 답안</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat  </span><br><span class="line"><span class="keyword">import</span> java.util.*  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;  </span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">solution</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: String &#123;  </span><br><span class="line"> <span class="keyword">val</span> calendar = Calendar.getInstance()  </span><br><span class="line"> calendar.<span class="keyword">set</span>(<span class="number">2016</span>, a-<span class="number">1</span>, b)  </span><br><span class="line"> <span class="keyword">return</span> SimpleDateFormat(<span class="string">"EEE"</span>, Locale.ENGLISH).format(calendar.timeInMillis).toUpperCase()  </span><br><span class="line"> &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-1/" data-id="ck1altp0a001rbkw4t2bi3u49" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[프로그래머스] 코딩테스트 풀이 - 2016년",
+        "image": "https://taeyeonkim93.github.io",
+        "keywords": "ALGORITHM CODING TEST DATE LIBRARY KOTLIN",
+        "genre": "Algorithm 프로그래머스",
+        "datePublished": "2019-09-17",
+        "dateCreated": "2019-09-17",
+        "dateModified": "2019-09-18",
+        "url": "https://taeyeonkim93.github.io/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-1/",
+        "description": "Reference : 프로그래머스 코딩 테스트 연습
+문제 설명2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요?두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요.요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT입니다.예를 들어 a=",
+        "wordCount": 434
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/09/17/Programming-kotlin-2019-09-17-kotlin-calendar-function/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [Kotlin] 코틀린 날짜 함수 정리
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/09/17/etc-2019-09-17-github-commit-remove/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[VCS] Github에서 실수로 Push한 Commit 삭제하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/10/02/Algorithm-2019-10-02-programmers-coding-test-9/" class="title">[프로그래머스] 코딩테스트 풀이 - 큰 수 만들기</a></p>
+                            <p class="item-date"><time datetime="2019-10-02T08:42:30.000Z" itemprop="datePublished">2019-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/10/02/Algorithm-2019-10-02-programmers-coding-test-8/" class="title">[프로그래머스] 코딩테스트 풀이 - 조이스틱</a></p>
+                            <p class="item-date"><time datetime="2019-10-02T05:58:32.000Z" itemprop="datePublished">2019-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-7/" class="title">[프로그래머스] 코딩테스트 풀이 - 쇠막대기</a></p>
+                            <p class="item-date"><time datetime="2019-10-01T12:31:51.000Z" itemprop="datePublished">2019-10-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-6/" class="title">[프로그래머스] 코딩테스트 풀이 - 탑</a></p>
+                            <p class="item-date"><time datetime="2019-10-01T11:48:41.000Z" itemprop="datePublished">2019-10-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-5/" class="title">[프로그래머스] 코딩테스트 풀이 - 124 나라의 숫자</a></p>
+                            <p class="item-date"><time datetime="2019-10-01T07:29:56.000Z" itemprop="datePublished">2019-10-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">10</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 20px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 20px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HASH/" style="font-size: 12.5px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12.5px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12.5px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 17.5px;">PYTHON</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 15px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
