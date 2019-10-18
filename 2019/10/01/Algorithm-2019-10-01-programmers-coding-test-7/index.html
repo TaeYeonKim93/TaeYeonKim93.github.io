@@ -10,10 +10,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="PYTHON,ALGORITHM,CODING TEST">
+        <meta name="keywords" content="ALGORITHM,CODING TEST,PYTHON,STACK">
     
     <meta name="description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명문제 설명여러 개의 쇠막대기를 레이저로 절단하려고 합니다. 효율적인 작업을 위해서 쇠막대기를 아래에서 위로 겹쳐 놓고, 레이저를 위에서 수직으로 발사하여 쇠막대기들을 자릅니다. 쇠막대기와 레이저의 배치는 다음 조건을 만족합니다.  쇠막대기는 자신보다 긴 쇠막대기 위에만 놓일 수 있습니다. 쇠막대기">
-<meta name="keywords" content="PYTHON,ALGORITHM,CODING TEST">
+<meta name="keywords" content="ALGORITHM,CODING TEST,PYTHON,STACK">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[프로그래머스] 코딩테스트 풀이 - 쇠막대기">
 <meta property="og:url" content="https://taeyeonkim93.github.io/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-7/index.html">
@@ -21,12 +21,13 @@
 <meta property="og:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명문제 설명여러 개의 쇠막대기를 레이저로 절단하려고 합니다. 효율적인 작업을 위해서 쇠막대기를 아래에서 위로 겹쳐 놓고, 레이저를 위에서 수직으로 발사하여 쇠막대기들을 자릅니다. 쇠막대기와 레이저의 배치는 다음 조건을 만족합니다.  쇠막대기는 자신보다 긴 쇠막대기 위에만 놓일 수 있습니다. 쇠막대기">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://taeyeonkim93.github.io/images/coding-test/7-1.png">
-<meta property="og:updated_time" content="2019-10-02T08:57:48.625Z">
+<meta property="og:updated_time" content="2019-10-03T12:21:23.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[프로그래머스] 코딩테스트 풀이 - 쇠막대기">
 <meta name="twitter:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명문제 설명여러 개의 쇠막대기를 레이저로 절단하려고 합니다. 효율적인 작업을 위해서 쇠막대기를 아래에서 위로 겹쳐 놓고, 레이저를 위에서 수직으로 발사하여 쇠막대기들을 자릅니다. 쇠막대기와 레이저의 배치는 다음 조건을 만족합니다.  쇠막대기는 자신보다 긴 쇠막대기 위에만 놓일 수 있습니다. 쇠막대기">
 <meta name="twitter:image" content="https://taeyeonkim93.github.io/images/coding-test/7-1.png">
     
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/10/01/algorithm-2019-10-01-programmers-coding-test-7/">
 
     
 
@@ -79,7 +80,7 @@
                                     <a class="main-nav-list-link" href="/">홈</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Private/">Private</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
                                     
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
@@ -170,7 +171,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ALGORITHM/">ALGORITHM</a>, <a class="tag-link" href="/tags/CODING-TEST/">CODING TEST</a>, <a class="tag-link" href="/tags/PYTHON/">PYTHON</a>
+        <a class="tag-link" href="/tags/ALGORITHM/">ALGORITHM</a>, <a class="tag-link" href="/tags/CODING-TEST/">CODING TEST</a>, <a class="tag-link" href="/tags/PYTHON/">PYTHON</a>, <a class="tag-link" href="/tags/STACK/">STACK</a>
     </div>
 
             </div>
@@ -251,7 +252,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-7/" data-id="ck1altp1p003abkw450saddx3" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-7/" data-id="ck1vq4weo00132gw4q5rffwxr" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -323,11 +324,11 @@
         },
         "headline": "[프로그래머스] 코딩테스트 풀이 - 쇠막대기",
         "image": "https://taeyeonkim93.github.io/images/coding-test/7-1.png",
-        "keywords": "PYTHON ALGORITHM CODING TEST",
+        "keywords": "ALGORITHM CODING TEST PYTHON STACK",
         "genre": "Algorithm 프로그래머스",
         "datePublished": "2019-10-01",
         "dateCreated": "2019-10-01",
-        "dateModified": "2019-10-02",
+        "dateModified": "2019-10-03",
         "url": "https://taeyeonkim93.github.io/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-7/",
         "description": "Reference : 프로그래머스 코딩 테스트 연습
 문제 설명문제 설명여러 개의 쇠막대기를 레이저로 절단하려고 합니다. 효율적인 작업을 위해서 쇠막대기를 아래에서 위로 겹쳐 놓고, 레이저를 위에서 수직으로 발사하여 쇠막대기들을 자릅니다. 쇠막대기와 레이저의 배치는 다음 조건을 만족합니다.
@@ -409,6 +410,15 @@
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Private/">Private</a></p>
+                            <p class="item-title"><a href="/2019/10/09/etc-2019-10-09-jongman-book-study-1/" class="title">[종만북] 책 내용 정리</a></p>
+                            <p class="item-date"><time datetime="2019-10-09T08:50:08.000Z" itemprop="datePublished">2019-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
                             <p class="item-title"><a href="/2019/10/02/Algorithm-2019-10-02-programmers-coding-test-9/" class="title">[프로그래머스] 코딩테스트 풀이 - 큰 수 만들기</a></p>
                             <p class="item-date"><time datetime="2019-10-02T08:42:30.000Z" itemprop="datePublished">2019-10-02</time></p>
@@ -442,15 +452,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
-                            <p class="item-title"><a href="/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-5/" class="title">[프로그래머스] 코딩테스트 풀이 - 124 나라의 숫자</a></p>
-                            <p class="item-date"><time datetime="2019-10-01T07:29:56.000Z" itemprop="datePublished">2019-10-01</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -460,7 +461,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">아카이브</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">10</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">10</span></li></ul>
         </div>
     </div>
 
@@ -470,7 +471,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">태그 클라우드</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ALGORITHM/" style="font-size: 20px;">ALGORITHM</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 20px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/HASH/" style="font-size: 12.5px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12.5px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12.5px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 17.5px;">PYTHON</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 15px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a>
+            <a href="/tags/ALGORITHM/" style="font-size: 20px;">ALGORITHM</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 10px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 20px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12.5px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12.5px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12.5px;">KOTLIN</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/PYTHON/" style="font-size: 17.5px;">PYTHON</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/STACK/" style="font-size: 15px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/do-it-study/" style="font-size: 15px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 10px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 10px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 10px;">종만북</a>
         </div>
     </div>
 
