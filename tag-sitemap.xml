@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>https://taeyeonkim93.github.io/tags/Kotlin/</loc>
+        <lastmod>2019-10-20T13:47:51.708Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/tags/App/</loc>
+        <lastmod>2019-10-20T13:47:51.708Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/tags/Android/</loc>
+        <lastmod>2019-10-20T13:47:51.708Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://taeyeonkim93.github.io/tags/%EC%A2%85%EB%A7%8C%EB%B6%81/</loc>
         <lastmod>2019-10-10T13:20:10.039Z</lastmod>
         <changefreq>weekly</changefreq>
