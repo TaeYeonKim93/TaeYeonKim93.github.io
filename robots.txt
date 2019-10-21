@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://taeyeonkim93.github.io/sitemap.xml

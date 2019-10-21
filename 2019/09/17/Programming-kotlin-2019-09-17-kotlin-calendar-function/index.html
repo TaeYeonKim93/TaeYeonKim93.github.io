@@ -74,13 +74,13 @@
                     <div class="nav-container-inner">
                         <ul id="main-nav">
                             
-                                <li class="main-nav-list-item" >
+                                <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/">홈</a>
                                 </li>
                             
                                         <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Private/">Private</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
                                     
-                                <li class="main-nav-list-item" >
+                                <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
                                 </li>
                             
@@ -89,14 +89,14 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -177,7 +177,7 @@
         
         <div class="article-entry" itemprop="articleBody">
             <h1 id="코틀린-날짜-함수"><a href="#코틀린-날짜-함수" class="headerlink" title="코틀린 날짜 함수"></a>코틀린 날짜 함수</h1><p><a href="https://taeyeonkim93.github.io/2019/09/17/programmers-codingtest-1/">프로그래머스 문제</a>를 풀다가 java에서는 <code>Date</code>가 Deprecate 되고 <code>Calendar</code>를 사용한다고 해서 정리해봤다.</p>
-<p>전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 <a href="https://hyeonstorage.tistory.com/205" target="_blank" rel="noopener">이곳</a> 참조</p>
+<p>전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 <a href="https://hyeonstorage.tistory.com/205" target="_blank" rel="external nofollow noopener noreferrer">이곳</a> 참조</p>
 <p>java에서는 날짜를 계산하는 내장라이브러리로 <code>Calendar</code>클래스나 <code>java.time</code> 패키지를 주로 사용하지만 일단 사용하기 편한 Calendar 클래스를 보면</p>
 <ul>
 <li>Calendar 인스턴스 생성<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> calendar:Calendar = Calendar.getInstance()</span><br></pre></td></tr></table></figure>
@@ -201,7 +201,7 @@
 
 </li>
 </ul>
-<p>시간을 밀리초로 변환시킨 후<code>SimpleDateFormat()</code>함수를 통해 원하는 Date Format으로 변경한다.<br>자세한 포맷은 <a href="https://developer.android.com/reference/kotlin/java/text/SimpleDateFormat" target="_blank" rel="noopener">정식문서</a> 참조</p>
+<p>시간을 밀리초로 변환시킨 후<code>SimpleDateFormat()</code>함수를 통해 원하는 Date Format으로 변경한다.<br>자세한 포맷은 <a href="https://developer.android.com/reference/kotlin/java/text/SimpleDateFormat" target="_blank" rel="external nofollow noopener noreferrer">정식문서</a> 참조</p>
 <p>결과값이 한글로 나올경우 뒤에 <code>Locale.ENGLISH</code>을 붙여 영어로 만든다.</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat(<span class="string">"yyyy.MM.dd G 'at' HH:mm:ss z"</span>,Locale.ENGLISH).format(calendar.timeInMillis)  </span><br><span class="line"><span class="comment">//2001.07.04 AD at 12:08:56 PDT</span></span><br></pre></td></tr></table></figure>
         </div>
@@ -319,7 +319,7 @@ java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스�
             
                 
                 <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>
@@ -504,4 +504,4 @@ java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스�
 
     </div>
 </body>
-</html>
+
