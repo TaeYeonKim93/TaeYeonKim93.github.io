@@ -8,8 +8,16 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/10/15/app-develop-project-1/</loc>
-        <lastmod>2019-10-20T13:47:51.708Z</lastmod>
+        <loc>https://taeyeonkim93.github.io/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/</loc>
+        <lastmod>2019-12-02T11:29:08.760Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/10/15/Project-Android-2019-10-15-app-develop-project-1/</loc>
+        <lastmod>2019-11-04T11:13:14.635Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

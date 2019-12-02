@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[프로젝트] 안드로이드 앱 개발 구상 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Android,App,Kotlin">
+    
+    <meta name="description" content="개요개발자로써 커리어를 App 개발로 정했고, 시작으로 간단한 프로젝트를 진행한다.이전에 앱 개발을 해본 경험을 바탕으로 프로토타입용 앱을 개발하려고 한다. 기획과 디자인, 개발 모두 1인으로 진행한다.짧은 시간과 1인 프로젝트인 만큼 toy 프로젝트 형식으로 간단하게 개발한다. 1. 어떤 개발을 할 것인가?짧은 시간제한과 의미있는 프로젝트를 위해 몇 가지">
+<meta name="keywords" content="Android,App,Kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[프로젝트] 안드로이드 앱 개발 구상">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/10/15/Project-Android-2019-10-15-app-develop-project-1/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="개요개발자로써 커리어를 App 개발로 정했고, 시작으로 간단한 프로젝트를 진행한다.이전에 앱 개발을 해본 경험을 바탕으로 프로토타입용 앱을 개발하려고 한다. 기획과 디자인, 개발 모두 1인으로 진행한다.짧은 시간과 1인 프로젝트인 만큼 toy 프로젝트 형식으로 간단하게 개발한다. 1. 어떤 개발을 할 것인가?짧은 시간제한과 의미있는 프로젝트를 위해 몇 가지">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-11-04T11:13:14.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[프로젝트] 안드로이드 앱 개발 구상">
+<meta name="twitter:description" content="개요개발자로써 커리어를 App 개발로 정했고, 시작으로 간단한 프로젝트를 진행한다.이전에 앱 개발을 해본 경험을 바탕으로 프로토타입용 앱을 개발하려고 한다. 기획과 디자인, 개발 모두 1인으로 진행한다.짧은 시간과 1인 프로젝트인 만큼 toy 프로젝트 형식으로 간단하게 개발한다. 1. 어떤 개발을 할 것인가?짧은 시간제한과 의미있는 프로젝트를 위해 몇 가지">
+    
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/10/15/project-android-2019-10-15-app-develop-project-1/">
+    <meta name="google-site-verification" content="bh2D3Ke8MN9YOg5rjJumfeIBHQLIlGQT17Vi4qzTirg">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Private/">Private</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Project/">Project</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Project/Android/">Android</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Project-Android-2019-10-15-app-develop-project-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [프로젝트] 안드로이드 앱 개발 구상
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/10/15/Project-Android-2019-10-15-app-develop-project-1/" class="article-date">
+            <time datetime="2019-10-15T11:54:02.000Z" itemprop="datePublished">2019-10-15</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/App/">App</a>, <a class="tag-link" href="/tags/Kotlin/">Kotlin</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>개발자로써 커리어를 App 개발로 정했고, 시작으로 간단한 프로젝트를 진행한다.<br>이전에 앱 개발을 해본 경험을 바탕으로 프로토타입용 앱을 개발하려고 한다.</p>
+<p>기획과 디자인, 개발 모두 1인으로 진행한다.<br>짧은 시간과 1인 프로젝트인 만큼 toy 프로젝트 형식으로 간단하게 개발한다.</p>
+<h3 id="1-어떤-개발을-할-것인가"><a href="#1-어떤-개발을-할-것인가" class="headerlink" title="1. 어떤 개발을 할 것인가?"></a>1. 어떤 개발을 할 것인가?</h3><p>짧은 시간제한과 의미있는 프로젝트를 위해 몇 가지 고려해야할 사항이 있다.</p>
+<ul>
+<li>어떤 개발환경으로 진행할 것인가? (language, DB, logger, error handling..)</li>
+<li>어떤 어플을 만들것인가?</li>
+</ul>
+<p>수익구조나 타겟층같은 내용도 고려해야 하지만 toy 프로젝트이므로 그런점은 감안하고 진행한다.</p>
+<h5 id="어떤-개발환경으로-진행할-것인가"><a href="#어떤-개발환경으로-진행할-것인가" class="headerlink" title="어떤 개발환경으로 진행할 것인가?"></a>어떤 개발환경으로 진행할 것인가?</h5><ol>
+<li><p>개발언어 : Kotlin</p>
+<ul>
+<li>2017 Google이 선정한 Android 대표 개발언어. 객체지향 언어라 기존 JAVA 개발과 흡사하며 코드가 간결하다.</li>
+</ul>
+</li>
+<li><p>DB : SQLite</p>
+<ul>
+<li>Android 개발시에 사용할 DB. 마지막 개발한지 몇년이 지나서 아직도 이걸 쓰는지 모르겠다</li>
+<li>Realm 도 검토예정</li>
+</ul>
+</li>
+<li><p>Server : AWS</p>
+<ul>
+<li>$0.88 매달 내면서 이용중인 개인서버가 있다. 유저가 로컬만 사용하는 어플이 아니어서 회원가입, 로그인 등에 이용가능할듯</li>
+</ul>
+</li>
+</ol>
+<p>기타 사항은 만들면서 추가 예정</p>
+<h4 id="어떤-어플을-만들-것인가"><a href="#어떤-어플을-만들-것인가" class="headerlink" title="어떤 어플을 만들 것인가?"></a>어떤 어플을 만들 것인가?</h4><p>1인개발의 장점을 살리기 위해서는 화려한 기능보다는 적은 기능에 집중하는게 좋다.<br>아이디어를 고민하던 중 친구의 도움을 받아 일정 관리 어플을 만들어보기로 했다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;챙겼나요?&gt;</span><br><span class="line"></span><br><span class="line">- 특정 날짜를 지정해서 한줄메모를 계속 추가할 수 있음</span><br><span class="line">- 위젯으로 각 날자에 써놓은 항목을 배경화면이나 잠금화면 위에 띄울수있음</span><br><span class="line">- 각 항목을 클릭하면 삭제선그어짐</span><br><span class="line"></span><br><span class="line">ex)</span><br><span class="line">10월 18일</span><br><span class="line">- 우산(삭제선)</span><br><span class="line">- 대강당 교육 오후 2시</span><br><span class="line">- xx한테 돈보냄?(삭제선)</span><br><span class="line"></span><br><span class="line">앱은 기능이 많으면 안되고 최대한 단촐하게. 추가한다면 알람정도</span><br></pre></td></tr></table></figure>
+
+<p><strong>일정 관리 어플 장점</strong></p>
+<ul>
+<li>구글 Keep 메모, MS 원노트, 에버노트, 리마인더 등 먼저 있었던 앱들을 참고할수 있다.</li>
+<li>유저마다 원하는 일정 관리의 형태가 달라 특정 사용자층을 노릴 수 있다</li>
+<li>간단하다</li>
+<li>실생활에 접목하기 쉽다</li>
+</ul>
+<p><strong>일정 관리 어플 단점</strong></p>
+<ul>
+<li>시장에 비슷한 어플이 너무 많아 굳이 쓸 이유가 없다</li>
+<li>너무…많다…</li>
+</ul>
+<p>기존 앱들을 사용해보고 불편했던점을 종합해서 요구사항으로 반영해보기로 했다.</p>
+<h3 id="2-어플-기능-정리"><a href="#2-어플-기능-정리" class="headerlink" title="2. 어플 기능 정리"></a>2. 어플 기능 정리</h3><ul>
+<li><p>요구사항 정의</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- 메모가 가능해야함</span><br><span class="line">  - 가독성이 용이해야함</span><br><span class="line">  - 수정이 용이해야함 / 채팅형 방식도 고민중</span><br><span class="line">- 다음날짜로 넘어갈경우(24:00 이후) 안에 내용도 모두 다음날짜 내용으로 바뀌어야함</span><br><span class="line">- 위젯이 가능해야함. 4x2 ~ 5x5 대응</span><br><span class="line">  - 이전 날짜에 있던 모든 일정은 보이지 않아야함(기본)</span><br><span class="line">  - [메모 유지] Flag 가 On 되어있을경우 다음날짜로 일정이 넘어감 (선택)</span><br><span class="line"></span><br><span class="line">- 검색창에 내 할일을 찾으면 찾을 수 있어야함 (추가기능)</span><br><span class="line">- 리마인더, 구글캘린더와 연동이 가능해야함 (추가기능)</span><br><span class="line">  - 스마트워치와 연동가능해야함 (추가기능)</span><br><span class="line">- 백업이 가능해야함 (추가기능)</span><br><span class="line">- 잠금화면 위에 위젯이 올라와야함 (추가기능)</span><br><span class="line">- AOD 위로 올라와야함 (추가기능)</span><br><span class="line">- 알림이 가능해야함 (추가기능)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>기능 정의</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">- 메인 화면 구현</span><br><span class="line">  - 메인화면 상단 달력 바 구현</span><br><span class="line">    - 날짜 클릭 시 해당 날짜의 일정 출현 기능 구현</span><br><span class="line">    - 이전 주 / 다음 주 슬라이드 이동 기능 구현</span><br><span class="line">    - 월 누르면 월 선택할수있는 박스 기능 구현</span><br><span class="line">    - 해당 월의 가장 뒤 날짜로 이동 기능 구현(이번달은 오늘날짜)</span><br><span class="line">    - # 아래 bar 클릭시 달력 출현 기능 구현 (추가기능)</span><br><span class="line"></span><br><span class="line">  - 메인화면 하단 일정 관리 화면 구현</span><br><span class="line">    - 체크박스 기능 구현 (체크할시 취소선)</span><br><span class="line">    - 우측에 휴지통 버튼 구현 (클릭시 일정 삭제)</span><br><span class="line">    - 최하단 메모 추가 버튼 구현 (클릭시 일정추가화면으로 이동)</span><br><span class="line">    - 무한 기능이 들어간 일정의 경우 글자색이 바뀜</span><br><span class="line"></span><br><span class="line">- 위젯 화면 구현</span><br><span class="line">  - 위젯 화면 상단 소형 달력 화면 구현</span><br><span class="line">    - 이전 날 / 다음 날 버튼 기능 구현</span><br><span class="line">    - 오늘 날짜 표시 기능 구현 </span><br><span class="line">    - 오늘 날짜로 돌아가기 버튼 구현</span><br><span class="line">  - 일정 추가 버튼 구현</span><br><span class="line">  - 다양한 크기가 가능해야함</span><br><span class="line"></span><br><span class="line">  - 위젯 하단 일정 화면 구현</span><br><span class="line">    - 당일의 일정 리스트 가져오기 기능 구현</span><br><span class="line">    - 취소선이 그어진 일정은 가져오지 않음</span><br><span class="line">    - 체크박스 기능 구현</span><br><span class="line">      - 체크박스 클릭시 3초뒤에 위젯에서 삭제</span><br><span class="line"></span><br><span class="line">- 일정 추가 화면 구현</span><br><span class="line">  - 뒤로가기 버튼 구현</span><br><span class="line">  - 메모 작성칸 구현</span><br><span class="line">    - 화면 진입시 오토포커스</span><br><span class="line">    - 클릭시 키보드 출현, 내용 입력 가능</span><br><span class="line">  - 날짜 기능 구현</span><br><span class="line">    - 오늘 날짜 표시 기능 구현</span><br><span class="line">    - 이전 날 / 다음 날 버튼 기능 구현</span><br><span class="line">  - 하단에 취소 / 저장 버튼 구현</span><br><span class="line">  - 저장 기능 구현</span><br><span class="line">    - 저장시 해당된 날짜 기준으로 메모 내용 저장</span><br><span class="line">  - 무한 버튼 구현</span><br><span class="line">    - 무한 버튼이 활성화 되어있을경우 다음날로 넘어가면 다음날에 해당 일정이 추가됨</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>디자인 정의<br><a href="https://ovenapp.io/view/FtMo0EjqM1EAdG6gLVrJHeTUPeW6bfOq/B4oxD" rel="external nofollow noopener noreferrer" target="_blank">앱 디자인화면</a><br>Oven.io 로 구현했다. 프로토타입 디자인하기에 최적의 사이트.</p>
+<ol>
+<li>메인화면</li>
+<li>위젯화면</li>
+<li>일정추가 화면</li>
+</ol>
+<p>크게 3개로 분류했고 [해당일정 관리화면]이 따로 필요할 경우 추가예정</p>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/10/15/Project-Android-2019-10-15-app-develop-project-1/" data-id="ck3ocpx01009b58w43n7rqx5d" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[프로젝트] 안드로이드 앱 개발 구상",
+        "image": "https://taeyeonkim93.github.io",
+        "keywords": "Android App Kotlin",
+        "genre": "Project Android",
+        "datePublished": "2019-10-15",
+        "dateCreated": "2019-10-15",
+        "dateModified": "2019-11-04",
+        "url": "https://taeyeonkim93.github.io/2019/10/15/Project-Android-2019-10-15-app-develop-project-1/",
+        "description": "개요개발자로써 커리어를 App 개발로 정했고, 시작으로 간단한 프로젝트를 진행한다.이전에 앱 개발을 해본 경험을 바탕으로 프로토타입용 앱을 개발하려고 한다.
+기획과 디자인, 개발 모두 1인으로 진행한다.짧은 시간과 1인 프로젝트인 만큼 toy 프로젝트 형식으로 간단하게 개발한다.
+1. 어떤 개발을 할 것인가?짧은 시간제한과 의미있는 프로젝트를 위해 몇 가지",
+        "wordCount": 836
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/10/09/etc-2019-10-09-jongman-book-study-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[종만북] 책 내용 정리</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/" class="title">[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Project/">Project</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Project/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/10/15/Project-Android-2019-10-15-app-develop-project-1/" class="title">[프로젝트] 안드로이드 앱 개발 구상</a></p>
+                            <p class="item-date"><time datetime="2019-10-15T11:54:02.000Z" itemprop="datePublished">2019-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Private/">Private</a></p>
+                            <p class="item-title"><a href="/2019/10/09/etc-2019-10-09-jongman-book-study-1/" class="title">[종만북] 책 내용 정리</a></p>
+                            <p class="item-date"><time datetime="2019-10-09T08:50:08.000Z" itemprop="datePublished">2019-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/10/02/Algorithm-2019-10-02-programmers-coding-test-9/" class="title">[프로그래머스] 코딩테스트 풀이 - 큰 수 만들기</a></p>
+                            <p class="item-date"><time datetime="2019-10-02T08:42:30.000Z" itemprop="datePublished">2019-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></p>
+                            <p class="item-title"><a href="/2019/10/02/Algorithm-2019-10-02-programmers-coding-test-8/" class="title">[프로그래머스] 코딩테스트 풀이 - 조이스틱</a></p>
+                            <p class="item-date"><time datetime="2019-10-02T05:58:32.000Z" itemprop="datePublished">2019-10-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12월 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">10</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 20px;">ALGORITHM</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 10px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 20px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12.5px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12.5px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12.5px;">KOTLIN</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/PYTHON/" style="font-size: 17.5px;">PYTHON</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/STACK/" style="font-size: 15px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/VIPER/" style="font-size: 10px;">VIPER</a> <a href="/tags/do-it-study/" style="font-size: 15px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 10px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 10px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 10px;">종만북</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/10/15/Project-Android-2019-10-15-app-develop-project-1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+
