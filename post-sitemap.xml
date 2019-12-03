@@ -8,6 +8,94 @@
     </url>
 
     <url>
+        <loc>https://taeyeonkim93.github.io/2019/10/15/exhaustive-search-algorithm/</loc>
+        <lastmod>2019-12-03T08:59:44.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/11/19/design-pattern/</loc>
+        <lastmod>2019-12-03T08:59:02.504Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/10/15/Algorithm-book-2019-10-15-jongman-book-study-2/</loc>
+        <lastmod>2019-12-03T08:57:01.809Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/10/09/Algorithm-book-2019-10-09-jongman-book-study-1/</loc>
+        <lastmod>2019-12-03T08:57:01.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/10/21/Programming-kotlin-2019-10-21-kotlin-function/</loc>
+        <lastmod>2019-12-03T08:55:39.149Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/11/04/Programming-kotlin-2019-11-04-android-issue/</loc>
+        <lastmod>2019-12-03T08:54:29.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/11/20/Programming-kotlin-2019-11-20-android-network/</loc>
+        <lastmod>2019-12-03T08:54:18.999Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/09/18/Programming-python-2019-09-18-python-function/</loc>
+        <lastmod>2019-12-03T08:53:45.593Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/09/24/Programming-python-2019-09-24-python-issue/</loc>
+        <lastmod>2019-12-03T08:48:37.504Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/11/21/Programming-kotlin-2019-11-21-android-design-issue/</loc>
+        <lastmod>2019-12-03T08:46:09.052Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://taeyeonkim93.github.io/2019/11/20/Programming-kotlin-2019-11-20-android-dagger/</loc>
+        <lastmod>2019-12-03T08:45:28.709Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://taeyeonkim93.github.io/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/</loc>
         <lastmod>2019-12-02T11:29:08.760Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,15 +112,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/10/09/etc-2019-10-09-jongman-book-study-1/</loc>
-        <lastmod>2019-10-10T13:20:10.039Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://taeyeonkim93.github.io/2019/10/02/Algorithm-2019-10-02-programmers-coding-test-9/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/10/02/Algorithm-programmers-2019-10-02-programmers-coding-test-9/</loc>
         <lastmod>2019-10-03T12:21:23.628Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -40,7 +120,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-6/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/10/01/Algorithm-programmers-2019-10-01-programmers-coding-test-6/</loc>
         <lastmod>2019-10-03T12:21:23.624Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -48,7 +128,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/10/02/Algorithm-2019-10-02-programmers-coding-test-8/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/10/02/Algorithm-programmers-2019-10-02-programmers-coding-test-8/</loc>
         <lastmod>2019-10-03T12:21:23.620Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -56,7 +136,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-7/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/10/01/Algorithm-programmers-2019-10-01-programmers-coding-test-7/</loc>
         <lastmod>2019-10-03T12:21:23.615Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -64,7 +144,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/09/18/Algorithm-2019-09-18-programmers-coding-test-3/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/09/18/Algorithm-programmers-2019-09-18-programmers-coding-test-3/</loc>
         <lastmod>2019-10-03T12:21:23.612Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -72,7 +152,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/10/01/Algorithm-2019-10-01-programmers-coding-test-5/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/10/01/Algorithm-programmers-2019-10-01-programmers-coding-test-5/</loc>
         <lastmod>2019-10-01T10:18:55.623Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -80,7 +160,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/09/24/Algorithm-2019-09-24-programmers-coding-test-4/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/09/24/Algorithm-programmers-2019-09-24-programmers-coding-test-4/</loc>
         <lastmod>2019-10-01T07:02:30.511Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -88,7 +168,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-2/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/09/17/Algorithm-programmers-2019-09-17-programmers-coding-test-2/</loc>
         <lastmod>2019-09-24T08:29:43.875Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -120,7 +200,7 @@
     </url>
 
     <url>
-        <loc>https://taeyeonkim93.github.io/2019/09/17/Algorithm-2019-09-17-programmers-coding-test-1/</loc>
+        <loc>https://taeyeonkim93.github.io/2019/09/17/Algorithm-programmers-2019-09-17-programmers-coding-test-1/</loc>
         <lastmod>2019-09-18T09:55:14.765Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

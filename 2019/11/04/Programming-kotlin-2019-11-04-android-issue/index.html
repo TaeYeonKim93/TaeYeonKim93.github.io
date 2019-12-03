@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Android] 안드로이드 이슈 정리 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Android,Android issue,Android FUNCTION">
+    
+    <meta name="description" content="앱 개발 도중 기억하고 싶은 이슈를 적는 곳 목차안드로이드 용어 정리안드로이드 생애주기Java와 Kotlin이 다른점정적 변수 및 메서드 사용하기Gradle 꿀팁VIPER 패턴 정의하기 안드로이드 용어 정리어렴풋이 알고 있었던 안드로이드의 용어들을 정리한다.  Activity (액티비티)  애플리케이션 구성요소 중 “화면” 을 제공하는 단어 주로 화면에 보">
+<meta name="keywords" content="Android,Android issue,Android FUNCTION">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] 안드로이드 이슈 정리">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/11/04/Programming-kotlin-2019-11-04-android-issue/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="앱 개발 도중 기억하고 싶은 이슈를 적는 곳 목차안드로이드 용어 정리안드로이드 생애주기Java와 Kotlin이 다른점정적 변수 및 메서드 사용하기Gradle 꿀팁VIPER 패턴 정의하기 안드로이드 용어 정리어렴풋이 알고 있었던 안드로이드의 용어들을 정리한다.  Activity (액티비티)  애플리케이션 구성요소 중 “화면” 을 제공하는 단어 주로 화면에 보">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://taeyeonkim93.github.io/images/android-issue/Lifecycle.png">
+<meta property="og:updated_time" content="2019-12-03T08:54:29.487Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Android] 안드로이드 이슈 정리">
+<meta name="twitter:description" content="앱 개발 도중 기억하고 싶은 이슈를 적는 곳 목차안드로이드 용어 정리안드로이드 생애주기Java와 Kotlin이 다른점정적 변수 및 메서드 사용하기Gradle 꿀팁VIPER 패턴 정의하기 안드로이드 용어 정리어렴풋이 알고 있었던 안드로이드의 용어들을 정리한다.  Activity (액티비티)  애플리케이션 구성요소 중 “화면” 을 제공하는 단어 주로 화면에 보">
+<meta name="twitter:image" content="https://taeyeonkim93.github.io/images/android-issue/Lifecycle.png">
+    
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/11/04/programming-kotlin-2019-11-04-android-issue/">
+    <meta name="google-site-verification" content="bh2D3Ke8MN9YOg5rjJumfeIBHQLIlGQT17Vi4qzTirg">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/Design-pattern/">Design pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Kotlin/">Kotlin</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Programming-kotlin-2019-11-04-android-issue" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Android] 안드로이드 이슈 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/11/04/Programming-kotlin-2019-11-04-android-issue/" class="article-date">
+            <time datetime="2019-11-04T11:13:23.000Z" itemprop="datePublished">2019-11-04</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/Android-FUNCTION/">Android FUNCTION</a>, <a class="tag-link" href="/tags/Android-issue/">Android issue</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>앱 개발 도중 기억하고 싶은 이슈를 적는 곳</p>
+<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#안드로이드-용어-정리">안드로이드 용어 정리</a><br><a href="#안드로이드-생애주기">안드로이드 생애주기</a><br><a href="#Java와-Kotlin이-다른점">Java와 Kotlin이 다른점</a><br><a href="#정적-변수-및-메서드-사용하기">정적 변수 및 메서드 사용하기</a><br><a href="#Gradle-꿀팁">Gradle 꿀팁</a><br><a href="#VIPER-패턴-정의하기">VIPER 패턴 정의하기</a></p>
+<h3 id="안드로이드-용어-정리"><a href="#안드로이드-용어-정리" class="headerlink" title="안드로이드 용어 정리"></a><a href="#목차">안드로이드 용어 정리</a></h3><p>어렴풋이 알고 있었던 안드로이드의 용어들을 정리한다.</p>
+<ul>
+<li><p>Activity (액티비티)</p>
+<ul>
+<li>애플리케이션 구성요소 중 “화면” 을 제공하는 단어</li>
+<li>주로 화면에 보이는 UI와 상호작용할 수 있는 화면을 제공한다.</li>
+</ul>
+</li>
+<li><p>Interface (인터페이스)</p>
+<ul>
+<li>함수들의 묶음을 정의해두기 위해 만든 개념</li>
+<li>내부의 함수들은 다른 Class에서 정의한다.</li>
+</ul>
+</li>
+<li><p>boilerplate code(보일러 플레이트 코드)</p>
+<ul>
+<li><p>표준 문안이라는 뜻의 단어</p>
+</li>
+<li><p>꼭 필요하지만 반복적이고 중복이 많아 코드가 길어져 불편하다.</p>
+</li>
+<li><p>최소한의 변경으로 재사용할 수 있는 것</p>
+</li>
+<li><p>적은 수정만으로 여러 곳에 활용 가능한 코드, 문구</p>
+</li>
+<li><p>각종 문서에서 반복적으로 인용되는 문서의 한 부분</p>
+</li>
+</ul>
+</li>
+<li><p>Annotation (애노테이션)</p>
+<ul>
+<li>메타데이터 클래스</li>
+<li>@를 붙여 다른 클래스나 메소드, 필드, 다른 애노테이션과 결합되어 사용</li>
+<li>추가적인 정보를 제공하는 대안이 됨</li>
+<li>애노테이션을 활용하면 코드가 컴파일시간에 생성되므로<br>보일러 플레이트 코드를 줄일 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="안드로이드-생애주기"><a href="#안드로이드-생애주기" class="headerlink" title="안드로이드 생애주기"></a><a href="#목차">안드로이드 생애주기</a></h3><p>어렴풋이 알고 있었던 안드로이드의 생애주기를 정리한다.</p>
+<p><img src="/images/android-issue/Lifecycle.png" alt></p>
+<p>Lifecycle에 따른 기본적인 기능만 정리한다.</p>
+<ol>
+<li><p>onCreate()</p>
+<ul>
+<li>Activity 를 처음 실행할 때 딱 한번만 호출된다.</li>
+<li>딱 한번만 발생하는 로직을 담아야 하므로 <code>변수초기화</code>, <code>클래스 인스턴스화</code> 등의 작업을 한다.</li>
+</ul>
+</li>
+<li><p>onStart()</p>
+<ul>
+<li>onCreate()가 실행된 이후에 호출된다.</li>
+<li>Activity 가 Foreground에 나오기 전에 수행되므로 UI를 관리하는 코드를 작성한다.</li>
+</ul>
+</li>
+<li><p>onRestart()</p>
+<ul>
+<li>onStart()와는 달리 앱이 실행될때는 실행되지 않는다.</li>
+<li>onStop() -&gt; onRestart() 일때만 실행된다.</li>
+</ul>
+</li>
+<li><p>onResume()</p>
+<ul>
+<li>onStart()가 수행된 이후에 호출된다.</li>
+<li>Activity에 포커스가 맞춰져있는동안 onResume()의 상태가 유지된다.</li>
+<li>앱이 포커스를 되찾으면 onPause()를 거쳐 onResume()이 다시 수행될 수 있다.</li>
+<li>대부분의 자주 사용하는 메소드(새로고침 후에 사용되는)를 적는다.</li>
+</ul>
+</li>
+<li><p>onPause()</p>
+<ul>
+<li>Activity의 포커스가 다른곳으로 이동하면 호출된다.</li>
+<li>앱을 종료하는것 뿐만아니라 일시적인 포커스 이동에도 수행된다.</li>
+<li>메모리나 배터리 소모를 일으키는 자원을 해제하는 로직을 구현한다.</li>
+<li>onResume()이 했던 작업들을 저장하거나 멈추게 한다.</li>
+<li>Activity가 다시 재개되면 onResume()이 다시 수행된다.</li>
+</ul>
+</li>
+<li><p>onStop()</p>
+<ul>
+<li>onPause() 이후 단계로 액티비티가 활동을 중지한 상태이다.</li>
+<li>대부분의 자원을 해제해야한다.</li>
+<li>이후에 Activity가 재개되면 onRestart()를 통해 onStart()를 실행한다.</li>
+</ul>
+</li>
+<li><p>onDestroy()</p>
+<ul>
+<li>앱이 종료되는 최종단계로 모든 리소스를 해제한다.</li>
+</ul>
+</li>
+</ol>
+<h5 id="Activity-수행-예시"><a href="#Activity-수행-예시" class="headerlink" title="Activity 수행 예시"></a>Activity 수행 예시</h5><ol>
+<li>앱을 실행했을때<ul>
+<li>onCrate() -&gt; onStart() -&gt; onResume()</li>
+</ul>
+</li>
+<li>Activity 1에서 Activity 2를 생성했을때<ul>
+<li>Activity 1 : onPause() -&gt; onStop()</li>
+<li>Activity 2 : onCreate() -&gt; onStart() -&gt; onResume()</li>
+</ul>
+</li>
+<li>Activity 2를 종료하고 1로 돌아왔을때<ul>
+<li>onRestart() -&gt; onStart() -&gt; onResume()</li>
+</ul>
+</li>
+<li>홈키를 눌러서 백그라운드로 전환됐을 때<ul>
+<li>onPause() -&gt; onStop()</li>
+</ul>
+</li>
+<li>다시 돌아왔을 때<ul>
+<li>onRestart() -&gt; onStart() -&gt; onResume()</li>
+</ul>
+</li>
+<li>앱을 종료할 때<ul>
+<li>onPause() -&gt; onStop() -&gt; onDestroy()</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-Java와-Kotlin이-다른점"><a href="#5-Java와-Kotlin이-다른점" class="headerlink" title="5. Java와 Kotlin이 다른점"></a><a href="#목차">5. Java와 Kotlin이 다른점</a></h3><ul>
+<li>상속<ul>
+<li>생성자가 있는 class를 상속했을때는 무조건 생성자를 받아야 한다.</li>
+<li>Extends <ul>
+<li>부모 클래스에서 선언/정의를 모두 하고 자식은 그대로 사용만 할수 있게 상속하는 명령어</li>
+<li>코틀린에선 Extends나 Implements나 콜론으로 통일함</li>
+</ul>
+</li>
+<li>Implements<ul>
+<li>부모 클래스에서 선언만 하며 정의는 자식 클래스에서 오버라이드하도록 상속시키는 명령어</li>
+<li>코틀린에선 Extends나 Implements나 콜론으로 통일함</li>
+</ul>
+</li>
+<li>Abstract<ul>
+<li>extends로 사용하지만 abstract로 선언된 클래스는 interface도 가질 수 있음</li>
+</ul>
+</li>
+<li>Super / this<ul>
+<li>super은 상위 클래스에서 멤버변수/메소드를 가져옴</li>
+<li>this는 현재 클래스에서 멤버변수/메소드를 가져옴</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Java에서 생성자 사용하는 방법</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testClass</span> </span>&#123;</span><br><span class="line">    String example;</span><br><span class="line">    testClass(String example2)&#123;</span><br><span class="line">        <span class="keyword">this</span>.example = example2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>생성자를 따로 만들어서 내부변수를 this로 선언해서 매개변수를 받아야 한다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Kotlin에서 생성자 사용하는 방법</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">testClass</span></span>(<span class="keyword">var</span> example: String)&#123;</span><br><span class="line">    println(<span class="string">"매개변수 : <span class="variable">$example</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 부를때</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">testClass2</span></span>(example2 : String) : testClass(example2) &#123;</span><br><span class="line">    println(<span class="string">"example2 를 매개변수로 testClass를 상속받음"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">testClass</span></span>(num : <span class="built_in">Int</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> example : String = <span class="string">""</span></span><br><span class="line">    <span class="keyword">constructor</span>(example2 : String, num : <span class="built_in">Int</span>) : <span class="keyword">this</span>(num)&#123; </span><br><span class="line">        <span class="comment">// 기본 생성자를 상속받아야 한다.</span></span><br><span class="line">        <span class="keyword">this</span>.example = example2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>생성자는 <code>(var example: String)</code> 이고, 따로 변수 선언없이 바로 사용 가능하다.</li>
+<li><code>constructor()</code> 함수를 사용하면 추가적으로 매개변수를 받아서 사용할 수 있다.</li>
+<li>인터페이스는 class로 상속받을경우 내부에 있는 모든 함수를 override 해야 한다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="정적-변수-및-메서드-사용하기"><a href="#정적-변수-및-메서드-사용하기" class="headerlink" title="정적 변수 및 메서드 사용하기"></a><a href="#목차">정적 변수 및 메서드 사용하기</a></h3><ul>
+<li><p>정적 변수를 사용하면 <code>[클래스명].[함수명]</code>혹은 <code>[클래스명].[상수명]</code><br>등으로 활용 가능하다.</p>
+</li>
+<li><p>사용처</p>
+<ul>
+<li>액티비티/프래그먼트의 인텐트 Extra로 사용하는 키</li>
+<li>로그 출력을 위한 태그(Tag) 이름 정의</li>
+<li>뷰 내부에서 사용하는 고정된 길이 값 (너비, 높이 등)</li>
+<li>각종 유틸리티 클래스 내 메서드</li>
+</ul>
+</li>
+<li><p>사용법</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * object 기본 정의</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">object</span> Foo1 &#123;</span><br><span class="line">    <span class="keyword">val</span> BAR1 = <span class="string">"bar1"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * companion object를 이용한 정의</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo2</span> </span>&#123;         </span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">val</span> BAR2 = <span class="string">"bar2"</span></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">baz</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// Do something</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * Main Activity에서 object 호출</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// object 정의된 BAR1 호출</span></span><br><span class="line">    <span class="keyword">val</span> str = Foo1.BAR1</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Foo.baz() 함수 호출</span></span><br><span class="line">    Foo2.baz()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>코틀린에서는 <code>object</code>를 이용해서 클래스를 정의함과 동시에<br>객체를 생성할 수 있다<ul>
+<li><code>Foo1</code>라는 이름을 가진 객체를 생성한 싱글턴 패턴으로 봐도 무방하다</li>
+</ul>
+</li>
+<li><code>companion object</code> 를 이용하면 class 내부에 선언된 private property에<br> 접근 가능하다</li>
+<li>익명 클래스를 구현할때도 <code>object</code>를 이용한다.<ul>
+<li>익명 클래스 설명은 <a href="https://yookeun.github.io/java/2017/01/24/java-anonymousclass/" rel="external nofollow noopener noreferrer" target="_blank">익명클래스 사용방법</a> 참조<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 익명 클래스 구현</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ClickListener</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">()</span></span>   </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>)</span></span> &#123; </span><br><span class="line">    setClickAction(<span class="keyword">object</span> : ClickListener &#123;     </span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">()</span></span> &#123; </span><br><span class="line">            println(<span class="string">"clicked!!!"</span>) </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;) </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">setClickAction</span><span class="params">(clickListener: <span class="type">ClickListener</span>)</span></span> &#123;</span><br><span class="line">    clickListener.onClick() </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Gradle-꿀팁"><a href="#Gradle-꿀팁" class="headerlink" title="Gradle 꿀팁"></a><a href="#목차">Gradle 꿀팁</a></h3><h3 id="VIPER-패턴-정의하기"><a href="#VIPER-패턴-정의하기" class="headerlink" title="VIPER 패턴 정의하기"></a><a href="#목차">VIPER 패턴 정의하기</a></h3>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/11/04/Programming-kotlin-2019-11-04-android-issue/" data-id="ck3pmtir0008f9cw4vds6w6ju" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[Android] 안드로이드 이슈 정리",
+        "image": "https://taeyeonkim93.github.io/images/android-issue/Lifecycle.png",
+        "keywords": "Android Android issue Android FUNCTION",
+        "genre": "Programming Kotlin",
+        "datePublished": "2019-11-04",
+        "dateCreated": "2019-11-04",
+        "dateModified": "2019-12-03",
+        "url": "https://taeyeonkim93.github.io/2019/11/04/Programming-kotlin-2019-11-04-android-issue/",
+        "description": "앱 개발 도중 기억하고 싶은 이슈를 적는 곳
+목차안드로이드 용어 정리안드로이드 생애주기Java와 Kotlin이 다른점정적 변수 및 메서드 사용하기Gradle 꿀팁VIPER 패턴 정의하기
+안드로이드 용어 정리어렴풋이 알고 있었던 안드로이드의 용어들을 정리한다.
+
+Activity (액티비티)
+
+애플리케이션 구성요소 중 “화면” 을 제공하는 단어
+주로 화면에 보",
+        "wordCount": 1079
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/11/19/design-pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            디자인 패턴 정리
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/10/21/Programming-kotlin-2019-10-21-kotlin-function/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[Kotlin] 코틀린 함수 정리</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/" class="title">[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/21/Programming-kotlin-2019-11-21-android-design-issue/" class="title">[Android] 안드로이드 디자인 관련 이슈 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-21T13:31:45.000Z" itemprop="datePublished">2019-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Programming-kotlin-2019-11-20-android-dagger/" class="title">[Android] Dagger2 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T08:10:24.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Programming-kotlin-2019-11-20-android-network/" class="title">[Android] Retrofit 으로 서버-앱 통신 구현하기</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T04:57:47.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/Design-pattern/">Design pattern</a></p>
+                            <p class="item-title"><a href="/2019/11/19/design-pattern/" class="title">디자인 패턴 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-19T11:15:42.000Z" itemprop="datePublished">2019-11-19</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12월 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 18px;">ALGORITHM</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Android-Design/" style="font-size: 10px;">Android Design</a> <a href="/tags/Android-FUNCTION/" style="font-size: 10px;">Android FUNCTION</a> <a href="/tags/Android-issue/" style="font-size: 12px;">Android issue</a> <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/BACK-TRACKING/" style="font-size: 10px;">BACK TRACKING</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 12px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 18px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DI/" style="font-size: 10px;">DI</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/Dagger/" style="font-size: 10px;">Dagger</a> <a href="/tags/Design-pattern/" style="font-size: 10px;">Design pattern</a> <a href="/tags/EXHAUSTIVE-SEARCH/" style="font-size: 10px;">EXHAUSTIVE SEARCH</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12px;">KOTLIN</a> <a href="/tags/Koin/" style="font-size: 10px;">Koin</a> <a href="/tags/Kotlin/" style="font-size: 14px;">Kotlin</a> <a href="/tags/Kotlin-FUNCTION/" style="font-size: 10px;">Kotlin FUNCTION</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/PYTHON/" style="font-size: 20px;">PYTHON</a> <a href="/tags/PYTHON-FUNCTION/" style="font-size: 10px;">PYTHON FUNCTION</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/STACK/" style="font-size: 14px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/VIPER/" style="font-size: 10px;">VIPER</a> <a href="/tags/do-it-study/" style="font-size: 14px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 12px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 12px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 12px;">종만북</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/11/04/Programming-kotlin-2019-11-04-android-issue/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+
