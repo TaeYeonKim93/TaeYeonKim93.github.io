@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Taeyeon">
 <meta property="og:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수평 직선에 탑 N대를 세웠습니다. 모든 탑의 꼭대기에는 신호를 송/수신하는 장치를 설치했습니다. 발사한 신호는 신호를 보낸 탑보다 높은 탑에서만 수신합니다. 또한, 한 번 수신된 신호는 다른 탑으로 송신되지 않습니다. 예를 들어 높이가 6, 9, 5, 7, 4인 다섯 탑이 왼쪽으로 동시에 레이저">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-10-03T12:21:23.624Z">
+<meta property="og:updated_time" content="2019-12-04T05:07:05.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[프로그래머스] 코딩테스트 풀이 - 탑">
 <meta name="twitter:description" content="Reference : 프로그래머스 코딩 테스트 연습 문제 설명수평 직선에 탑 N대를 세웠습니다. 모든 탑의 꼭대기에는 신호를 송/수신하는 장치를 설치했습니다. 발사한 신호는 신호를 보낸 탑보다 높은 탑에서만 수신합니다. 또한, 한 번 수신된 신호는 다른 탑으로 송신되지 않습니다. 예를 들어 높이가 6, 9, 5, 7, 4인 다섯 탑이 왼쪽으로 동시에 레이저">
@@ -250,8 +250,6 @@
 <p>간단하게 2중 for문을 사용해서 풀어주었다.<br>이번 예제를 통해 <code>for else</code>문을 알게되었다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(heights)</span>:</span></span><br><span class="line">    answer = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i, num <span class="keyword">in</span> enumerate(heights):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> heights[j] &gt; num:</span><br><span class="line">                answer.append(j + <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            answer.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
 
-
-
 <h2 id="다른-풀이"><a href="#다른-풀이" class="headerlink" title="다른 풀이"></a>다른 풀이</h2><h4 id="1-2중-for문"><a href="#1-2중-for문" class="headerlink" title="1. 2중 for문"></a>1. 2중 for문</h4><p>0을 먼저 선언해준뒤에 비교했다는 사실을 빼면 차이 없음.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(h)</span>:</span></span><br><span class="line">    ans = [<span class="number">0</span>] * len(h)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(h)<span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> h[i] &lt; h[j]:</span><br><span class="line">                ans[i] = j+<span class="number">1</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 
@@ -271,7 +269,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/10/01/Algorithm-programmers-2019-10-01-programmers-coding-test-6/" data-id="ck3pmtipc00439cw4yrawbii4" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/10/01/Algorithm-programmers-2019-10-01-programmers-coding-test-6/" data-id="ckkaozyh90060y8w4pj28wr0x" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -347,7 +345,7 @@
         "genre": "Algorithm 프로그래머스",
         "datePublished": "2019-10-01",
         "dateCreated": "2019-10-01",
-        "dateModified": "2019-10-03",
+        "dateModified": "2019-12-04",
         "url": "https://taeyeonkim93.github.io/2019/10/01/Algorithm-programmers-2019-10-01-programmers-coding-test-6/",
         "description": "Reference : 프로그래머스 코딩 테스트 연습
 문제 설명수평 직선에 탑 N대를 세웠습니다. 모든 탑의 꼭대기에는 신호를 송/수신하는 장치를 설치했습니다. 발사한 신호는 신호를 보낸 탑보다 높은 탑에서만 수신합니다. 또한, 한 번 수신된 신호는 다른 탑으로 송신되지 않습니다.
@@ -509,7 +507,7 @@
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>&copy; 2021 Taeyeon Kim</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
             <div class="footer-plugins">

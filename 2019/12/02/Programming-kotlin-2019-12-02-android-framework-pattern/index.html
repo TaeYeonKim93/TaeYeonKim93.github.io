@@ -21,7 +21,7 @@
 <meta property="og:description" content="안드로이드 패턴 MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다. 협업, 유지보수, 테스트가 용이해진다. 화면에 보여주는 로직과 실제 데이터가 처리 되는 로직을 분리하는게 목적   패턴을 적용하지 않고 하나의 Activity 에서 표현한다면 이와 같다. 화면 제공 유저 이벤트 업무 로직 화면 업데이트     각 패턴의 재료  Data Object">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://taeyeonkim93.github.io/images/android-pattern/mvc.png">
-<meta property="og:updated_time" content="2019-12-02T11:29:08.760Z">
+<meta property="og:updated_time" content="2019-12-21T05:51:39.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)">
 <meta name="twitter:description" content="안드로이드 패턴 MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다. 협업, 유지보수, 테스트가 용이해진다. 화면에 보여주는 로직과 실제 데이터가 처리 되는 로직을 분리하는게 목적   패턴을 적용하지 않고 하나의 Activity 에서 표현한다면 이와 같다. 화면 제공 유저 이벤트 업무 로직 화면 업데이트     각 패턴의 재료  Data Object">
@@ -201,7 +201,7 @@
 <li>기본이 되는 데이터의 순수 객체 표현</li>
 </ul>
 </li>
-<li><p>Business Logic</p>
+<li><p>Business Logic (비즈니스 로직)</p>
 <ul>
 <li>데이터를 생성/표시/저장/변경 하는 로직</li>
 <li>대부분의 <code>Use Case</code> 가 구현될 부분</li>
@@ -364,6 +364,10 @@
 <ul>
 <li>View<ul>
 <li>사용자 입력을 Presenter 로 보내는 작업</li>
+<li>UI View Controller 에 해당</li>
+<li>View Life Cycle : Life Cycle 관련 함수가 호출되는것을 Presenter 에 알림</li>
+<li>View Event : Event 관련 함수가 호출되는 것을 Presenter 에 알림</li>
+<li>View Control : 뷰의 UI 생성,변경,삭제 등의 방법을 Presenter 에 제공</li>
 </ul>
 </li>
 </ul>
@@ -377,18 +381,30 @@
 <li>Presenter<ul>
 <li>Interactor 에서 data 를 요청하고 받음</li>
 <li>view logic 을 갖고 있으며 Interactor 에서<br>data 를 받으면 View 에 어떻게 그릴지 알려줌</li>
+<li>Life Cycle에 대한 처리</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>Entity<ul>
 <li>Interactor 에 의해 만들어지는 Model</li>
+<li>네트워크, DB 등의 데이터 모델</li>
+<li>Realm Object, NSUserDefaults, Json Data 등</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>Router<ul>
 <li>Navigation logic 을 담당하며 screen 에서 다른 screen 으로 화면이<br>변경되는 부분을 처리함</li>
+<li>VIPER 컴포넌트들의 DI 를 담당함</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>특징<ul>
+<li>Distribution : 4개의 구조 중 제일 분배가 잘 되어있음</li>
+<li>Testability : 테스트에 용이함</li>
+<li>Hard to use : 코드 양이 제일 많음. 작은 기능에도 많은 클래스를 작성해야함</li>
 </ul>
 </li>
 </ul>
@@ -399,7 +415,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/" data-id="ck3pmtir1008h9cw4i13ps1na" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/" data-id="ckkaozyir009sy8w42a2lgsfy" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -475,7 +491,7 @@
         "genre": "Programming Kotlin",
         "datePublished": "2019-12-02",
         "dateCreated": "2019-12-02",
-        "dateModified": "2019-12-02",
+        "dateModified": "2019-12-21",
         "url": "https://taeyeonkim93.github.io/2019/12/02/Programming-kotlin-2019-12-02-android-framework-pattern/",
         "description": "안드로이드 패턴
 MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다.
@@ -495,7 +511,7 @@ MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다.
 각 패턴의 재료
 
 Data Object",
-        "wordCount": 1958
+        "wordCount": 2034
     }
 </script>
 
@@ -642,7 +658,7 @@ Data Object",
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>&copy; 2021 Taeyeon Kim</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
             <div class="footer-plugins">

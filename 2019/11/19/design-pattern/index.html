@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Taeyeon">
 <meta property="og:description" content="디자인 패턴 소프트웨어를 개발 할 때 특정 맥락에서 자주 발생하는 고질적인 문제들에재사용 할 수 있는 훌륭한 해결책 패턴? 각기 다른 소프트웨어 모듈에는 서로 공통되는 설계 문제가 존재하며이를 처리하는 해결책도 공통점이 있다. 이러한 유사점을 패턴이라 한다    디자인 패턴 종류 GoF(Gang of Four) 디자인 패턴  에리히 감마(Erich Gamm">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-12-03T08:59:02.504Z">
+<meta property="og:updated_time" content="2019-12-17T12:39:13.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="디자인 패턴 정리">
 <meta name="twitter:description" content="디자인 패턴 소프트웨어를 개발 할 때 특정 맥락에서 자주 발생하는 고질적인 문제들에재사용 할 수 있는 훌륭한 해결책 패턴? 각기 다른 소프트웨어 모듈에는 서로 공통되는 설계 문제가 존재하며이를 처리하는 해결책도 공통점이 있다. 이러한 유사점을 패턴이라 한다    디자인 패턴 종류 GoF(Gang of Four) 디자인 패턴  에리히 감마(Erich Gamm">
@@ -246,7 +246,13 @@
 </ul>
 </li>
 </ul>
-<ol>
+<ul>
+<li>동시성 패턴<ul>
+<li>반응자 패턴(Reactor Pattern)</li>
+</ul>
+</li>
+</ul>
+<h2 id="디자인-패턴-상세"><a href="#디자인-패턴-상세" class="headerlink" title="디자인 패턴 상세"></a>디자인 패턴 상세</h2><ol>
 <li>빌더 패턴</li>
 </ol>
 <p>객체를 생성할때 흔하게 사용하는 패턴이다.<br>자바로 코딩할 때 다음과 같은 스타일로 객체를 생성하는 코드가 있다면, 빌더 패턴을 사용했다고 할 수 있다.</p>
@@ -267,6 +273,46 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Car car = <span class="keyword">new</span> Car.Builder()</span><br><span class="line">        .setA(<span class="number">1</span>)</span><br><span class="line">        .setB(<span class="number">2</span>)</span><br><span class="line">        .setC(<span class="number">1</span>)</span><br><span class="line">        .setD(<span class="number">2</span>)</span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure>
 
 <p>코틀린에선 클래스를 정의하면서 사용할 수 있는<br>data class가 있으므로 굳이 빌더패턴을 만들 필요가 없다.</p>
+<ol start="2">
+<li>팩토리 패턴</li>
+</ol>
+<p>클래스의 인스턴스를 생성할때 바로 new 를 써서 생성하지 않고 new Instance() 를 써서 만든다.</p>
+<ul>
+<li>팩토리 메소드 패턴<ul>
+<li>객체를 생성하기 위한 인터페이스를 정의할때, 어떤 클래스의 인터페이스를 만들지는 서브 클래스에서 결정한다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>추상 팩토리 패턴<ul>
+<li>인터페이스를 이용하여 서로 연관된, 또는 의존하는 객체를 구상 클래스를 지정하지 않고도 생성할 수 있다.</li>
+<li>추상 팩토리 패턴에는 팩토리 메소드 패턴이 포함될 수 있다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>추상화된 것에 의존하도록 만들어라. 구상 클래스에 의존하지 않도록 만든다 에 기안한 패턴이다.</li>
+</ul>
+<ul>
+<li>필요한 것<ol>
+<li>객체를 만들기위한 interface (없어도 됨)</li>
+<li>위의 interface 를 기반으로 한 객체 클래스 </li>
+<li>객체 클래스를 선택하기 위한 팩토리 클래스 (서브클래스)</li>
+<li>메인 클래스 (서브클래스를 이용해 객체클래스를 선택하기위함)</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li>반응자패턴 (reactor pattern)</li>
+</ol>
+<p>이벤트 핸들 패턴의 전형적인 모습이다.</p>
+<ul>
+<li>이벤트 핸들링을 위한 객체들을 초기화(Initiate)하고,</li>
+<li>여러 통로에서 들어오는 이벤트들을 수신(Receive)하고,</li>
+<li>이벤트들을 대응할 객체별로 분할 (Demultiplex)하고,</li>
+<li>객체에게 이벤트를 발송(dispatch)해서,</li>
+<li>그 객체가 이벤트에 걸맞는 작업을 수행(process events) 한다. </li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -274,7 +320,7 @@
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/11/19/design-pattern/" data-id="ck3pmtiin00009cw4jyhmjdz4" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/11/19/design-pattern/" data-id="ckkaozy9c0000y8w4oi706vq5" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -350,7 +396,7 @@
         "genre": "CS Design pattern",
         "datePublished": "2019-11-19",
         "dateCreated": "2019-11-19",
-        "dateModified": "2019-12-03",
+        "dateModified": "2019-12-17",
         "url": "https://taeyeonkim93.github.io/2019/11/19/design-pattern/",
         "description": "디자인 패턴
 소프트웨어를 개발 할 때 특정 맥락에서 자주 발생하는 고질적인 문제들에재사용 할 수 있는 훌륭한 해결책
@@ -363,7 +409,7 @@
 GoF(Gang of Four) 디자인 패턴
 
 에리히 감마(Erich Gamm",
-        "wordCount": 1115
+        "wordCount": 1240
     }
 </script>
 
@@ -520,7 +566,7 @@ GoF(Gang of Four) 디자인 패턴
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>&copy; 2021 Taeyeon Kim</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
             <div class="footer-plugins">

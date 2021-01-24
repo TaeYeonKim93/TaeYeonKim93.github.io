@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Taeyeon">
 <meta property="og:description" content="의존성? 의존성?  코드에서 두 모듈간의 연결 두 클래스 간의 관계 의존성이 크다는 것은 Coupling(결합도)가 높다는 것     의존성이 왜 중요한가? 하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다. 두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-12-03T08:45:28.709Z">
+<meta property="og:updated_time" content="2019-12-17T11:39:44.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Android] Dagger2 정리">
 <meta name="twitter:description" content="의존성? 의존성?  코드에서 두 모듈간의 연결 두 클래스 간의 관계 의존성이 크다는 것은 Coupling(결합도)가 높다는 것     의존성이 왜 중요한가? 하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다. 두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다">
@@ -227,8 +227,15 @@
 <li>Component 를 작성해서 Module 과 연결하고, 의존성 객체를 주입받을 객체를 만든다.</li>
 </ol>
 <ul>
-<li>객체를 일단 만들고, 모듈로 객체를 사용하는 방법을 정의하고,<br>컴포넌트로 모듈을 메인으로 사용할 클래스에 전달한다.</li>
-<li>생성자, 매개변수 등 어쨌든 주입하는건 다 Inject 어노테이션을 붙인다.</li>
+<li><p>객체를 일단 만들고, 모듈로 객체를 사용하는 방법을 정의하고,<br>컴포넌트로 모듈을 메인으로 사용할 클래스에 전달한다.</p>
+</li>
+<li><p>Dagger 의 Inject 방법</p>
+<ul>
+<li>Constructor Injection (생성자 주입)</li>
+<li>Method(Setter) Injection (메소드 주입)</li>
+<li>Field Injection</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li>Provides<ul>
@@ -237,10 +244,10 @@
 <li><code>Binds</code><ul>
 <li>Provides 와 같지만 매개변수를 바로 return 한다</li>
 <li>Provides 의 개선된 버전</li>
-<li><code>Multibinding</code><ul>
-<li>Set 이나 Map 을 이용한 <code>Multibinding</code> 을 지원함</li>
 </ul>
 </li>
+<li><code>Multibinding</code><ul>
+<li>Set 이나 Map 을 이용한 <code>Multibinding</code> 을 지원함</li>
 </ul>
 </li>
 </ul>
@@ -276,8 +283,12 @@
 <li>Component<ul>
 <li>구성요소 라는 뜻. Application Component 는 어플리케이션 구성요소이다.</li>
 <li>이 annotation 이 달려있는 인터페이스는 의존성 주입 코드가 generate 된다</li>
+<li>module class 에서 제공받은 객체를 어떤곳에 주입 할지 정하는 역할을 한다.<ul>
+<li>Activity 에서 build 를 통해 받을 곳이라는 명시를 해야 한다</li>
+</ul>
+</li>
 <li><code>Subcomponent</code><ul>
-<li>부모 component 가 있는 component</li>
+<li>부모 component 가 존재하는 component</li>
 <li>코드 생성은 부모 component 에서 이루어진다</li>
 <li>사용법은 interface 나 abstract class 에 @Subcomponent 를 달아줌</li>
 </ul>
@@ -295,9 +306,82 @@
 </li>
 </ul>
 <h1 id="안드로이드에서의-사용법"><a href="#안드로이드에서의-사용법" class="headerlink" title="안드로이드에서의 사용법"></a>안드로이드에서의 사용법</h1><ul>
+<li>Dagger2 코딩하기<ol>
+<li>Dagger2 를 빌드할 Activity 를 만들기</li>
+<li>전체를 총괄할 AppComponent 만들기</li>
+</ol>
+</li>
+</ul>
+<h3 id="1-애플리케이션에서-Dagger-빌드하기"><a href="#1-애플리케이션에서-Dagger-빌드하기" class="headerlink" title="1. 애플리케이션에서 Dagger 빌드하기"></a>1. 애플리케이션에서 Dagger 빌드하기</h3><ul>
+<li><p>우리가 첫 공부할때 Main 문에서 하듯 Dagger2 의 실행부터 역으로 살펴보기로 한다.</p>
+</li>
+<li><p>Activity 의 인스턴스를 Android OS 내에서 만들기 때문에 (new Activity 가 불가능)<br>Life Cycle 내에서 반드시 Constructor Injection 이 아닌 Field Injection 이 이루어져야 한다.</p>
+</li>
+<li><p>과거의 방식</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">((MyApplication) getApplication())</span><br><span class="line">        .getAppComponent()</span><br><span class="line">        .myActivity(new MyActivityModule(userId))</span><br><span class="line">        .build()</span><br><span class="line">        .inject(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>최근 방식</p>
+<ul>
+<li>Class 가 어떤 방식으로 의존성 주입이 되는지 전혀 알 필요 없게 구성되었다.<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DaggerAppComponent</span><br><span class="line">        .builder()</span><br><span class="line">        .application(<span class="keyword">this</span>)</span><br><span class="line">        .build()</span><br><span class="line">        .inject(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-AppComponent-로-전체-모듈-구성하기"><a href="#2-AppComponent-로-전체-모듈-구성하기" class="headerlink" title="2. AppComponent 로 전체 모듈 구성하기"></a>2. AppComponent 로 전체 모듈 구성하기</h3><ul>
+<li>빌드할 메인 에플리케이션을 만들었으면, 빌드에 필요한 재료를 만든다.</li>
+</ul>
+<ul>
+<li>AppComponent interface 는 module 들을 Component 라는 영역에 가두고,<br>Builder 로 Component 영역에 접근 할 수 있게 만든다.</li>
+</ul>
+<ul>
+<li>빌드 할 때 Component Annotation 에 기입된 모듈에 있는 모든 클래스는 인스턴스가 생성된다.</li>
+</ul>
+<ul>
+<li><strong>@Component.Builder</strong><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Singleton</span></span><br><span class="line"><span class="meta">@Component(modules = [</span></span><br><span class="line"><span class="meta">    (AndroidInjectionModule::class)</span>,</span><br><span class="line">    (AppModule::<span class="class"><span class="keyword">class</span>),<span class="type"></span></span></span><br><span class="line">    (ActivityBuilder::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">])</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AppComponent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Component</span>.Builder</span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Builder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@BindsInstance</span></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">application</span><span class="params">(application: <span class="type">Application</span>)</span></span>: Builder</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">build</span><span class="params">()</span></span>: AppComponent</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">inject</span><span class="params">(app: <span class="type">MvpApp</span>)</span></span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="3-AppModule-로-전체-객체-구성하기"><a href="#3-AppModule-로-전체-객체-구성하기" class="headerlink" title="3. AppModule 로 전체 객체 구성하기"></a>3. AppModule 로 전체 객체 구성하기</h3><h3 id="4-사용할-Activity-구성하기"><a href="#4-사용할-Activity-구성하기" class="headerlink" title="4. 사용할 Activity 구성하기"></a>4. 사용할 Activity 구성하기</h3><ul>
+<li>MVP 구성<ul>
+<li>interactor 폴더<ul>
+<li>[Activity 이름]Interactor</li>
+<li>[Activity 이름]MVPInteractor</li>
+</ul>
+</li>
+<li>presenter 폴더<ul>
+<li>[Activity 이름]Presenter</li>
+<li>[Activity 이름]MVPPresenter</li>
+</ul>
+</li>
+<li>view 폴더<ul>
+<li>[Activity 이름]Activity</li>
+<li>[Activity 이름]MVPView</li>
+</ul>
+</li>
+<li>[Activity 이름]ActivityModule</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Module 에서 Model 역할인 Interactor 와 Presenter 을 Provides 함</li>
+</ul>
+<ul>
+<li>activityDispatchingAndroidInjector: DispatchingAndroidInjector<activity><ul>
+<li>제네릭 타입으로 클래스를 선언함으로써 객체를 선언할때 강한 TypeCheck 를 하고 객체 생성 시타입변환(Casting) 을 하지 않아도 된다.</li>
+<li>@Inject Annotation 을 사용함으로써 Generate 되어있던 </li>
+</ul>
+</activity></li>
+</ul>
+<ul>
 <li>Reflection 없이 사용하기<ul>
 <li>Reflection : 자바 언어의 기능 중 하나로 프로그램 내부 속성을 조작 할 수 있게함</li>
-<li>Activity 의 인스턴스를 Android OS 내에서 만들기 때문에 (new Activity 가 불가능)<br>Life Cycle 내에서 반드시 member Injection 이 이루어져야 한다.</li>
 </ul>
 </li>
 </ul>
@@ -315,13 +399,25 @@
 </li>
 </ul>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">performDI</span><span class="params">()</span></span> = AndroidInjection.inject(<span class="keyword">this</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h3><ul>
+<li>@ContributesAndroidInjector<ul>
+<li>반환타입을 통해 AndroidInjector 를 생성시켜주는 인터페이스</li>
+<li>Component 에서 Module 을 Activity 에 Inject 시켜주는 일을 간단히 하게 해준다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Dagger 에서는 항상 “객체” 를 Provide 하고, “객체” 를 Inject 해서 사용한다</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://taeyeonkim93.github.io/2019/11/20/Programming-kotlin-2019-11-20-android-dagger/" data-id="ck3pmtips00509cw4hijk5ljf" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://taeyeonkim93.github.io/2019/11/20/Programming-kotlin-2019-11-20-android-dagger/" data-id="ckkaozyip009py8w4ll03507o" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -397,7 +493,7 @@
         "genre": "Programming Kotlin",
         "datePublished": "2019-11-20",
         "dateCreated": "2019-11-20",
-        "dateModified": "2019-12-03",
+        "dateModified": "2019-12-17",
         "url": "https://taeyeonkim93.github.io/2019/11/20/Programming-kotlin-2019-11-20-android-dagger/",
         "description": "의존성?
 의존성? 
@@ -411,7 +507,7 @@
 의존성이 왜 중요한가?
 하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다.
 두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다",
-        "wordCount": 612
+        "wordCount": 1063
     }
 </script>
 
@@ -568,7 +664,7 @@
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2019 Taeyeon Kim</p>
+                <p>&copy; 2021 Taeyeon Kim</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
             <div class="footer-plugins">
