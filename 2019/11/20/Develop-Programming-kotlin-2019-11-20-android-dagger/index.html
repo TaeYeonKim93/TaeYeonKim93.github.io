@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Android] Dagger2 정리 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Android,Kotlin,Koin,Dagger,DI">
+    
+    <meta name="description" content="의존성? 의존성?  코드에서 두 모듈간의 연결 두 클래스 간의 관계 의존성이 크다는 것은 Coupling(결합도)가 높다는 것     의존성이 왜 중요한가? 하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다. 두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다">
+<meta name="keywords" content="Android,Kotlin,Koin,Dagger,DI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] Dagger2 정리">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="의존성? 의존성?  코드에서 두 모듈간의 연결 두 클래스 간의 관계 의존성이 크다는 것은 Coupling(결합도)가 높다는 것     의존성이 왜 중요한가? 하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다. 두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-12-17T11:39:44.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Android] Dagger2 정리">
+<meta name="twitter:description" content="의존성? 의존성?  코드에서 두 모듈간의 연결 두 클래스 간의 관계 의존성이 크다는 것은 Coupling(결합도)가 높다는 것     의존성이 왜 중요한가? 하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다. 두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다">
+    
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/11/20/develop-programming-kotlin-2019-11-20-android-dagger/">
+    <meta name="google-site-verification" content="bh2D3Ke8MN9YOg5rjJumfeIBHQLIlGQT17Vi4qzTirg">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/Design-pattern/">Design pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/">Coin</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/PineScript/">PineScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Kotlin/">Kotlin</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Develop-Programming-kotlin-2019-11-20-android-dagger" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Android] Dagger2 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/" class="article-date">
+            <time datetime="2019-11-20T08:10:24.000Z" itemprop="datePublished">2019-11-20</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/DI/">DI</a>, <a class="tag-link" href="/tags/Dagger/">Dagger</a>, <a class="tag-link" href="/tags/Koin/">Koin</a>, <a class="tag-link" href="/tags/Kotlin/">Kotlin</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="의존성"><a href="#의존성" class="headerlink" title="의존성?"></a>의존성?</h1><ul>
+<li>의존성? <ul>
+<li>코드에서 두 모듈간의 연결</li>
+<li>두 클래스 간의 관계</li>
+<li>의존성이 크다는 것은 Coupling(결합도)가 높다는 것</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>의존성이 왜 중요한가?<ul>
+<li>하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다.</li>
+<li>두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다고 생각해보자</li>
+<li>나머지 모듈이 제대로 동작하는지에 대한 검증이 필요할 수도 있다. 그럼 시간과 비용도 n만큼??</li>
+<li>결합도가 높으면 독립성이 떨어진다. 반대로 결합도가 낮으면 독립성이 높아진다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>의존성 주입</p>
+<ul>
+<li><p>구성요소간의 의존 관계가 소스코드 내부가 아닌 <strong>외부의 설정파일</strong><br>등을 통해 정의되게 하는 디자인 패턴</p>
+</li>
+<li><p>외부에서 인스턴스 변수를 생성하여 넘겨주는(주입하는) 것</p>
+</li>
+<li><p>객체가 자신이 사용할 객체를 스스로 선택하지 않고<br>제 3의 객체에게 사용될 객체를 주입받는다.(의존 관계 역전)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Example</span><span class="params">(DatabaseThingie useThisDatabaseInstead)</span> </span>&#123;</span><br><span class="line">    myDatabase = useThisDatabaseInstead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>useThisDatabaseInstead 라는 다른 클래스의 인스턴스를 사용하게 만듬</p>
+</li>
+<li><p>Example 클래스에 “의존성” 을 “주입” 했다</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>의존성 주입의 목적<ul>
+<li>독립된 모듈에 대한 테스트 코드 작성이 가능하다.</li>
+<li>하나의 모듈이 변경되어도 다른 모듈들이 영향을 받지 않는다.</li>
+<li>객체 생성을 외부에서 하므로 재사용성이 높아진다.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Dagger"><a href="#Dagger" class="headerlink" title="Dagger?"></a>Dagger?</h1><ul>
+<li>Dagger : Dependency Injection (의존성 주입) Framework</li>
+</ul>
+<ol>
+<li>Provides 메소드로 이루어진 Module 을 작성한다.</li>
+<li>Component 를 작성해서 Module 과 연결하고, 의존성 객체를 주입받을 객체를 만든다.</li>
+</ol>
+<ul>
+<li><p>객체를 일단 만들고, 모듈로 객체를 사용하는 방법을 정의하고,<br>컴포넌트로 모듈을 메인으로 사용할 클래스에 전달한다.</p>
+</li>
+<li><p>Dagger 의 Inject 방법</p>
+<ul>
+<li>Constructor Injection (생성자 주입)</li>
+<li>Method(Setter) Injection (메소드 주입)</li>
+<li>Field Injection</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Provides<ul>
+<li>어노테이션이 달린 메소드를 Dagger Pool 에 제공하겠다는 의미</li>
+<li>모든 Provides 메소드는 @Module 클래스 안에 속해야 함   </li>
+<li><code>Binds</code><ul>
+<li>Provides 와 같지만 매개변수를 바로 return 한다</li>
+<li>Provides 의 개선된 버전</li>
+</ul>
+</li>
+<li><code>Multibinding</code><ul>
+<li>Set 이나 Map 을 이용한 <code>Multibinding</code> 을 지원함</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Provides</span></span><br><span class="line"><span class="keyword">public</span> LoginContract.Presenter </span><br><span class="line">  provideLoginPresenter(LoginPresenter loginPresenter) &#123;</span><br><span class="line">    <span class="keyword">return</span> loginPresenter;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="meta">@Binds</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> LoginContract.Presenter</span><br><span class="line">  provideLoginPresenter(LoginPresenter loginPresenter);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Scope<ul>
+<li>해당 클래스의 단일 인스턴스가 존재하는 범위</li>
+<li><code>Singleton scope</code><ul>
+<li>Application scope 를 가지는 annotation</li>
+<li>싱글톤 scope 를 특정하게 지정해주면 아무 곳에서나 inject 할 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Module<ul>
+<li>의존성 객체를 생성함</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Inject<ul>
+<li>의존성 주입을 요청하는 <code>Annotation</code></li>
+<li>@Inject 를 사용하면, <code>Component</code> 가 <code>Module</code> 을 이용해 Generate 한 객체들이<br>Inject Annotation 이 달린 함수에 주입된다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Component<ul>
+<li>구성요소 라는 뜻. Application Component 는 어플리케이션 구성요소이다.</li>
+<li>이 annotation 이 달려있는 인터페이스는 의존성 주입 코드가 generate 된다</li>
+<li>module class 에서 제공받은 객체를 어떤곳에 주입 할지 정하는 역할을 한다.<ul>
+<li>Activity 에서 build 를 통해 받을 곳이라는 명시를 해야 한다</li>
+</ul>
+</li>
+<li><code>Subcomponent</code><ul>
+<li>부모 component 가 존재하는 component</li>
+<li>코드 생성은 부모 component 에서 이루어진다</li>
+<li>사용법은 interface 나 abstract class 에 @Subcomponent 를 달아줌</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Qualifier<ul>
+<li>같은 Return 값을 가질 때 구별하기 위한 annotation<ul>
+<li>같은 값을 return 하는 경우 @other1 @other2 로 구분<br>이 때 Inject 할때도 @other1 @other2 를 붙여서 구분해서 inject 가능</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="안드로이드에서의-사용법"><a href="#안드로이드에서의-사용법" class="headerlink" title="안드로이드에서의 사용법"></a>안드로이드에서의 사용법</h1><ul>
+<li>Dagger2 코딩하기<ol>
+<li>Dagger2 를 빌드할 Activity 를 만들기</li>
+<li>전체를 총괄할 AppComponent 만들기</li>
+</ol>
+</li>
+</ul>
+<h3 id="1-애플리케이션에서-Dagger-빌드하기"><a href="#1-애플리케이션에서-Dagger-빌드하기" class="headerlink" title="1. 애플리케이션에서 Dagger 빌드하기"></a>1. 애플리케이션에서 Dagger 빌드하기</h3><ul>
+<li><p>우리가 첫 공부할때 Main 문에서 하듯 Dagger2 의 실행부터 역으로 살펴보기로 한다.</p>
+</li>
+<li><p>Activity 의 인스턴스를 Android OS 내에서 만들기 때문에 (new Activity 가 불가능)<br>Life Cycle 내에서 반드시 Constructor Injection 이 아닌 Field Injection 이 이루어져야 한다.</p>
+</li>
+<li><p>과거의 방식</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">((MyApplication) getApplication())</span><br><span class="line">        .getAppComponent()</span><br><span class="line">        .myActivity(new MyActivityModule(userId))</span><br><span class="line">        .build()</span><br><span class="line">        .inject(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>최근 방식</p>
+<ul>
+<li>Class 가 어떤 방식으로 의존성 주입이 되는지 전혀 알 필요 없게 구성되었다.<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DaggerAppComponent</span><br><span class="line">        .builder()</span><br><span class="line">        .application(<span class="keyword">this</span>)</span><br><span class="line">        .build()</span><br><span class="line">        .inject(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-AppComponent-로-전체-모듈-구성하기"><a href="#2-AppComponent-로-전체-모듈-구성하기" class="headerlink" title="2. AppComponent 로 전체 모듈 구성하기"></a>2. AppComponent 로 전체 모듈 구성하기</h3><ul>
+<li>빌드할 메인 에플리케이션을 만들었으면, 빌드에 필요한 재료를 만든다.</li>
+</ul>
+<ul>
+<li>AppComponent interface 는 module 들을 Component 라는 영역에 가두고,<br>Builder 로 Component 영역에 접근 할 수 있게 만든다.</li>
+</ul>
+<ul>
+<li>빌드 할 때 Component Annotation 에 기입된 모듈에 있는 모든 클래스는 인스턴스가 생성된다.</li>
+</ul>
+<ul>
+<li><strong>@Component.Builder</strong><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Singleton</span></span><br><span class="line"><span class="meta">@Component(modules = [</span></span><br><span class="line"><span class="meta">    (AndroidInjectionModule::class)</span>,</span><br><span class="line">    (AppModule::<span class="class"><span class="keyword">class</span>),<span class="type"></span></span></span><br><span class="line">    (ActivityBuilder::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">])</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AppComponent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Component</span>.Builder</span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Builder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@BindsInstance</span></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">application</span><span class="params">(application: <span class="type">Application</span>)</span></span>: Builder</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">build</span><span class="params">()</span></span>: AppComponent</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">inject</span><span class="params">(app: <span class="type">MvpApp</span>)</span></span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="3-AppModule-로-전체-객체-구성하기"><a href="#3-AppModule-로-전체-객체-구성하기" class="headerlink" title="3. AppModule 로 전체 객체 구성하기"></a>3. AppModule 로 전체 객체 구성하기</h3><h3 id="4-사용할-Activity-구성하기"><a href="#4-사용할-Activity-구성하기" class="headerlink" title="4. 사용할 Activity 구성하기"></a>4. 사용할 Activity 구성하기</h3><ul>
+<li>MVP 구성<ul>
+<li>interactor 폴더<ul>
+<li>[Activity 이름]Interactor</li>
+<li>[Activity 이름]MVPInteractor</li>
+</ul>
+</li>
+<li>presenter 폴더<ul>
+<li>[Activity 이름]Presenter</li>
+<li>[Activity 이름]MVPPresenter</li>
+</ul>
+</li>
+<li>view 폴더<ul>
+<li>[Activity 이름]Activity</li>
+<li>[Activity 이름]MVPView</li>
+</ul>
+</li>
+<li>[Activity 이름]ActivityModule</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Module 에서 Model 역할인 Interactor 와 Presenter 을 Provides 함</li>
+</ul>
+<ul>
+<li>activityDispatchingAndroidInjector: DispatchingAndroidInjector<activity><ul>
+<li>제네릭 타입으로 클래스를 선언함으로써 객체를 선언할때 강한 TypeCheck 를 하고 객체 생성 시타입변환(Casting) 을 하지 않아도 된다.</li>
+<li>@Inject Annotation 을 사용함으로써 Generate 되어있던 </li>
+</ul>
+</activity></li>
+</ul>
+<ul>
+<li>Reflection 없이 사용하기<ul>
+<li>Reflection : 자바 언어의 기능 중 하나로 프로그램 내부 속성을 조작 할 수 있게함</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FrombulationActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Inject</span> Frombulator frombulator;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    <span class="comment">// 반드시 선행되어야 할 작업, 그렇지 않으면 frombulator는 null이 됩니다.</span></span><br><span class="line">    ((SomeApplicationBaseType) getContext().getApplicationContext())</span><br><span class="line">        .getApplicationComponent()</span><br><span class="line">        .newActivityComponentBuilder()</span><br><span class="line">        .activity(<span class="keyword">this</span>)</span><br><span class="line">        .build()</span><br><span class="line">        .inject(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">// 인젝션이 끝났으므로 신나는 코딩 이예~</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>빌드 후 인젝션하는 단순 반복되는 보일러플레이트코드가 너무 많다.</li>
+<li>종속성 주입의 원칙인 클래스가 주입되는 방식에 대해서 알지 않아도 되게 만들어야한다.</li>
+</ul>
+<ul>
+<li>AndroidInjection<ul>
+<li><code>AndroidInjection.inject()</code> 를 호출 하면 애플리케이션으로부터<br><code>DispatchingAndroidInjector&lt;Object&gt;</code> 를 얻게되고 해당 액티비티를 인자로 메소드 인젝션 하게된다.</li>
+<li>@Binds 나 @Provider 을 설정하지 않아도 Activity 와 바인딩 할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">performDI</span><span class="params">()</span></span> = AndroidInjection.inject(<span class="keyword">this</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h3><ul>
+<li>@ContributesAndroidInjector<ul>
+<li>반환타입을 통해 AndroidInjector 를 생성시켜주는 인터페이스</li>
+<li>Component 에서 Module 을 Activity 에 Inject 시켜주는 일을 간단히 하게 해준다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Dagger 에서는 항상 “객체” 를 Provide 하고, “객체” 를 Inject 해서 사용한다</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/" data-id="cl16nr4t700ap08w4z7kahsb8" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[Android] Dagger2 정리",
+        "image": "https://taeyeonkim93.github.io",
+        "keywords": "Android Kotlin Koin Dagger DI",
+        "genre": "Programming Kotlin",
+        "datePublished": "2019-11-20",
+        "dateCreated": "2019-11-20",
+        "dateModified": "2019-12-17",
+        "url": "https://taeyeonkim93.github.io/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/",
+        "description": "의존성?
+의존성? 
+코드에서 두 모듈간의 연결
+두 클래스 간의 관계
+의존성이 크다는 것은 Coupling(결합도)가 높다는 것
+
+
+
+
+의존성이 왜 중요한가?
+하나의 모듈이 변경됨에 따라 결합된 다른 모듈이 영향을 받게 된다.
+두개의 모듈일때는 괜찮지만 최악의경우 모듈이 100개,1000개…n 개 일때 하나의 모듈변경으로 인해 n-1개의 모듈이 영향을 받는다",
+        "wordCount": 1063
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/11/21/Develop-Programming-kotlin-2019-11-21-android-design-issue/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [Android] 안드로이드 디자인 관련 이슈 정리
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-network/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[Android] Retrofit 으로 서버-앱 통신 구현하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Coin/">Coin</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Coin/PineScript/">PineScript</a></p>
+                            <p class="item-title"><a href="/2022/03/26/Coin-PineScript-2022-03-26-pinescript-1/" class="title">[PineScript] PineScript (TradingView) Guide for Beginners (파인스크립트 배우기)</a></p>
+                            <p class="item-date"><time datetime="2022-03-25T16:44:54.000Z" itemprop="datePublished">2022-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/" class="title">[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/21/Develop-Programming-kotlin-2019-11-21-android-design-issue/" class="title">[Android] 안드로이드 디자인 관련 이슈 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-21T13:31:45.000Z" itemprop="datePublished">2019-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/" class="title">[Android] Dagger2 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T08:10:24.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-network/" class="title">[Android] Retrofit 으로 서버-앱 통신 구현하기</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T04:57:47.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">3월 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12월 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 18px;">ALGORITHM</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Android-Design/" style="font-size: 10px;">Android Design</a> <a href="/tags/Android-FUNCTION/" style="font-size: 10px;">Android FUNCTION</a> <a href="/tags/Android-issue/" style="font-size: 12px;">Android issue</a> <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/BACK-TRACKING/" style="font-size: 10px;">BACK TRACKING</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 12px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 18px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DI/" style="font-size: 10px;">DI</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/Dagger/" style="font-size: 10px;">Dagger</a> <a href="/tags/Design-pattern/" style="font-size: 10px;">Design pattern</a> <a href="/tags/EXHAUSTIVE-SEARCH/" style="font-size: 10px;">EXHAUSTIVE SEARCH</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12px;">KOTLIN</a> <a href="/tags/Koin/" style="font-size: 10px;">Koin</a> <a href="/tags/Kotlin/" style="font-size: 14px;">Kotlin</a> <a href="/tags/Kotlin-FUNCTION/" style="font-size: 10px;">Kotlin FUNCTION</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/PYTHON/" style="font-size: 20px;">PYTHON</a> <a href="/tags/PYTHON-FUNCTION/" style="font-size: 10px;">PYTHON FUNCTION</a> <a href="/tags/PineScript/" style="font-size: 10px;">PineScript</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/STACK/" style="font-size: 14px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/VIPER/" style="font-size: 10px;">VIPER</a> <a href="/tags/do-it-study/" style="font-size: 14px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 12px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 12px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 12px;">종만북</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Python] 파이썬 함수 정리 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="PYTHON,PYTHON FUNCTION">
+    
+    <meta name="description" content="그때그때 모르는 함수 있으면 정리해서 올리는 용도 목차enumeratemapQueueIndexZipSortHeapPermutationDeque 파이썬 함수 정리1. enumerate for문에서 현재 반복이 몇번째 반복인지 확인할 때 사용한다.  주로 배열 내부를 순회하는 반복자를 선언하고 배열에서 연산자를 통해 값을 출력하는 경우 1234arr = [1,">
+<meta name="keywords" content="PYTHON,PYTHON FUNCTION">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Python] 파이썬 함수 정리">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/18/Develop-Programming-python-2019-09-18-python-function/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="그때그때 모르는 함수 있으면 정리해서 올리는 용도 목차enumeratemapQueueIndexZipSortHeapPermutationDeque 파이썬 함수 정리1. enumerate for문에서 현재 반복이 몇번째 반복인지 확인할 때 사용한다.  주로 배열 내부를 순회하는 반복자를 선언하고 배열에서 연산자를 통해 값을 출력하는 경우 1234arr = [1,">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2020-01-05T09:51:23.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Python] 파이썬 함수 정리">
+<meta name="twitter:description" content="그때그때 모르는 함수 있으면 정리해서 올리는 용도 목차enumeratemapQueueIndexZipSortHeapPermutationDeque 파이썬 함수 정리1. enumerate for문에서 현재 반복이 몇번째 반복인지 확인할 때 사용한다.  주로 배열 내부를 순회하는 반복자를 선언하고 배열에서 연산자를 통해 값을 출력하는 경우 1234arr = [1,">
+    
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/09/18/develop-programming-python-2019-09-18-python-function/">
+    <meta name="google-site-verification" content="bh2D3Ke8MN9YOg5rjJumfeIBHQLIlGQT17Vi4qzTirg">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/Design-pattern/">Design pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/">Coin</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/PineScript/">PineScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Python/">Python</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Develop-Programming-python-2019-09-18-python-function" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Python] 파이썬 함수 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/09/18/Develop-Programming-python-2019-09-18-python-function/" class="article-date">
+            <time datetime="2019-09-18T11:59:02.000Z" itemprop="datePublished">2019-09-18</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/PYTHON/">PYTHON</a>, <a class="tag-link" href="/tags/PYTHON-FUNCTION/">PYTHON FUNCTION</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>그때그때 모르는 함수 있으면 정리해서 올리는 용도</p>
+<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#1-enumerate">enumerate</a><br><a href="#2-map">map</a><br><a href="#3-Queue">Queue</a><br><a href="#4-Index">Index</a><br><a href="#5-Zip">Zip</a><br><a href="#6-Sort">Sort</a><br><a href="#7-Heap">Heap</a><br><a href="#8-Permutation">Permutation</a><br><a href="#9-Deque">Deque</a></p>
+<h2 id="파이썬-함수-정리"><a href="#파이썬-함수-정리" class="headerlink" title="파이썬 함수 정리"></a>파이썬 함수 정리</h2><h4 id="1-enumerate"><a href="#1-enumerate" class="headerlink" title="1. enumerate"></a><a href="#목차">1. enumerate</a></h4><ul>
+<li>for문에서 현재 반복이 몇번째 반복인지 확인할 때 사용한다.</li>
+</ul>
+<p>주로 배열 내부를 순회하는 반복자를 선언하고 배열에서 연산자를 통해 값을 출력하는 경우</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(arr)):</span><br><span class="line">    print(i, arr[i])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">0 1</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br></pre></td></tr></table></figure>
+
+<p>와 같이 사용할때, 간단히 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i,v <span class="keyword">in</span> enumerate(arr):</span><br><span class="line">    print(i, v)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">0 1</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br></pre></td></tr></table></figure>
+
+<p>이와같이 사용할 수 있다.</p>
+<h4 id="2-map"><a href="#2-map" class="headerlink" title="2. map"></a><a href="#목차">2. map</a></h4><p>map<br>map(f, iterable)은 함수(f)와 반복 가능한(iterable) 자료형을 입력으로 받는다.<br>map은 입력받은 자료형의 각 요소를 함수 f가 수행한 결과를 묶어서 돌려주는 함수이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">two_times</span><span class="params">(x)</span>:</span> </span><br><span class="line">     <span class="keyword">return</span> x*<span class="number">2</span></span><br><span class="line">list(map(two_times, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">[2, 4, 6, 8]</span><br></pre></td></tr></table></figure>
+
+<p>lambda를 활용하면 더 간략하다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(map(<span class="keyword">lambda</span> x: x * <span class="number">2</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]))</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a><a href="#목차">3. Queue</a></h4><p>기본적인 Queue 모듈</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">data = [<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">q = queue.Queue()  <span class="comment"># 큐 선언</span></span><br><span class="line"></span><br><span class="line">q.put_nowait(data) <span class="comment"># 데이터 삽입</span></span><br><span class="line">print(q.queue[<span class="number">0</span>]) <span class="comment"># pop 없이 데이터 확인</span></span><br><span class="line"></span><br><span class="line">q.get_nowait() <span class="comment"># 데이터 확인</span></span><br><span class="line"></span><br><span class="line">print(q.qsize()) <span class="comment"># 큐 크기 확인</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-Index"><a href="#4-Index" class="headerlink" title="4. Index"></a><a href="#목차">4. Index</a></h4><p>위치 반환(index)<br>index(x) 함수는 리스트에 x 값이 있으면 x의 위치 값을 돌려준다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a.index(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-Zip"><a href="#5-Zip" class="headerlink" title="5. Zip"></a><a href="#목차">5. Zip</a></h4><p>동일한 갯수로 이루어진 자료형을 묶어주는 역할을 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(zip([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과 </span><br><span class="line">[(1, 4, 7), (2, 5, 8), (3, 6, 9)]</span><br></pre></td></tr></table></figure>
+
+<p>사용처 : key/value 값이 각각 배열로 있을때, dictionary 를 사용하지 않아도 key-value 구조를 이용하도록 해준다.</p>
+<p><strong>for문에서 사용 시</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> p, s <span class="keyword">in</span> zip(a, b):</span><br><span class="line">    print(p,s)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="6-Sort"><a href="#6-Sort" class="headerlink" title="6. Sort"></a><a href="#목차">6. Sort</a></h4><p>리스트 내 자료들을 특정 기준으로 정렬해준다. (default : 오름차순)</p>
+<p>key, reverse 를 매개변수로 갖고있다.</p>
+<p><strong>매개변수 key 사용법</strong></p>
+<p>다중 조건으로 정렬해야 할 경우</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numbers = [(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">4</span>,<span class="number">3</span>),(<span class="number">4</span>,<span class="number">5</span>)]</span><br><span class="line"><span class="comment"># [0]번째 배열로 오름차순 비교후 [1]번째 배열로 내림차순으로 비교한다.</span></span><br><span class="line">numbers.sort(key=<span class="keyword">lambda</span> x : (x[<span class="number">0</span>],-x[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">[(1, 2), (4, 5), (4, 3)]</span><br></pre></td></tr></table></figure>
+
+<p>1차원 배열 내 특정 조건으로 배열해야 할 경우</p>
+<ul>
+<li>functools라는 모듈을 가져와서 com_to_key 라는 함수를 사용해야 한다.(python 3 기준)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line">numbers = [<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>]</span><br><span class="line">numbers = list(map(str, numbers))</span><br><span class="line">numbers.sort(key=functools.cmp_to_key(<span class="keyword">lambda</span> x, y: int(x + y) - int(y + x)),reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 문자열로 변환했을때 두 배열을 더해서 나온 문자열값이 큰 값을 앞으로 배치한다.</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">[&apos;9&apos;, &apos;5&apos;, &apos;34&apos;, &apos;3&apos;, &apos;30&apos;]</span><br></pre></td></tr></table></figure>
+
+<p><strong>매개변수 reverse 사용법</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">numbers.sort(reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">실행결과</span><br><span class="line">[6, 5, 3, 2, 1]</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-Heap"><a href="#7-Heap" class="headerlink" title="7. Heap"></a><a href="#목차">7. Heap</a></h4><p>파이썬 내 힙 자료구조를 사용법<br>heapq 라는 내장 모듈을 사용한다.<br>힙 자료구조를 사용할땐 보통 최소값만 있으면 다른건 아무것도 필요없을때 가장 빠른 속도를 위해서 사용한다.<br>push와 pop의 경우에는 매번 힙 구조로 정리까지 해주니 굳이 heapify 작업이 필요없다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">heapq.heapify(list) <span class="comment"># 리스트를 힙 구조로 바꿈 / 최소값이 0번째 index</span></span><br><span class="line">heapq.heappush(list, data) <span class="comment"># 힙 data 입력</span></span><br><span class="line">list_min = heapq.heappop(list) <span class="comment"># 힙 0번째 index 추출</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="8-Permutation"><a href="#8-Permutation" class="headerlink" title="8. Permutation"></a><a href="#목차">8. Permutation</a></h4><p>순열을 외부 모듈을 이용해서 구현한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">pool = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]</span><br><span class="line">print(list(map(<span class="string">''</span>.join, itertools.permutations(pool)))) <span class="comment"># 3개의 원소로 수열 만들기</span></span><br><span class="line">print(list(map(<span class="string">''</span>.join, itertools.permutations(pool, <span class="number">2</span>)))) <span class="comment"># 2개의 원소로 수열 만들기</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="9-Deque"><a href="#9-Deque" class="headerlink" title="9. Deque"></a><a href="#목차">9. Deque</a></h4><p>양방향 큐 Deque 를 구현한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"> </span><br><span class="line">d = collections.deque([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>])</span><br><span class="line"> </span><br><span class="line">d.append(<span class="number">60</span>) <span class="comment"># 오른쪽에 추가 deque([10, 20, 30, 40, 50, 60])</span></span><br><span class="line"> </span><br><span class="line">d.appendleft(<span class="number">0</span>) <span class="comment"># 왼쪽에 추가 deque([0, 10, 20, 30, 40, 50, 60])</span></span><br><span class="line"> </span><br><span class="line">d.extend([<span class="number">70</span>, <span class="number">80</span>]) <span class="comment"># 입력값을 순환하면서 오른쪽에 추가(append) deque([0, 10, 20, 30, 40, 50, 60, 70, 80])</span></span><br><span class="line"> </span><br><span class="line">d.extendleft([<span class="number">-10</span>, <span class="number">-20</span>, <span class="number">-30</span>]) <span class="comment"># 입력값을 순환하면서 왼쪽에 추가(appendleft)</span></span><br><span class="line"><span class="comment"># deque([-30, -20, -10, 0, 10, 20, 30, 40, 50, 60, 70, 80])</span></span><br><span class="line"> </span><br><span class="line">d.remove(<span class="number">0</span>) <span class="comment"># 값 삭제</span></span><br><span class="line"><span class="comment"># deque([-30, -20, -10, 10, 20, 30, 40, 50, 60, 70, 80])</span></span><br><span class="line"> </span><br><span class="line">maxValue = d.pop() <span class="comment"># 오른쪽의 끝값 가져오면서 deque에서 제거</span></span><br><span class="line"><span class="comment"># maxValue: 80</span></span><br><span class="line"><span class="comment"># deque([-30, -20, -10, 10, 20, 30, 40, 50, 60, 70])</span></span><br><span class="line"> </span><br><span class="line">minValue = d.popleft() <span class="comment"># 왼쪽의 끝값 가져오면서 deque에서 제거</span></span><br><span class="line"><span class="comment"># minValue: -30</span></span><br><span class="line"><span class="comment"># deque([-20, -10, 10, 20, 30, 40, 50, 60, 70])</span></span><br><span class="line"> </span><br><span class="line">d = collections.deque(range(<span class="number">5</span>)) <span class="comment"># 값 회전(rotating)</span></span><br><span class="line"><span class="comment"># Deque:  deque([0, 1, 2, 3, 4])</span></span><br><span class="line"> </span><br><span class="line">d.rotate(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># Deque.rotate(1):  deque([4, 0, 1, 2, 3])</span></span><br><span class="line"> </span><br><span class="line">d.rotate(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># Deque.rotate(1):  deque([3, 4, 0, 1, 2])</span></span><br><span class="line"> </span><br><span class="line">d.rotate(<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># Deque.rotate(-1):  deque([4, 0, 1, 2, 3])</span></span><br><span class="line"> </span><br><span class="line">d.rotate(<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># Deque.rotate(-1):  deque([0, 1, 2, 3, 4])</span></span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/09/18/Develop-Programming-python-2019-09-18-python-function/" data-id="cl16nr4qz007m08w4exn0d3n5" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[Python] 파이썬 함수 정리",
+        "image": "https://taeyeonkim93.github.io",
+        "keywords": "PYTHON PYTHON FUNCTION",
+        "genre": "Programming Python",
+        "datePublished": "2019-09-18",
+        "dateCreated": "2019-09-18",
+        "dateModified": "2020-01-05",
+        "url": "https://taeyeonkim93.github.io/2019/09/18/Develop-Programming-python-2019-09-18-python-function/",
+        "description": "그때그때 모르는 함수 있으면 정리해서 올리는 용도
+목차enumeratemapQueueIndexZipSortHeapPermutationDeque
+파이썬 함수 정리1. enumerate
+for문에서 현재 반복이 몇번째 반복인지 확인할 때 사용한다.
+
+주로 배열 내부를 순회하는 반복자를 선언하고 배열에서 연산자를 통해 값을 출력하는 경우
+1234arr = [1,",
+        "wordCount": 1069
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/09/24/Develop-Programming-python-2019-09-24-python-issue/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [파이썬] 이슈 정리
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/09/18/Develop-Algorithm-programmers-2019-09-18-programmers-coding-test-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[프로그래머스] 코딩테스트 풀이 - 모의고사</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Coin/">Coin</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Coin/PineScript/">PineScript</a></p>
+                            <p class="item-title"><a href="/2022/03/26/Coin-PineScript-2022-03-26-pinescript-1/" class="title">[PineScript] PineScript (TradingView) Guide for Beginners (파인스크립트 배우기)</a></p>
+                            <p class="item-date"><time datetime="2022-03-25T16:44:54.000Z" itemprop="datePublished">2022-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/" class="title">[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/21/Develop-Programming-kotlin-2019-11-21-android-design-issue/" class="title">[Android] 안드로이드 디자인 관련 이슈 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-21T13:31:45.000Z" itemprop="datePublished">2019-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/" class="title">[Android] Dagger2 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T08:10:24.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-network/" class="title">[Android] Retrofit 으로 서버-앱 통신 구현하기</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T04:57:47.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">3월 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12월 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 18px;">ALGORITHM</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Android-Design/" style="font-size: 10px;">Android Design</a> <a href="/tags/Android-FUNCTION/" style="font-size: 10px;">Android FUNCTION</a> <a href="/tags/Android-issue/" style="font-size: 12px;">Android issue</a> <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/BACK-TRACKING/" style="font-size: 10px;">BACK TRACKING</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 12px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 18px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DI/" style="font-size: 10px;">DI</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/Dagger/" style="font-size: 10px;">Dagger</a> <a href="/tags/Design-pattern/" style="font-size: 10px;">Design pattern</a> <a href="/tags/EXHAUSTIVE-SEARCH/" style="font-size: 10px;">EXHAUSTIVE SEARCH</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12px;">KOTLIN</a> <a href="/tags/Koin/" style="font-size: 10px;">Koin</a> <a href="/tags/Kotlin/" style="font-size: 14px;">Kotlin</a> <a href="/tags/Kotlin-FUNCTION/" style="font-size: 10px;">Kotlin FUNCTION</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/PYTHON/" style="font-size: 20px;">PYTHON</a> <a href="/tags/PYTHON-FUNCTION/" style="font-size: 10px;">PYTHON FUNCTION</a> <a href="/tags/PineScript/" style="font-size: 10px;">PineScript</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/STACK/" style="font-size: 14px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/VIPER/" style="font-size: 10px;">VIPER</a> <a href="/tags/do-it-study/" style="font-size: 14px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 12px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 12px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 12px;">종만북</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/18/Develop-Programming-python-2019-09-18-python-function/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Kotlin] 코틀린 날짜 함수 정리 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="KOTLIN,CALENDAR,LIBRARY,JAVA,날짜 함수,내장라이브러리">
+    
+    <meta name="description" content="코틀린 날짜 함수프로그래머스 문제를 풀다가 java에서는 Date가 Deprecate 되고 Calendar를 사용한다고 해서 정리해봤다. 전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 이곳 참조 java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스나 java.time 패키지를 주로 사용하지만 일단 사용하">
+<meta name="keywords" content="KOTLIN,CALENDAR,LIBRARY,JAVA,날짜 함수,내장라이브러리">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Kotlin] 코틀린 날짜 함수 정리">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/Develop-Programming-kotlin-2019-09-17-kotlin-calendar-function/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="코틀린 날짜 함수프로그래머스 문제를 풀다가 java에서는 Date가 Deprecate 되고 Calendar를 사용한다고 해서 정리해봤다. 전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 이곳 참조 java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스나 java.time 패키지를 주로 사용하지만 일단 사용하">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-09-18T09:56:55.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Kotlin] 코틀린 날짜 함수 정리">
+<meta name="twitter:description" content="코틀린 날짜 함수프로그래머스 문제를 풀다가 java에서는 Date가 Deprecate 되고 Calendar를 사용한다고 해서 정리해봤다. 전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 이곳 참조 java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스나 java.time 패키지를 주로 사용하지만 일단 사용하">
+    
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/09/17/develop-programming-kotlin-2019-09-17-kotlin-calendar-function/">
+    <meta name="google-site-verification" content="bh2D3Ke8MN9YOg5rjJumfeIBHQLIlGQT17Vi4qzTirg">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/Design-pattern/">Design pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/">Coin</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/PineScript/">PineScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Kotlin/">Kotlin</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Develop-Programming-kotlin-2019-09-17-kotlin-calendar-function" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Kotlin] 코틀린 날짜 함수 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/09/17/Develop-Programming-kotlin-2019-09-17-kotlin-calendar-function/" class="article-date">
+            <time datetime="2019-09-17T06:59:06.000Z" itemprop="datePublished">2019-09-17</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CALENDAR/">CALENDAR</a>, <a class="tag-link" href="/tags/JAVA/">JAVA</a>, <a class="tag-link" href="/tags/KOTLIN/">KOTLIN</a>, <a class="tag-link" href="/tags/LIBRARY/">LIBRARY</a>, <a class="tag-link" href="/tags/날짜-함수/">날짜 함수</a>, <a class="tag-link" href="/tags/내장라이브러리/">내장라이브러리</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="코틀린-날짜-함수"><a href="#코틀린-날짜-함수" class="headerlink" title="코틀린 날짜 함수"></a>코틀린 날짜 함수</h1><p><a href="https://taeyeonkim93.github.io/2019/09/17/programmers-codingtest-1/">프로그래머스 문제</a>를 풀다가 java에서는 <code>Date</code>가 Deprecate 되고 <code>Calendar</code>를 사용한다고 해서 정리해봤다.</p>
+<p>전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 <a href="https://hyeonstorage.tistory.com/205" rel="external nofollow noopener noreferrer" target="_blank">이곳</a> 참조</p>
+<p>java에서는 날짜를 계산하는 내장라이브러리로 <code>Calendar</code>클래스나 <code>java.time</code> 패키지를 주로 사용하지만 일단 사용하기 편한 Calendar 클래스를 보면</p>
+<ul>
+<li>Calendar 인스턴스 생성<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> calendar:Calendar = Calendar.getInstance()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>Calendar 클래스는 추상클래스이기 때문에 객체를 직접 생성할 수 없고 <code>getInstance()</code> 함수를 통해 완전히 구현된 클래스의 인스턴스를 얻어야 한다.<br>이 인스턴스를 통해 Calendar 클래스 내부 함수들을 사용할 수 있다.</p>
+<p>인스턴스의 내부에는 현재 날짜와 시간정보가 들어있다.</p>
+<ul>
+<li>현재 날짜정보 가져오기<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> year = calendar.<span class="keyword">get</span>(Calendar.YEAR)  </span><br><span class="line"><span class="keyword">val</span> mon = calendar.<span class="keyword">get</span>(Calendar.MONTH)  </span><br><span class="line"><span class="keyword">val</span> day = calendar.<span class="keyword">get</span>(Calendar.DAY_OF_MONTH)  </span><br><span class="line"><span class="keyword">val</span> hour = calendar.<span class="keyword">get</span>(Calendar.HOUR_OF_DAY)  </span><br><span class="line"><span class="keyword">val</span> min = calendar.<span class="keyword">get</span>(Calendar.MINUTE)  </span><br><span class="line"><span class="keyword">val</span> sec = calendar.<span class="keyword">get</span>(Calendar.SECOND)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>주의할 점은</strong> <code>calendar.get(Calendar.MONTH)</code> 로 가져오는 월이 1~12이 아니라 0~11 이다.<br>그래서 0이 1월, 11이 12월을 의미한다.</p>
+<ul>
+<li><p>날짜 설정하기</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calendar.<span class="keyword">set</span>(year,month,date,hour,minute,second)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>날짜 일수 계산하기</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">calendar.timeInMillis  </span><br><span class="line"><span class="comment">//설정된 시간을 밀리초로 변경</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>시간을 밀리초로 변환시킨 후<code>SimpleDateFormat()</code>함수를 통해 원하는 Date Format으로 변경한다.<br>자세한 포맷은 <a href="https://developer.android.com/reference/kotlin/java/text/SimpleDateFormat" rel="external nofollow noopener noreferrer" target="_blank">정식문서</a> 참조</p>
+<p>결과값이 한글로 나올경우 뒤에 <code>Locale.ENGLISH</code>을 붙여 영어로 만든다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat(<span class="string">"yyyy.MM.dd G 'at' HH:mm:ss z"</span>,Locale.ENGLISH).format(calendar.timeInMillis)  </span><br><span class="line"><span class="comment">//2001.07.04 AD at 12:08:56 PDT</span></span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/Develop-Programming-kotlin-2019-09-17-kotlin-calendar-function/" data-id="cl16nr4qk007408w4kref3fs6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[Kotlin] 코틀린 날짜 함수 정리",
+        "image": "https://taeyeonkim93.github.io",
+        "keywords": "KOTLIN CALENDAR LIBRARY JAVA 날짜 함수 내장라이브러리",
+        "genre": "Programming Kotlin",
+        "datePublished": "2019-09-17",
+        "dateCreated": "2019-09-17",
+        "dateModified": "2019-09-18",
+        "url": "https://taeyeonkim93.github.io/2019/09/17/Develop-Programming-kotlin-2019-09-17-kotlin-calendar-function/",
+        "description": "코틀린 날짜 함수프로그래머스 문제를 풀다가 java에서는 Date가 Deprecate 되고 Calendar를 사용한다고 해서 정리해봤다.
+전체적으로 정리하기보단 실제로 사용하는 부분에만 중점을 뒀다. 전체 Document는 이곳 참조
+java에서는 날짜를 계산하는 내장라이브러리로 Calendar클래스나 java.time 패키지를 주로 사용하지만 일단 사용하",
+        "wordCount": 233
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/09/17/Develop-CS-2019-09-17-hash-algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [자료구조] HASH 정리
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/09/17/Develop-Algorithm-programmers-2019-09-17-programmers-coding-test-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[프로그래머스] 코딩테스트 풀이 - 2016년</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Coin/">Coin</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Coin/PineScript/">PineScript</a></p>
+                            <p class="item-title"><a href="/2022/03/26/Coin-PineScript-2022-03-26-pinescript-1/" class="title">[PineScript] PineScript (TradingView) Guide for Beginners (파인스크립트 배우기)</a></p>
+                            <p class="item-date"><time datetime="2022-03-25T16:44:54.000Z" itemprop="datePublished">2022-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/" class="title">[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/21/Develop-Programming-kotlin-2019-11-21-android-design-issue/" class="title">[Android] 안드로이드 디자인 관련 이슈 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-21T13:31:45.000Z" itemprop="datePublished">2019-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/" class="title">[Android] Dagger2 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T08:10:24.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-network/" class="title">[Android] Retrofit 으로 서버-앱 통신 구현하기</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T04:57:47.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">3월 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12월 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 18px;">ALGORITHM</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Android-Design/" style="font-size: 10px;">Android Design</a> <a href="/tags/Android-FUNCTION/" style="font-size: 10px;">Android FUNCTION</a> <a href="/tags/Android-issue/" style="font-size: 12px;">Android issue</a> <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/BACK-TRACKING/" style="font-size: 10px;">BACK TRACKING</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 12px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 18px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DI/" style="font-size: 10px;">DI</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/Dagger/" style="font-size: 10px;">Dagger</a> <a href="/tags/Design-pattern/" style="font-size: 10px;">Design pattern</a> <a href="/tags/EXHAUSTIVE-SEARCH/" style="font-size: 10px;">EXHAUSTIVE SEARCH</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12px;">KOTLIN</a> <a href="/tags/Koin/" style="font-size: 10px;">Koin</a> <a href="/tags/Kotlin/" style="font-size: 14px;">Kotlin</a> <a href="/tags/Kotlin-FUNCTION/" style="font-size: 10px;">Kotlin FUNCTION</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/PYTHON/" style="font-size: 20px;">PYTHON</a> <a href="/tags/PYTHON-FUNCTION/" style="font-size: 10px;">PYTHON FUNCTION</a> <a href="/tags/PineScript/" style="font-size: 10px;">PineScript</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/STACK/" style="font-size: 14px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/VIPER/" style="font-size: 10px;">VIPER</a> <a href="/tags/do-it-study/" style="font-size: 14px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 12px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 12px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 12px;">종만북</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/17/Develop-Programming-kotlin-2019-09-17-kotlin-calendar-function/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

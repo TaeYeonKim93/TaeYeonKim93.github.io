@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER) | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="MVP,MVC,MVVM,VIPER">
+    
+    <meta name="description" content="안드로이드 패턴 MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다. 협업, 유지보수, 테스트가 용이해진다. 화면에 보여주는 로직과 실제 데이터가 처리 되는 로직을 분리하는게 목적   패턴을 적용하지 않고 하나의 Activity 에서 표현한다면 이와 같다. 화면 제공 유저 이벤트 업무 로직 화면 업데이트     각 패턴의 재료  Data Object">
+<meta name="keywords" content="MVP,MVC,MVVM,VIPER">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="안드로이드 패턴 MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다. 협업, 유지보수, 테스트가 용이해진다. 화면에 보여주는 로직과 실제 데이터가 처리 되는 로직을 분리하는게 목적   패턴을 적용하지 않고 하나의 Activity 에서 표현한다면 이와 같다. 화면 제공 유저 이벤트 업무 로직 화면 업데이트     각 패턴의 재료  Data Object">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://taeyeonkim93.github.io/images/android-pattern/mvc.png">
+<meta property="og:updated_time" content="2019-12-21T05:51:39.543Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)">
+<meta name="twitter:description" content="안드로이드 패턴 MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다. 협업, 유지보수, 테스트가 용이해진다. 화면에 보여주는 로직과 실제 데이터가 처리 되는 로직을 분리하는게 목적   패턴을 적용하지 않고 하나의 Activity 에서 표현한다면 이와 같다. 화면 제공 유저 이벤트 업무 로직 화면 업데이트     각 패턴의 재료  Data Object">
+<meta name="twitter:image" content="https://taeyeonkim93.github.io/images/android-pattern/mvc.png">
+    
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/12/02/develop-programming-kotlin-2019-12-02-android-framework-pattern/">
+    <meta name="google-site-verification" content="bh2D3Ke8MN9YOg5rjJumfeIBHQLIlGQT17Vi4qzTirg">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/Design-pattern/">Design pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/">Coin</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/PineScript/">PineScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Kotlin/">Kotlin</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Develop-Programming-kotlin-2019-12-02-android-framework-pattern" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/" class="article-date">
+            <time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/MVC/">MVC</a>, <a class="tag-link" href="/tags/MVP/">MVP</a>, <a class="tag-link" href="/tags/MVVM/">MVVM</a>, <a class="tag-link" href="/tags/VIPER/">VIPER</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="안드로이드-패턴"><a href="#안드로이드-패턴" class="headerlink" title="안드로이드 패턴"></a>안드로이드 패턴</h1><ul>
+<li>MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다.</li>
+<li>협업, 유지보수, 테스트가 용이해진다.</li>
+<li>화면에 보여주는 로직과 실제 데이터가 처리 되는 로직을 분리하는게 목적</li>
+</ul>
+<ul>
+<li>패턴을 적용하지 않고 하나의 Activity 에서 표현한다면 이와 같다.<ul>
+<li>화면 제공</li>
+<li>유저 이벤트</li>
+<li>업무 로직</li>
+<li>화면 업데이트</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>각 패턴의 재료</strong></p>
+<ul>
+<li><p>Data Object (자료 객체)</p>
+<ul>
+<li>기본이 되는 데이터의 순수 객체 표현</li>
+</ul>
+</li>
+<li><p>Business Logic (비즈니스 로직)</p>
+<ul>
+<li>데이터를 생성/표시/저장/변경 하는 로직</li>
+<li>대부분의 <code>Use Case</code> 가 구현될 부분</li>
+</ul>
+</li>
+<li><p>Coordinator</p>
+<ul>
+<li>이벤트 핸들링이나 Business Logic을 제외한 기타 로직</li>
+<li>외부 API 호출이나 DB 호출도 들어갈 수 있다.</li>
+</ul>
+</li>
+<li><p>Converter</p>
+<ul>
+<li>로컬에 존재하는 Domain Data 를 표현 계층의 데이터 형태로 Formatting 하는 역할</li>
+<li>복잡하지 않으면 Controller 나 Abstract View 안으로 들어갈 수 있음</li>
+</ul>
+</li>
+<li><p>Abstract View</p>
+<ul>
+<li>실제 화면에 표시되기 전의 추상화된 데이터</li>
+</ul>
+</li>
+<li><p>View Logic</p>
+<ul>
+<li>추상화되어있는 데이터가 화면에 어떻게 표현될지 구체적 로직을 구성함</li>
+</ul>
+</li>
+<li><p>View</p>
+<ul>
+<li>Logic 이 존재하지 않는 디자인을 불러오기위한 역할</li>
+</ul>
+</li>
+<li><p>Event Bundle</p>
+<ul>
+<li>사용자 입력이나 외부 요인에 의한 데이터 변경을 정의</li>
+<li>View 또는 Data 쪽으로 흡수 될 수 있다</li>
+</ul>
+</li>
+<li><p>External Interface</p>
+<ul>
+<li>DB 접근, API 호출 등 외부 시스템과의 연동 인터페이스.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="MVC-Model-View-Controller"><a href="#MVC-Model-View-Controller" class="headerlink" title="MVC (Model + View + Controller)"></a>MVC (Model + View + Controller)</h2><p><img src="/images/android-pattern/mvc.png" alt><br><img src="/images/android-pattern/mvc2.png" alt></p>
+<ul>
+<li>Model<ul>
+<li>실제 데이터 및 데이터 조작 로직을 처리하는 부분</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainModel</span></span>(<span class="keyword">val</span> context: Context) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getListDatas</span><span class="params">()</span></span>: ArrayList&lt;String&gt; &#123;</span><br><span class="line">        <span class="keyword">val</span> datas: ArrayList&lt;String&gt; = ArrayList&lt;String&gt;()</span><br><span class="line">        <span class="comment">//dbms</span></span><br><span class="line">        <span class="keyword">val</span> helper=DBHelper(context)</span><br><span class="line">        <span class="keyword">val</span> db=helper.readableDatabase</span><br><span class="line">        <span class="keyword">val</span> cursor = db.rawQuery(<span class="string">"select * from tb_test"</span>, <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">while</span>(cursor.moveToNext())&#123;</span><br><span class="line">            datas.add(cursor.getString(<span class="number">1</span>))</span><br><span class="line">        &#125;</span><br><span class="line">        db.close()</span><br><span class="line">        <span class="keyword">return</span> datas</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">addItem</span><span class="params">(item: <span class="type">String</span>)</span></span>&#123;</span><br><span class="line">        <span class="keyword">val</span> helper=DBHelper(context)</span><br><span class="line">        <span class="keyword">val</span> db=helper.writableDatabase</span><br><span class="line">        db.execSQL(<span class="string">"insert into tb_test (todo) values (?)"</span>, arrayOf(item))</span><br><span class="line">        db.close()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>View<ul>
+<li>사용자에게 제공되어 보여지는 UI 부분</li>
+<li>layout(xml) 만을 View 로 정의한다.</li>
+<li>Activity, Fragment 의 경우에는 Controller 로 정의</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/listView"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/editView"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/button"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"add"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Controller<ul>
+<li>사용자의 입력을 받고 처리하는 부분</li>
+<li>Activity, Fragment 가 이러한 역할을 대신함</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MVCMainActivity</span> : <span class="type">AppCompatActivity</span></span>(), View.OnClickListener &#123;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> datas: ArrayList&lt;String&gt;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> adapter: ArrayAdapter&lt;String&gt;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> model=MainModel(<span class="keyword">this</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line"></span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        button.setOnClickListener(<span class="keyword">this</span>)</span><br><span class="line">        datas=model.getListDatas()</span><br><span class="line">        adapter=ArrayAdapter(<span class="keyword">this</span>, android.R.layout.simple_list_item_1, datas)</span><br><span class="line">        listView.adapter = adapter</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">(v: <span class="type">View</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> <span class="keyword">data</span>: String = editView.text.toString()</span><br><span class="line">        model.addItem(<span class="keyword">data</span>)</span><br><span class="line">        datas.add(<span class="keyword">data</span>)</span><br><span class="line">        adapter.notifyDataSetChanged()</span><br><span class="line">        editView.setText(<span class="string">""</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>로직<ol>
+<li>Controller 로 사용자의 입력을 받음</li>
+<li>사용자의 입력으로 인해 Model 값을 변경해야하는지 검사한다. (T)</li>
+<li>Controller 에서 Model 의 데이터를 가져오거나 갱신한다.</li>
+<li>Controller 에서 UI 를 갱신한다. </li>
+</ol>
+</li>
+</ul>
+<h2 id="MVVM-Model-View-ViewModel"><a href="#MVVM-Model-View-ViewModel" class="headerlink" title="MVVM (Model + View + ViewModel)"></a>MVVM (Model + View + ViewModel)</h2><p><img src="/images/android-pattern/mvvm.png" alt><br><img src="/images/android-pattern/mvvm2.png" alt></p>
+<ul>
+<li>Model<ul>
+<li>업무로직을 수행하고 결과에 대한 데이터를 표현한다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>View<ul>
+<li>화면 표시가 주 목적</li>
+<li>Activity, FrameWork 역할</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MVVMMainActivity</span> : <span class="type">AppCompatActivity</span></span>(), View.OnClickListener &#123;</span><br><span class="line">    <span class="keyword">val</span> viewModel: MainViewModel= MainViewModel(<span class="keyword">this</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        button.setOnClickListener(<span class="keyword">this</span>)</span><br><span class="line">        viewModel.onCreate()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">(v: <span class="type">View</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> <span class="keyword">data</span>: String = editView.text.toString()</span><br><span class="line">        editView.setText(<span class="string">""</span>)</span><br><span class="line">        viewModel.onClick(<span class="keyword">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>ViewModel<ul>
+<li>Model 과 View 를 분리 시키는게 목적</li>
+<li>View 가 필요한 Data 와 Command 제공</li>
+<li>Actiity 객체나 onCreate 등 LifeCycle 업무가 포함될 수 있다.</li>
+<li>Model 결과에 의한 데이터 바인딩이 직접 될 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainViewModel</span></span>(<span class="keyword">val</span> activity: Activity)&#123;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> datas: ArrayList&lt;String&gt;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> adapter: ArrayAdapter&lt;String&gt;</span><br><span class="line">    <span class="keyword">val</span> model=MainModel(activity)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">()</span></span>&#123;</span><br><span class="line">        datas=model.getListDatas()</span><br><span class="line">        adapter= ArrayAdapter(activity, R.layout.simple_list_item_1, datas)</span><br><span class="line">        activity.listView.adapter = adapter</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">(<span class="keyword">data</span>: <span class="type">String</span>)</span></span>&#123;</span><br><span class="line">        model.addItem(<span class="keyword">data</span>)</span><br><span class="line">        datas.add(<span class="keyword">data</span>)</span><br><span class="line">        adapter.notifyDataSetChanged()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MVP-Model-View-Presenter"><a href="#MVP-Model-View-Presenter" class="headerlink" title="MVP (Model + View + Presenter)"></a>MVP (Model + View + Presenter)</h2><p><img src="/images/android-pattern/mvp.png" alt><br><img src="/images/android-pattern/mvp2.png" alt></p>
+<p><strong>MVP 패턴의 가장 큰 의의는 View와 Model을 완전하게 분리해서 사용 할 수 있어야 한다.</strong></p>
+<ul>
+<li>interface<ul>
+<li>순수한 interface를 정의한다.</li>
+<li>Constant를 정의할때도 interface를 활용한다.</li>
+<li>Model, View, Presenter에서 사용할 function들을<br>interface 형태로 정의한다.</li>
+</ul>
+</li>
+</ul>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IMainPresenter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getListView</span><span class="params">()</span></span>: ArrayList&lt;String&gt;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">addItem</span><span class="params">(item: <span class="type">String</span>)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">IView</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">updateListView</span><span class="params">(item: <span class="type">String</span>)</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Model</p>
+<ul>
+<li>presenter에 정의된 함수들에 대한 내용을 작성한다.</li>
+<li>data class 를 정의한다.</li>
+</ul>
+</li>
+<li><p>View</p>
+<ul>
+<li>Presenter 에 이벤트 핸들링을 위임한다.<ul>
+<li>Activity 가 View interface 를 구현해서 Presenter에서 코드를 만들 인터페이스를 갖도록 하면 된다.</li>
+</ul>
+</li>
+<li>Activity / Fragment 에 속하는 분류는 전부 View에 속한다.</li>
+<li>interface 폴더에서 만든 view의 interface를 가지고 있음.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MVPMainActivity</span> : <span class="type">AppCompatActivity</span></span>(), View.OnClickListener, IMainPresenter.IView&#123;</span><br><span class="line">    <span class="keyword">val</span> presenter: MainPresenter = MainPresenter(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> datas: ArrayList&lt;String&gt;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> adapter: ArrayAdapter&lt;String&gt;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        button.setOnClickListener(<span class="keyword">this</span>)</span><br><span class="line">        presenter.view=<span class="keyword">this</span></span><br><span class="line">        datas=presenter.getListView()</span><br><span class="line">        adapter= ArrayAdapter(<span class="keyword">this</span>, android.R.layout.simple_list_item_1, datas)</span><br><span class="line">        listView.adapter = adapter</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">(v: <span class="type">View</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> <span class="keyword">data</span>: String = editView.text.toString()</span><br><span class="line">        presenter.addItem(<span class="keyword">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">updateListView</span><span class="params">(item: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        datas.add(item)</span><br><span class="line">        adapter.notifyDataSetChanged()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Presenter</p>
+<ul>
+<li><p>model에서 사용할 interface를 선언하여 각자 할일을 정의해준다.<br>(view에서 직접 override 하기도 함)</p>
+</li>
+<li><p>interface를 가져와서 override한뒤 필요한 함수들을 넣어서 View 의<br>상호작용에 필요한 함수들을 정의한다.</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">MainPresenter</span></span>(<span class="keyword">val</span> context: Context): IMainPresenter &#123;</span><br><span class="line">    <span class="keyword">var</span> model: MainModel= MainModel(context)</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> view: IMainPresenter.IView</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getListView</span><span class="params">()</span></span>: ArrayList&lt;String&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> model.getListDatas()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">addItem</span><span class="params">(item: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        model.addItem(item)</span><br><span class="line">        view.updateListView(item)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="VIPER-View-Interactor-Presenter-Entity-Router"><a href="#VIPER-View-Interactor-Presenter-Entity-Router" class="headerlink" title="VIPER (View + Interactor + Presenter + Entity + Router)"></a>VIPER (View + Interactor + Presenter + Entity + Router)</h2><p><img src="/images/android-pattern/viper.png" alt><br><img src="/images/android-pattern/viper2.png" alt></p>
+<ul>
+<li>View<ul>
+<li>사용자 입력을 Presenter 로 보내는 작업</li>
+<li>UI View Controller 에 해당</li>
+<li>View Life Cycle : Life Cycle 관련 함수가 호출되는것을 Presenter 에 알림</li>
+<li>View Event : Event 관련 함수가 호출되는 것을 Presenter 에 알림</li>
+<li>View Control : 뷰의 UI 생성,변경,삭제 등의 방법을 Presenter 에 제공</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Interactor<ul>
+<li>API 로부터 data 를 받아 entity(model) 을 생성함</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Presenter<ul>
+<li>Interactor 에서 data 를 요청하고 받음</li>
+<li>view logic 을 갖고 있으며 Interactor 에서<br>data 를 받으면 View 에 어떻게 그릴지 알려줌</li>
+<li>Life Cycle에 대한 처리</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Entity<ul>
+<li>Interactor 에 의해 만들어지는 Model</li>
+<li>네트워크, DB 등의 데이터 모델</li>
+<li>Realm Object, NSUserDefaults, Json Data 등</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Router<ul>
+<li>Navigation logic 을 담당하며 screen 에서 다른 screen 으로 화면이<br>변경되는 부분을 처리함</li>
+<li>VIPER 컴포넌트들의 DI 를 담당함</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>특징<ul>
+<li>Distribution : 4개의 구조 중 제일 분배가 잘 되어있음</li>
+<li>Testability : 테스트에 용이함</li>
+<li>Hard to use : 코드 양이 제일 많음. 작은 기능에도 많은 클래스를 작성해야함</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/" data-id="cl16nr4t900ar08w4n80lijst" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)",
+        "image": "https://taeyeonkim93.github.io/images/android-pattern/mvc.png",
+        "keywords": "MVP MVC MVVM VIPER",
+        "genre": "Programming Kotlin",
+        "datePublished": "2019-12-02",
+        "dateCreated": "2019-12-02",
+        "dateModified": "2019-12-21",
+        "url": "https://taeyeonkim93.github.io/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/",
+        "description": "안드로이드 패턴
+MVC, MVP, MVVM 이 가장 많이 쓰이는 패턴들이다.
+협업, 유지보수, 테스트가 용이해진다.
+화면에 보여주는 로직과 실제 데이터가 처리 되는 로직을 분리하는게 목적
+
+
+패턴을 적용하지 않고 하나의 Activity 에서 표현한다면 이와 같다.
+화면 제공
+유저 이벤트
+업무 로직
+화면 업데이트
+
+
+
+
+각 패턴의 재료
+
+Data Object",
+        "wordCount": 2034
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2022/03/26/Coin-PineScript-2022-03-26-pinescript-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [PineScript] PineScript (TradingView) Guide for Beginners (파인스크립트 배우기)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/11/21/Develop-Programming-kotlin-2019-11-21-android-design-issue/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[Android] 안드로이드 디자인 관련 이슈 정리</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Coin/">Coin</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Coin/PineScript/">PineScript</a></p>
+                            <p class="item-title"><a href="/2022/03/26/Coin-PineScript-2022-03-26-pinescript-1/" class="title">[PineScript] PineScript (TradingView) Guide for Beginners (파인스크립트 배우기)</a></p>
+                            <p class="item-date"><time datetime="2022-03-25T16:44:54.000Z" itemprop="datePublished">2022-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/" class="title">[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/21/Develop-Programming-kotlin-2019-11-21-android-design-issue/" class="title">[Android] 안드로이드 디자인 관련 이슈 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-21T13:31:45.000Z" itemprop="datePublished">2019-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/" class="title">[Android] Dagger2 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T08:10:24.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-network/" class="title">[Android] Retrofit 으로 서버-앱 통신 구현하기</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T04:57:47.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">3월 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12월 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 18px;">ALGORITHM</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Android-Design/" style="font-size: 10px;">Android Design</a> <a href="/tags/Android-FUNCTION/" style="font-size: 10px;">Android FUNCTION</a> <a href="/tags/Android-issue/" style="font-size: 12px;">Android issue</a> <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/BACK-TRACKING/" style="font-size: 10px;">BACK TRACKING</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 12px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 18px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DI/" style="font-size: 10px;">DI</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/Dagger/" style="font-size: 10px;">Dagger</a> <a href="/tags/Design-pattern/" style="font-size: 10px;">Design pattern</a> <a href="/tags/EXHAUSTIVE-SEARCH/" style="font-size: 10px;">EXHAUSTIVE SEARCH</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12px;">KOTLIN</a> <a href="/tags/Koin/" style="font-size: 10px;">Koin</a> <a href="/tags/Kotlin/" style="font-size: 14px;">Kotlin</a> <a href="/tags/Kotlin-FUNCTION/" style="font-size: 10px;">Kotlin FUNCTION</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/PYTHON/" style="font-size: 20px;">PYTHON</a> <a href="/tags/PYTHON-FUNCTION/" style="font-size: 10px;">PYTHON FUNCTION</a> <a href="/tags/PineScript/" style="font-size: 10px;">PineScript</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/STACK/" style="font-size: 14px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/VIPER/" style="font-size: 10px;">VIPER</a> <a href="/tags/do-it-study/" style="font-size: 14px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 12px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 12px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 12px;">종만북</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[자료구조] HASH 정리 | Taeyeon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="DATA STRUCTURE,HASH,HASH TABLE">
+    
+    <meta name="description" content="HASH특정한 값을, 수많은 값들 사이에서 찾아야 할 때 사용한다. 물론 탐색은 여러가지 방법이 있다. 그중에서 HASH를 사용하는 장단점을 추려보면 장점  평균 case에서 O(1)의 시간복잡도를 가진다  단점  메모리 영역을 일정부분 차지한다 충돌이 발생할 수 있다.   보안적 측면이나 Collision 및 세부내용은 타 블로그를 참조하고여기서는 탐색">
+<meta name="keywords" content="DATA STRUCTURE,HASH,HASH TABLE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[자료구조] HASH 정리">
+<meta property="og:url" content="https://taeyeonkim93.github.io/2019/09/17/Develop-CS-2019-09-17-hash-algorithm/index.html">
+<meta property="og:site_name" content="Taeyeon">
+<meta property="og:description" content="HASH특정한 값을, 수많은 값들 사이에서 찾아야 할 때 사용한다. 물론 탐색은 여러가지 방법이 있다. 그중에서 HASH를 사용하는 장단점을 추려보면 장점  평균 case에서 O(1)의 시간복잡도를 가진다  단점  메모리 영역을 일정부분 차지한다 충돌이 발생할 수 있다.   보안적 측면이나 Collision 및 세부내용은 타 블로그를 참조하고여기서는 탐색">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://taeyeonkim93.github.io/images/hash-algorithm/1.png">
+<meta property="og:updated_time" content="2019-12-03T09:07:10.532Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[자료구조] HASH 정리">
+<meta name="twitter:description" content="HASH특정한 값을, 수많은 값들 사이에서 찾아야 할 때 사용한다. 물론 탐색은 여러가지 방법이 있다. 그중에서 HASH를 사용하는 장단점을 추려보면 장점  평균 case에서 O(1)의 시간복잡도를 가진다  단점  메모리 영역을 일정부분 차지한다 충돌이 발생할 수 있다.   보안적 측면이나 Collision 및 세부내용은 타 블로그를 참조하고여기서는 탐색">
+<meta name="twitter:image" content="https://taeyeonkim93.github.io/images/hash-algorithm/1.png">
+    
+    <link rel="canonical" href="https://taeyeonkim93.github.io/2019/09/17/develop-cs-2019-09-17-hash-algorithm/">
+    <meta name="google-site-verification" content="bh2D3Ke8MN9YOg5rjJumfeIBHQLIlGQT17Vi4qzTirg">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Taeyeon&#39;s blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/프로그래머스/">프로그래머스</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/Design-pattern/">Design pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/자료구조/">자료구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/">Coin</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coin/PineScript/">PineScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Kotlin/">Kotlin</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/">Project</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Project/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/VCS/">VCS</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/CS/자료구조/">자료구조</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Develop-CS-2019-09-17-hash-algorithm" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [자료구조] HASH 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/09/17/Develop-CS-2019-09-17-hash-algorithm/" class="article-date">
+            <time datetime="2019-09-17T11:14:21.000Z" itemprop="datePublished">2019-09-17</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DATA-STRUCTURE/">DATA STRUCTURE</a>, <a class="tag-link" href="/tags/HASH/">HASH</a>, <a class="tag-link" href="/tags/HASH-TABLE/">HASH TABLE</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="HASH"><a href="#HASH" class="headerlink" title="HASH"></a>HASH</h2><p><strong>특정한 값을, 수많은 값들 사이에서 찾아야 할 때</strong> 사용한다.</p>
+<p>물론 탐색은 여러가지 방법이 있다. 그중에서 HASH를 사용하는 장단점을 추려보면</p>
+<p>장점</p>
+<ul>
+<li>평균 case에서 O(1)의 시간복잡도를 가진다</li>
+</ul>
+<p>단점</p>
+<ul>
+<li>메모리 영역을 일정부분 차지한다</li>
+<li>충돌이 발생할 수 있다.</li>
+</ul>
+<blockquote>
+<p>보안적 측면이나 Collision 및 세부내용은 <a href="https://meylady.tistory.com/20" rel="external nofollow noopener noreferrer" target="_blank">타 블로그</a>를 참조하고<br>여기서는 탐색 알고리즘 문제를 풀기위한 기본개념만 잡는다.</p>
+</blockquote>
+<h2 id="HASH란"><a href="#HASH란" class="headerlink" title="HASH란?"></a>HASH란?</h2><p><code>HASH</code> 란 용어 자체는 [고기와 감자를 잘게 다져 섞어 요리하여 따뜻하게 차려 낸 것] 이란 영단어 뜻에서 시작하면 된다.</p>
+<p>어떤 내용물들을 잘 섞어서 특정한 형태로 만든다는 것이다.</p>
+<p>짜장면을 두그릇 사서 <code>&#39;똑같은 위치와 힘으로&#39;</code> <code>&#39;왼손으로 5번&#39;</code> <code>&#39;오른손으로 6번&#39;</code> 비비면 두그릇은 완벽히 똑같은 짜장면이 나온다.<br>이때 오른손으로 8번을 비비면 다른 짜장면의 모양새가 된다.</p>
+<ul>
+<li>면+소스<code>(입력값)</code> 를</li>
+<li>같은 방법으로 섞으면<code>(해시함수)</code> </li>
+<li>완전히 같은 짜장면<code>(해시값)</code>이 된다.</li>
+</ul>
+<p>문제가 [가장 맛있는 짜장면] 을 탐색하는 것이라면, 면과 소스를 특정한 방법으로(5번,6번) 섞기만 하면 된다.</p>
+<p>굳이 왼손으로 1번~5번, 오른손으로 1번~6번을 전부 다 탐색해볼 필요가 없게 된것이다.</p>
+<h2 id="HASH-사용법"><a href="#HASH-사용법" class="headerlink" title="HASH 사용법"></a>HASH 사용법</h2><p>HASH 자료구조는 몇가지 용어가 나온다.</p>
+<ul>
+<li>Hash Function(해시함수)</li>
+<li>Hash Table(해시 테이블)</li>
+<li>Hash Value, Hash Code, Hash Checksum… (해시값)</li>
+</ul>
+<p>우리가 알고싶은 탐색은 <code>해시테이블</code>을 보면 된다.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>phone number</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>John Smith</td>
+<td>521-1234</td>
+</tr>
+<tr>
+<td>Lisa Smith</td>
+<td>521-8976</td>
+</tr>
+<tr>
+<td>Sandra Dee</td>
+<td>521-9655</td>
+</tr>
+</tbody></table>
+<p>이런 입력값을 주고 “Sandra Dee”의 전화번호를 찾으라고 하면, Hash를 사용하지 않을경우 “John Smith”부터 하나하나 찾아가는수밖에 없다.</p>
+<p>하지만 이런식으로 테이블을 만들어두면<br><img src="/images/hash-algorithm/1.png" alt></p>
+<p><code>keys(입력값)</code>이 <code>hash function(해시함수)</code>를 통해 <code>Hash Value(해시값)</code>으로 변환되어 해시값의<code>index(색인)</code> 을 가진 해시테이블이 완성된다.</p>
+<ul>
+<li>해시테이블<table>
+<thead>
+<tr>
+<th align="right">index(Hash Value)</th>
+<th align="left">Data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">01</td>
+<td align="left">(Lisa Smith, 521-8976)</td>
+</tr>
+<tr>
+<td align="right">02</td>
+<td align="left">(John Smith, 521-1234)</td>
+</tr>
+<tr>
+<td align="right">…</td>
+<td align="left">…</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="left">(Sandra Dee, 521-9655)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>이렇게 모두 저장해두면 나중에 ‘Sandra Dee’ 라는 입력값을 찾기위해서는</p>
+<ol>
+<li>Sandra Dee를 해시함수에 넣는다</li>
+<li>Sandra Dee가 14인 해시값으로 변환된다.</li>
+<li>0번주소값에서 14만큼 떨어진 주소로 바로 넘어가서 값을 가져온다</li>
+</ol>
+<p>결국 탐색을 단 한번에 끝낼수 있으므로 시간복잡도는 O(1)이다.</p>
+<ul>
+<li>예시 : <a href="https://taeyeonkim93.github.io/2019/09/17/Algorithm-programmers-2019-09-17-programmers-coding-test-2/">[프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://taeyeonkim93.github.io/2019/09/17/Develop-CS-2019-09-17-hash-algorithm/" data-id="cl16nr4o1004n08w4dsqvf90p" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Taeyeon Kim"
+        },
+        "headline": "[자료구조] HASH 정리",
+        "image": "https://taeyeonkim93.github.io/images/hash-algorithm/1.png",
+        "keywords": "DATA STRUCTURE HASH HASH TABLE",
+        "genre": "CS 자료구조",
+        "datePublished": "2019-09-17",
+        "dateCreated": "2019-09-17",
+        "dateModified": "2019-12-03",
+        "url": "https://taeyeonkim93.github.io/2019/09/17/Develop-CS-2019-09-17-hash-algorithm/",
+        "description": "HASH특정한 값을, 수많은 값들 사이에서 찾아야 할 때 사용한다.
+물론 탐색은 여러가지 방법이 있다. 그중에서 HASH를 사용하는 장단점을 추려보면
+장점
+
+평균 case에서 O(1)의 시간복잡도를 가진다
+
+단점
+
+메모리 영역을 일정부분 차지한다
+충돌이 발생할 수 있다.
+
+
+보안적 측면이나 Collision 및 세부내용은 타 블로그를 참조하고여기서는 탐색 ",
+        "wordCount": 246
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/taeyeonKim93" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/09/17/Develop-Algorithm-programmers-2019-09-17-programmers-coding-test-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [프로그래머스] 코딩테스트 풀이 - 완주하지 못한 선수
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/09/17/Develop-Programming-kotlin-2019-09-17-kotlin-calendar-function/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[Kotlin] 코틀린 날짜 함수 정리</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Coin/">Coin</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Coin/PineScript/">PineScript</a></p>
+                            <p class="item-title"><a href="/2022/03/26/Coin-PineScript-2022-03-26-pinescript-1/" class="title">[PineScript] PineScript (TradingView) Guide for Beginners (파인스크립트 배우기)</a></p>
+                            <p class="item-date"><time datetime="2022-03-25T16:44:54.000Z" itemprop="datePublished">2022-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Develop-Programming-kotlin-2019-12-02-android-framework-pattern/" class="title">[Android] 프레임워크 패턴 정리(MVC, MVP, MVVM, VIPER)</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T07:39:54.000Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/21/Develop-Programming-kotlin-2019-11-21-android-design-issue/" class="title">[Android] 안드로이드 디자인 관련 이슈 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-21T13:31:45.000Z" itemprop="datePublished">2019-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-dagger/" class="title">[Android] Dagger2 정리</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T08:10:24.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Kotlin/">Kotlin</a></p>
+                            <p class="item-title"><a href="/2019/11/20/Develop-Programming-kotlin-2019-11-20-android-network/" class="title">[Android] Retrofit 으로 서버-앱 통신 구현하기</a></p>
+                            <p class="item-date"><time datetime="2019-11-20T04:57:47.000Z" itemprop="datePublished">2019-11-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">3월 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12월 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11월 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10월 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9월 2019</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ALGORITHM/" style="font-size: 18px;">ALGORITHM</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Android-Design/" style="font-size: 10px;">Android Design</a> <a href="/tags/Android-FUNCTION/" style="font-size: 10px;">Android FUNCTION</a> <a href="/tags/Android-issue/" style="font-size: 12px;">Android issue</a> <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/BACK-TRACKING/" style="font-size: 10px;">BACK TRACKING</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BRUTE-FORCE/" style="font-size: 12px;">BRUTE FORCE</a> <a href="/tags/CALENDAR/" style="font-size: 10px;">CALENDAR</a> <a href="/tags/CODING-TEST/" style="font-size: 18px;">CODING TEST</a> <a href="/tags/DATA-STRUCTURE/" style="font-size: 10px;">DATA STRUCTURE</a> <a href="/tags/DATE-LIBRARY/" style="font-size: 10px;">DATE LIBRARY</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DI/" style="font-size: 10px;">DI</a> <a href="/tags/DOCUMENT/" style="font-size: 10px;">DOCUMENT</a> <a href="/tags/Dagger/" style="font-size: 10px;">Dagger</a> <a href="/tags/Design-pattern/" style="font-size: 10px;">Design pattern</a> <a href="/tags/EXHAUSTIVE-SEARCH/" style="font-size: 10px;">EXHAUSTIVE SEARCH</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/GITHUB/" style="font-size: 10px;">GITHUB</a> <a href="/tags/GREEDY/" style="font-size: 10px;">GREEDY</a> <a href="/tags/HASH/" style="font-size: 12px;">HASH</a> <a href="/tags/HASH-TABLE/" style="font-size: 12px;">HASH TABLE</a> <a href="/tags/HEXO/" style="font-size: 10px;">HEXO</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/KOTLIN/" style="font-size: 12px;">KOTLIN</a> <a href="/tags/Koin/" style="font-size: 10px;">Koin</a> <a href="/tags/Kotlin/" style="font-size: 14px;">Kotlin</a> <a href="/tags/Kotlin-FUNCTION/" style="font-size: 10px;">Kotlin FUNCTION</a> <a href="/tags/LIBRARY/" style="font-size: 10px;">LIBRARY</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/PYTHON/" style="font-size: 20px;">PYTHON</a> <a href="/tags/PYTHON-FUNCTION/" style="font-size: 10px;">PYTHON FUNCTION</a> <a href="/tags/PineScript/" style="font-size: 10px;">PineScript</a> <a href="/tags/QUEUE/" style="font-size: 10px;">QUEUE</a> <a href="/tags/RESET/" style="font-size: 10px;">RESET</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/STACK/" style="font-size: 14px;">STACK</a> <a href="/tags/VCS/" style="font-size: 10px;">VCS</a> <a href="/tags/VIPER/" style="font-size: 10px;">VIPER</a> <a href="/tags/do-it-study/" style="font-size: 14px;">do it study</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/공부정리/" style="font-size: 12px;">공부정리</a> <a href="/tags/날짜-함수/" style="font-size: 10px;">날짜 함수</a> <a href="/tags/내장라이브러리/" style="font-size: 10px;">내장라이브러리</a> <a href="/tags/완전탐색/" style="font-size: 12px;">완전탐색</a> <a href="/tags/종만북/" style="font-size: 12px;">종만북</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Taeyeon Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Taeyeon';
+    
+    
+    var disqus_url = 'https://taeyeonkim93.github.io/2019/09/17/Develop-CS-2019-09-17-hash-algorithm/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+
